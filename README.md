@@ -105,7 +105,7 @@ There biggest drawbacks of the above are:
 
 1. Methods are marked as missing in IDE's such a PhpStorm or WebStorm. See `GetAvailableClicks` in the image below.
    Missing methods are due to the fact that SoapClient uses a lot of magic methods - methods which are hard to debug.
-   ![Missing Method](https://github.com/arajcany/XMPie-WSDL-Wrapper/blob/master/images/MissingMethod.png?raw=true)
+   ![Missing Method](https://github.com/fxaps/XMPie-WSDL-Wrapper/blob/master/images/MissingMethod.png?raw=true)
    
 2. No type hinting. You can probably guess that `inUsername` should be a string
    but what about more obscure parameters such as `inProps` or `inMacTypeHex`?
