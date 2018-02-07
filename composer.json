@@ -1,0 +1,27 @@
+{
+  "name": "arajcany/xmpie-wsdl-wrapper",
+  "description": "SOAPClient Class Extensions for XMPie WSDL API",
+  "keywords": [
+    "XMPie",
+    "SOAP",
+    "wrapper",
+    "composer",
+    "package"
+  ],
+  "authors": [
+    {
+      "name": "Andrew Rajcany",
+      "email": "arajcany@mac.com"
+    }
+  ],
+  "type": "library",
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "XMPieWsdlClient\\": "src"
+    }
+  }
+}
