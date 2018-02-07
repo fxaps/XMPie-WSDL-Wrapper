@@ -3,6 +3,7 @@
 
 ## Table of Contents
 - [Purpose](#purpose)
+- [Supported XMPie Applications and Versions](#supported-xmpie-applications-and-versions)
 - [Installation](#installation)
 - [Basic Usage](#basic-usage)
 - [Plain PHP SOAP vs XMPie-WSDL-Wrapper SOAP](#plain-php-soap-vs-xmpie-wsdl-wrapper-soap)
@@ -18,8 +19,15 @@ Microsoft Web Services are based on a core set of standards, describing the synt
 - Simple Object Access Protocol (SOAP) - provides the semantics for data exchange  
 - Web Services Description Language (WSDL) - provides a mechanism for describing the capabilities of a Web service 
 
-The project provides an PHP Wrapper to the WSDL interface, thus providing an Object Oriented Programming (OOP)
-Methodology to interacting with the XMPie API.
+The project provides a PHP Wrapper to the WSDL interface, thus providing an Object Oriented Programming (OOP)
+methodology to interact with the XMPie API.
+
+
+## Supported XMPie Applications and Versions
+| Application   | Versions                   | 
+| ------------- |:-------------------------- |
+| uStore        | 8.6, 9.0                   |
+| uProduce      | 9.0.2                      |
 
 
 ## Installation
