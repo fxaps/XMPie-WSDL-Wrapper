@@ -12,7 +12,7 @@
 
 ## Purpose
 XMPie provides an Application Programming Interface (API) as a way to interact with 
-the uStore and uProduce Applications. The API is available in the form of Microsoft Web services.
+the uStore and uProduce Applications. The API is available in the form of Microsoft Web Services.
 Microsoft Web Services are based on a core set of standards, describing the syntax and semantics of software communication:
 
 - Extensible Markup Language (XML) - provides the common syntax for representing data 
@@ -20,7 +20,7 @@ Microsoft Web Services are based on a core set of standards, describing the synt
 - Web Services Description Language (WSDL) - provides a mechanism for describing the capabilities of a Web service 
 
 The project provides a PHP Wrapper to the WSDL interface, thus providing an Object Oriented Programming (OOP)
-methodology to interact with the XMPie API.
+methodology to interact with the XMPie Web Services.
 
 
 ## Supported XMPie Applications and Versions
@@ -43,7 +43,8 @@ The recommended method of installation is via Composer.
 ```
 
 ## Basic Usage
-By including the ServiceMaker and RequestMaker into you code, you have the ability to access all the WSDL methods via method chaining.
+By including the RequestMaker and ServiceMaker into your code,
+you have the ability to access all XMPie Web Services via PHP method chaining.
 
 ```php
 <?php
@@ -61,7 +62,7 @@ print_r($Response);
 ```
 
 Make sure you load the right vesion of RequestMaker and ServiceMaker for your installation of uProduce and uStore.
-Also, if you need to query the uProduce and uStore API's in the same page, don't forget to alias the namespaces.
+If you need to query the uProduce and uStore Web Services on the same page, don't forget to alias the namespaces.
 
 ```php
 <?php
@@ -77,7 +78,7 @@ use XMPieWsdlClient\XMPie\uStore\v_9_0\_Loader\ServiceMaker as uStoreServiceMake
 ## Plain PHP SOAP vs XMPie-WSDL-Wrapper SOAP
 
 ### Plain PHP SOAP
-To interact with the XMPie API (or any SOAP Service) you could use the
+To interact with the XMPie Web Service (or any SOAP Service) you could use the
 built in PHP SoapClient class, similar to the following:
 
 ```php
@@ -93,15 +94,15 @@ print_r($result);
 
 There biggest drawbacks of the above are:
 
-1. Methods are marked as missing in IDE's such a PhpStorm or WebStorm. See `GetAvailableClicks` in the image below.
+1. **Missing Methods.** Methods are marked as missing in IDE's such a PhpStorm or WebStorm. See `GetAvailableClicks` in the image below.
    Missing methods are due to the fact that SoapClient uses a lot of magic methods - methods which are hard to debug.
    ![Missing Method](https://github.com/fxaps/XMPie-WSDL-Wrapper/blob/master/images/MissingMethod.png?raw=true)
    
-2. No type hinting. You can probably guess that `inUsername` should be a string
+2. **No type hinting.** You can probably guess that `inUsername` should be a string
    but what about more obscure parameters such as `inProps` or `inMacTypeHex`?
    Is that a String, Array or Int?
 
-3. No code completion. Constantly referring to the API documentation to get the exact spelling and case can be
+3. **No code completion.** Constantly referring to the API documentation to get the exact spelling and case can be
    a tedious process. Was that `CreateNewFromCPKG` or `CreateNewFromCpkg`?
 
 ### XMPie-WSDL-Wrapper SOAP
@@ -113,14 +114,14 @@ There biggest drawbacks of the above are:
 
 3. **Code completion.** Need we say more?
 
-4. **Method chaining.** More on this later.
+4. **Method chaining.** Familiarise yourself with method chaining to make your code more readable and efficient.
 
 
 ## Concepts
 XMPie-WSDL-Wrapper is based on the work of [wsdl2phpgenerator](https://github.com/wsdl2phpgenerator/wsdl2phpgenerator).
 The wsdl2phpgenerator utility is used to generate PHP Classes, Methods and Properties from the XMPie WSDL files.
 Those resulting PHP Classes are wrapped by XMPie-WSDL-Wrapper to provide an easy and simple way to
-access **any** of the XMPie API Services through a common interface.
+access **any** of the XMPie Web Services through a common interface.
 
 Through XMPie-WSDL-Wrapper, you make use of **Request** and **Response** cycles via a **Service**.
 
@@ -128,11 +129,11 @@ Through XMPie-WSDL-Wrapper, you make use of **Request** and **Response** cycles 
 - **Service:** This API that will serve you the data.
 - **Response:** The data you asked for in your Request.
 
-In other words, you **Request** data from a **Service** and get back a **Response**.
+In other words, you create a **Request** which you send to a **Service** to get back a **Response**.
 
 
 ### The *Request* Object
-Before you can get data, you need to format your request into a structure the API understands. 
+Before you can get data, you need to format your request into a structure the Web Service understands. 
 Formatting the parameters - such as username, password and JobId - is the job of the Request Object Class.
 
 To create a instance of the Request Object Class:
@@ -185,35 +186,36 @@ $Service = $ServiceMaker->Job_SSP();
 $Service = $ServiceMaker->Campaign_SSP();
 ```
 
-The `$ServiceMaker` Object helps you retrieve an instance of SoapClient specific for an XMPie Service.
+The `$ServiceMaker` Object helps you retrieve an instance of SoapClient specific to an XMPie Service.
 As such you can construct ServiceMaker() in a *similar* manner to SoapClient.
 
-SoapClient construction `SoapClient::__construct ( mixed $wsdl [, array $options ] )`.
+**SoapClient construction** `SoapClient::__construct ( mixed $wsdl [, array $options ] )`.
 
-ServiceMaker construction `ServiceMaker::__construct ( array $options, string $wsdl = 'http://localhost' )`.
+**ServiceMaker construction** `ServiceMaker::__construct ( array $options, string $wsdl = 'http://localhost' )`.
 
 Notice how the parameters are reversed, this is due to keeping consistency with
 [wsdl2phpgenerator](https://github.com/wsdl2phpgenerator/wsdl2phpgenerator) off which this project is based.
 
-`$options` defaults to `[]` - refer to [SoapClient](http://php.net/manual/en/soapclient.soapclient.php) for options.
-`$wsdl` defaults to `http://localhost` - change to remote URL as required.
+`$options` defaults to `[]` - refer to [SoapClient](http://php.net/manual/en/soapclient.soapclient.php) for options.  
+`$wsdl` defaults to `http://localhost` - change to a remote URL as required.
 
 ```php
 <?php
 use XMPieWsdlClient\XMPie\uProduce\v_9_0_2\_Loader\ServiceMaker;
 
+//The properties
 $options = [];
 $wsdl = 'https://www.myserver.com';
 
-//set properties via constructor
+//Options 1 = set properties via constructor
 $ServiceMaker = new ServiceMaker($options, $wsdl);
 
-//Set properties via setter methods
+//Option 2 - set properties via setter methods
 $ServiceMaker = new ServiceMaker();
 $ServiceMaker->setUProduceUrl($wsdl);
 $ServiceMaker->setOptions($options);
 
-//The following services will use the properties set above
+//Our Service now uses the properties defined above
 $ServiceUser = $ServiceMaker->User_SSP();
 $ServiceJob = $ServiceMaker->Job_SSP();
 $ServiceCampaign = $ServiceMaker->Campaign_SSP();
@@ -232,7 +234,7 @@ The `$Response` Object above holds a response (no kidding) from the API and the 
 There is no need to explicitly make a `$Response` instance - it's a product of calling a *Service*.
 One thing to note about the`$Response` object, it contains the *entire* response (i.e all the 'packaging')
 from the API. Most of the time you only need the *result* (i.e. the 'goods') from inside the `$Response`.
-Each `$Response` contains a handy `get<method_name>Result` method to extract the result/s from $Response.
+Each `$Response` contains a handy `get<method_name>Result()` method to extract the result/s from $Response.
 
 ```php
 <?php
@@ -244,7 +246,7 @@ The variable `$result` contains the all the properties of the requested user and
 you can now work with `$result` in your PHP code.
 
 
-### An Example Page
+### A Full Example
 
 ```php
 <?php
@@ -253,13 +255,13 @@ use XMPieWsdlClient\XMPie\uProduce\v_9_0_2\_Loader\ServiceMaker;
 
 /*
  * Create instances of RequestMaker and ServiceMaker.
- * They can be used many times as you will see below.
+ * They can be used many times, as you will see below.
  */
 $RequestMaker = new RequestMaker();
 $ServiceMaker = new ServiceMaker();
 
 
-//Example 1 - I need to know how many clicks I have left
+//Call 1 - I need to know how many clicks I have left
 $Request = $RequestMaker->Licensing_SSP()->GetAvailableClicks()->setInUsername('amelia')->setInPassword('my$3cret');
 $Service = $ServiceMaker->Licensing_SSP();
 $Response = $Service->GetAvailableClicks($Request);
@@ -267,7 +269,7 @@ $result = $Response->getGetAvailableClicksResult();
 print_r($result);
 
 
-//Example 2 - I need information about UserID 1
+//Call 2 - I need information about UserID 1
 $Request = $RequestMaker->User_SSP()->GetAllProperties()->setInUsername('amelia')->setInPassword('my$3cret')->setInUserID(1);
 $Service = $ServiceMaker->User_SSP();
 $Response = $Service->GetAllProperties($Request);
@@ -275,7 +277,7 @@ $result = $Response->getGetAllPropertiesResult();
 print_r($result);
 
 
-//Example 3 - I need all the messages from JobID 14809...
+//Call 3 - I need all the messages from JobID 14809...
 $Request = $RequestMaker->Job_SSP()->GetMessages()->setInUsername('amelia')->setInPassword('my$3cret')->setInJobID(14809);
 $Service = $ServiceMaker->Job_SSP();
 $Response = $Service->GetMessages($Request);
@@ -283,7 +285,7 @@ $result = $Response->getGetMessagesResult();
 print_r($result);
 
 
-//Example 4 - I need some information about CampaignID 457...
+//Call 4 - I need some information about CampaignID 457...
 $Request = $RequestMaker->Campaign_SSP()->GetAllProperties()->setInUsername('amelia')->setInPassword('my$3cret')->setInCampaignID(457);
 $Service = $ServiceMaker->Campaign_SSP();
 $Response = $Service->GetAllProperties($Request);
@@ -299,3 +301,18 @@ In each of the Example above, you see the same 4 steps:
 For more examples, refer to the `docs` folder in this project.
 
 ## Licensing and Support
+This project is licensed under the MIT License - you are free to use the code in this project
+under the terms of this [License](https://github.com/fxaps/XMPie-WSDL-Wrapper/blob/master/LICENSE).
+
+Please note however, the XMPie SDK (and associated code samples) are licensed products from XMPie.
+Consult your local [XMPie Dealer](www.xmpie.com) to make a purchase.
+
+Because the XMPie SDK is a licensed product, any requests to 'help me do something' will be ignored. 
+An example of what will be ignored:
+- Can you please show me how to execute an InDesign Document?
+- How do I get the download path of a Job?
+- How do I upload a Campaign into the Dashboard?
+
+If there is bug a the code, please raise an [issue](https://github.com/fxaps/XMPie-WSDL-Wrapper/issues).
+
+
