@@ -19,7 +19,7 @@ Microsoft Web Services are based on a core set of standards, describing the synt
 - Simple Object Access Protocol (SOAP) - provides the semantics for data exchange  
 - Web Services Description Language (WSDL) - provides a mechanism for describing the capabilities of a Web service 
 
-The project provides a PHP Wrapper to the WSDL interface, thus providing an Object Oriented Programming (OOP)
+The project provides a PHP Wrapper to the XMPie Web Services, thus providing an Object Oriented Programming (OOP)
 methodology to interact with the XMPie Web Services.
 
 
@@ -119,7 +119,7 @@ There biggest drawbacks of the above are:
 
 ## Concepts
 XMPie-WSDL-Wrapper is based on the work of [wsdl2phpgenerator](https://github.com/wsdl2phpgenerator/wsdl2phpgenerator).
-The wsdl2phpgenerator utility is used to generate PHP Classes, Methods and Properties from the XMPie WSDL files.
+The wsdl2phpgenerator utility is used to generate PHP Classes, Methods and Properties from the XMPie Web Services.
 Those resulting PHP Classes are wrapped by XMPie-WSDL-Wrapper to provide an easy and simple way to
 access **any** of the XMPie Web Services through a common interface.
 
@@ -143,7 +143,7 @@ use XMPieWsdlClient\XMPie\uProduce\v_9_0_2\_Loader\RequestMaker;
 $RequestMaker = new RequestMaker();
 ```
 
-Through the instance `$RequestMaker`, we can create a structured `$Request` Object for *any* XMPie WSDL.
+Through the instance `$RequestMaker`, we can create a structured `$Request` Object for *any* XMPie Web Service.
 
 ```php
 <?php
@@ -160,10 +160,10 @@ $Request = $RequestMaker->Campaign_SSP()->GetAllProperties()->setInUsername('ame
 It is important to note that the `$Request` Object above *does not* hold the data we are requesting from the API,
 it merely holds the request parameters in a format that is ready to send to a *Service*.
 
+> *TIP* Consult the `docs` folder for advanced examples and how to configure RequestMaker().
 
 ### The *Service* Object
-To get the data, you need to employ the Service Object Class.
-We send the `$Request` Object we created above to an instance of the Service Object Class.
+To get the data, you need to employ the Service Object Class to process the `$Request` Object.
 
 To create an instance of the Service Object Class:
 ```php
@@ -172,7 +172,7 @@ use XMPieWsdlClient\XMPie\uProduce\v_9_0_2\_Loader\ServiceMaker;
 $ServiceMaker = new ServiceMaker();
 ```
 
-Through the instance `$ServiceMaker`, we can create a SoapClient `$Service` Object for *any* XMPie WSDL.
+Through the instance `$ServiceMaker`, we can create a SoapClient `$Service` Object for *any* XMPie Web Service.
 
 ```php
 <?php
@@ -186,64 +186,33 @@ $Service = $ServiceMaker->Job_SSP();
 $Service = $ServiceMaker->Campaign_SSP();
 ```
 
-The `$ServiceMaker` Object helps you retrieve an instance of SoapClient specific to an XMPie Service.
-As such you can construct ServiceMaker() in a *similar* manner to SoapClient.
+Now that we have `$Request` and `$Service` instances, we can use then to get the XMPie Web Service.
 
-**SoapClient construction** `SoapClient::__construct ( mixed $wsdl [, array $options ] )`.
-
-**ServiceMaker construction** `ServiceMaker::__construct ( array $options, string $wsdl = 'http://localhost' )`.
-
-Notice how the parameters are reversed, this is due to keeping consistency with
-[wsdl2phpgenerator](https://github.com/wsdl2phpgenerator/wsdl2phpgenerator) off which this project is based.
-
-`$options` defaults to `[]` - refer to [SoapClient](http://php.net/manual/en/soapclient.soapclient.php) for options.  
-`$wsdl` defaults to `http://localhost` - change to a remote URL as required.
-
-```php
-<?php
-use XMPieWsdlClient\XMPie\uProduce\v_9_0_2\_Loader\ServiceMaker;
-
-//The properties
-$options = [];
-$wsdl = 'https://www.myserver.com';
-
-//Options 1 = set properties via constructor
-$ServiceMaker = new ServiceMaker($options, $wsdl);
-
-//Option 2 - set properties via setter methods
-$ServiceMaker = new ServiceMaker();
-$ServiceMaker->setUProduceUrl($wsdl);
-$ServiceMaker->setOptions($options);
-
-//Our Service now uses the properties defined above
-$ServiceUser = $ServiceMaker->User_SSP();
-$ServiceJob = $ServiceMaker->Job_SSP();
-$ServiceCampaign = $ServiceMaker->Campaign_SSP();
-```
-
-We can send our `$Request` to `$Service` and receive `$Response`.
-```php
-<?php
-$Response = $ServiceUser->GetAllProperties($Request);
-```
-
-The `$Response` Object above holds a response (no kidding) from the API and the next step is to work with that *Response*.
-
+> *TIP* Consult the `docs` folder for advanced examples and how to configure ServiceMaker().
 
 ### The *Response* Object
 There is no need to explicitly make a `$Response` instance - it's a product of calling a *Service*.
+
+```php
+<?php
+$Response = $Service->GetAllProperties($Request);
+```
+
 One thing to note about the`$Response` object, it contains the *entire* response (i.e all the 'packaging')
 from the API. Most of the time you only need the *result* (i.e. the 'goods') from inside the `$Response`.
 Each `$Response` contains a handy `get<method_name>Result()` method to extract the result/s from $Response.
 
 ```php
 <?php
-$Response = $ServiceUser->GetAllProperties($Request);
+$Response = $Service->GetAllProperties($Request);
 $result = $Response->getGetAllPropertiesResult();
 print_r($result);
 ```
 The variable `$result` contains the all the properties of the requested user and
 you can now work with `$result` in your PHP code.
+
+> *TIP* Consult the `docs` folder for advanced examples on how to work with the
+data-types that are returned from XMPie Web Services.
 
 
 ### Full Simple Example
