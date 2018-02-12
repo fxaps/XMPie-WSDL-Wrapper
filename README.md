@@ -37,7 +37,7 @@ The recommended method of installation is via Composer.
 {
 "require": {
     "php": ">=7.0.0",
-    "arajcany/xmpie-wsdl-wrapper": "*"
+    "fxaps/xmpie-wsdl-wrapper": "*"
   }
 }
 ```
@@ -95,8 +95,8 @@ print_r($result);
 There biggest drawbacks of the above are:
 
 1. **Missing Methods.** Methods are marked as missing in IDE's such a PhpStorm or WebStorm. See `GetAvailableClicks` in the image below.
-   Missing methods are due to the fact that SoapClient uses a lot of magic methods - methods which are hard to debug.
-   ![Missing Method](https://github.com/fxaps/XMPie-WSDL-Wrapper/blob/master/images/MissingMethod.png?raw=true)
+   Missing methods are due to the fact that SoapClient uses a lot of magic methods - methods which are hard to debug.  
+   ![Missing Method](https://github.com/fxaps/XMPie-WSDL-Wrapper/blob/master/docs/images/MissingMethod.png?raw=true)
    
 2. **No type hinting.** You can probably guess that `inUsername` should be a string
    but what about more obscure parameters such as `inProps` or `inMacTypeHex`?
@@ -246,7 +246,7 @@ The variable `$result` contains the all the properties of the requested user and
 you can now work with `$result` in your PHP code.
 
 
-### A Full Example
+### Full Simple Example
 
 ```php
 <?php
@@ -293,12 +293,19 @@ $result = $Response->getGetAllPropertiesResult();
 print_r($result);
 ```
 
-In each of the Example above, you see the same 4 steps:
+In each of the calls above, you see the same 3 steps:
 1. Create a **Request** 
 2. Send the **Request** to a **Service** 
 3. Get back a **Response** (from which we extract the result and use in our PHP code).
 
-For more examples, refer to the `docs` folder in this project.
+### Full Advanced Examples
+Refer to the `docs` folder in this project to see examples of:
+- Configuring the `RequestMaker` on instantiation.  
+  - Auto-populating the `username` and `password` parameters
+- Configuring the `ServiceMaker` on instantiation.  
+  - Configure `SoapClient` Options.
+  - Switch from `http://localhost` to other servers.
+- Ways to write even less code.
 
 ## Licensing and Support
 This project is licensed under the MIT License - you are free to use the code in this project
@@ -313,6 +320,6 @@ An example of what will be ignored:
 - How do I get the download path of a Job?
 - How do I upload a Campaign into the Dashboard?
 
-If there is bug a the code, please raise an [issue](https://github.com/fxaps/XMPie-WSDL-Wrapper/issues).
+If there is a bug in the code, please raise an [issue](https://github.com/fxaps/XMPie-WSDL-Wrapper/issues).
 
 
