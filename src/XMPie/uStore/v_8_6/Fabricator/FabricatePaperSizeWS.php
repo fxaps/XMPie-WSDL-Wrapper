@@ -1,0 +1,120 @@
+<?php
+
+namespace XMPieWsdlClient\XMPie\uStore\v_8_6\Fabricator;
+
+
+use XMPieWsdlClient\XMPie\uStore\v_8_6\WSAPI\PaperSizeWS\GetPaperSize;
+use XMPieWsdlClient\XMPie\uStore\v_8_6\WSAPI\PaperSizeWS\GetPaperSizeResponse;
+use XMPieWsdlClient\XMPie\uStore\v_8_6\WSAPI\PaperSizeWS\PaperSize;
+use XMPieWsdlClient\XMPie\uStore\v_8_6\WSAPI\PaperSizeWS\ReturnObject;
+
+
+class FabricatePaperSizeWS
+{
+    private $paramAutoSet;
+    
+    /**
+     * Constructor.
+     *
+     * @param array $paramAutoSet
+     */
+    public function __construct($paramAutoSet = [])
+    {
+        $this->setParamAutoSet($paramAutoSet);
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getParamAutoSet()
+    {
+        return $this->paramAutoSet;
+    }
+
+
+    /**
+     * @param array $paramAutoSet
+     */
+    public function setParamAutoSet($paramAutoSet)
+    {
+        $this->paramAutoSet = $paramAutoSet;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPaperSize
+    */
+    public function GetPaperSize($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPaperSize = new GetPaperSize();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPaperSize, $methodName)) {
+                $GetPaperSize->$methodName($paramValue);
+            }
+        }
+        return $GetPaperSize;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPaperSizeResponse
+    */
+    public function GetPaperSizeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPaperSizeResponse = new GetPaperSizeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPaperSizeResponse, $methodName)) {
+                $GetPaperSizeResponse->$methodName($paramValue);
+            }
+        }
+        return $GetPaperSizeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return PaperSize
+    */
+    public function PaperSize($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $PaperSize = new PaperSize();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($PaperSize, $methodName)) {
+                $PaperSize->$methodName($paramValue);
+            }
+        }
+        return $PaperSize;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ReturnObject
+    */
+    public function ReturnObject($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ReturnObject = new ReturnObject();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ReturnObject, $methodName)) {
+                $ReturnObject->$methodName($paramValue);
+            }
+        }
+        return $ReturnObject;
+    }
+
+
+
+}
+
+?>
