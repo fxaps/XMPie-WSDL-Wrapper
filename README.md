@@ -8,9 +8,9 @@
 - [Basic Usage](#basic-usage)
 - [Plain PHP SOAP vs XMPie-WSDL-Wrapper SOAP](#plain-php-soap-vs-xmpie-wsdl-wrapper-soap)
 - [Concepts](#concepts)
-- [Full Simple Examples](full-simple-examples)
-- [Full Advanced Examples](full-advanced-examples)
-- [Licensing, Support and Contributing](licensing-support-and-contributing)
+- [Full Simple Examples](#full-simple-examples)
+- [Full Advanced Examples](#full-advanced-examples)
+- [Licensing, Support and Contributing](#licensing-support-and-contributing)
 
 
 
