@@ -30,10 +30,10 @@ methodology to interact with the XMPie Web Services.
 ## Supported XMPie Applications and Versions
 This project aims to support the latest versions of uStore and uProduce.
 
-| Application   | Versions                          | 
-| ------------- |:----------------------------------|
-| uStore        | 8.6, 9.0, 9.4                     |
-| uProduce      | 9.0.2, 9.0.4, 9.1.0, 9.2.1, 9.3   |
+| Application   | Versions                                 | 
+| ------------- |:-----------------------------------------|
+| uStore        | 8.6, 9.0, 9.4                            |
+| uProduce      | 9.0.2, 9.0.4, 9.1.0, 9.2.1, 9.3, 9.3.1   |
 
 
 ## Installation
@@ -299,7 +299,7 @@ An example of what will be ignored:
 
 **Contributing**  
 If there is a bug in the code, please raise an [issue](https://github.com/fxaps/XMPie-WSDL-Wrapper/issues).
-Because this project uses a code generation utility, I cannot accept pull request as the
+Because this project uses a code generation utility, I cannot accept pull requests as the
 next round of code generation would overwrite the pull request.
 Please raise an [issue](https://github.com/fxaps/XMPie-WSDL-Wrapper/issues) so that I can fix the code generation utility.
 If you would like to contribute to the code generation utility, I can add you to the private project.
