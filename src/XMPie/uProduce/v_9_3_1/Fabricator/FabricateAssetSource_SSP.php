@@ -96,10 +96,10 @@ use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\AssetSource_SSP\GetSett
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\AssetSource_SSP\GetSettingsResponse;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\AssetSource_SSP\DeleteSettings;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\AssetSource_SSP\DeleteSettingsResponse;
-use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\AssetSource_SSP\CloneCustom;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\AssetSource_SSP\CloneResponse;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\AssetSource_SSP\AssetSourceMapping;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\AssetSource_SSP\IDMapping;
+use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\AssetSource_SSP\CloneCustom;
 
 
 class FabricateAssetSource_SSP
@@ -1811,24 +1811,6 @@ class FabricateAssetSource_SSP
 
    /**
     * @param array $paramAutoSet
-    * @return Clone
-    */
-    public function Clone($paramAutoSet = [])
-    {
-        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
-        $Clone = new Clone();
-        foreach ($paramAutoSet as $paramKey => $paramValue) {
-            $methodName = 'set' . $paramKey;
-            if (method_exists($Clone, $methodName)) {
-                $Clone->$methodName($paramValue);
-            }
-        }
-        return $Clone;
-    }
-
-
-   /**
-    * @param array $paramAutoSet
     * @return CloneResponse
     */
     public function CloneResponse($paramAutoSet = [])
@@ -1878,6 +1860,24 @@ class FabricateAssetSource_SSP
             }
         }
         return $IDMapping;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CloneAssetSource
+    */
+    public function CloneAssetSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CloneAssetSource = new CloneAssetSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CloneAssetSource, $methodName)) {
+                $CloneAssetSource->$methodName($paramValue);
+            }
+        }
+        return $CloneAssetSource;
     }
 
 

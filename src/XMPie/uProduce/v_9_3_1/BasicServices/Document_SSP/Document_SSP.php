@@ -193,7 +193,7 @@ class Document_SSP extends \SoapClient
   'GetUImageSettingsResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Document_SSP\\GetUImageSettingsResponse',
   'GetResource' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Document_SSP\\GetResource',
   'GetResourceResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Document_SSP\\GetResourceResponse',
-  'Clone' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Document_SSP\\CloneCustom',
+  'CloneDocument' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Document_SSP\\CloneCustom',
   'CloneResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Document_SSP\\CloneResponse',
   'DocumentMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Document_SSP\\DocumentMapping',
   'IDMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Document_SSP\\IDMapping',

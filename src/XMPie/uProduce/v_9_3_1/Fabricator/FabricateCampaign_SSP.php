@@ -207,7 +207,6 @@ use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\GetADORs;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\GetADORsResponse;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\ArrayOfPlanObject;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\PlanObject;
-use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\CloneCustom;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\CloneResponse;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\CampaignMapping;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\IDMapping;
@@ -238,6 +237,7 @@ use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\SetAdditio
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\SetAdditionalFieldValuesForRecipientsResponse;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\DeleteAdditionalFieldValues;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\DeleteAdditionalFieldValuesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Campaign_SSP\CloneCustom;
 
 
 class FabricateCampaign_SSP
@@ -3947,24 +3947,6 @@ class FabricateCampaign_SSP
 
    /**
     * @param array $paramAutoSet
-    * @return Clone
-    */
-    public function Clone($paramAutoSet = [])
-    {
-        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
-        $Clone = new Clone();
-        foreach ($paramAutoSet as $paramKey => $paramValue) {
-            $methodName = 'set' . $paramKey;
-            if (method_exists($Clone, $methodName)) {
-                $Clone->$methodName($paramValue);
-            }
-        }
-        return $Clone;
-    }
-
-
-   /**
-    * @param array $paramAutoSet
     * @return CloneResponse
     */
     public function CloneResponse($paramAutoSet = [])
@@ -4500,6 +4482,24 @@ class FabricateCampaign_SSP
             }
         }
         return $DeleteAdditionalFieldValuesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CloneCampaign
+    */
+    public function CloneCampaign($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CloneCampaign = new CloneCampaign();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CloneCampaign, $methodName)) {
+                $CloneCampaign->$methodName($paramValue);
+            }
+        }
+        return $CloneCampaign;
     }
 
 

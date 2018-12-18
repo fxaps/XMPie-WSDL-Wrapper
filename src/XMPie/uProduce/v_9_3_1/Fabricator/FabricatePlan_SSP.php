@@ -69,10 +69,10 @@ use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Plan_SSP\ConvertToWebRe
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Plan_SSP\Report;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Plan_SSP\ArrayOfReportMessage;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Plan_SSP\ReportMessage;
-use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Plan_SSP\CloneCustom;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Plan_SSP\CloneResponse;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Plan_SSP\PlanMapping;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Plan_SSP\IDMapping;
+use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Plan_SSP\CloneCustom;
 
 
 class FabricatePlan_SSP
@@ -1298,24 +1298,6 @@ class FabricatePlan_SSP
 
    /**
     * @param array $paramAutoSet
-    * @return Clone
-    */
-    public function Clone($paramAutoSet = [])
-    {
-        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
-        $Clone = new Clone();
-        foreach ($paramAutoSet as $paramKey => $paramValue) {
-            $methodName = 'set' . $paramKey;
-            if (method_exists($Clone, $methodName)) {
-                $Clone->$methodName($paramValue);
-            }
-        }
-        return $Clone;
-    }
-
-
-   /**
-    * @param array $paramAutoSet
     * @return CloneResponse
     */
     public function CloneResponse($paramAutoSet = [])
@@ -1365,6 +1347,24 @@ class FabricatePlan_SSP
             }
         }
         return $IDMapping;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ClonePlan
+    */
+    public function ClonePlan($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ClonePlan = new ClonePlan();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ClonePlan, $methodName)) {
+                $ClonePlan->$methodName($paramValue);
+            }
+        }
+        return $ClonePlan;
     }
 
 

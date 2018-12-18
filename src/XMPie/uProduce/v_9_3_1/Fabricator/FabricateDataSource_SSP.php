@@ -107,10 +107,10 @@ use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\DataSource_SSP\GetRecip
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\DataSource_SSP\GetRecipientTablesDataSetResult;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\DataSource_SSP\GetFirstRecipientFields;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\DataSource_SSP\GetFirstRecipientFieldsResponse;
-use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\DataSource_SSP\CloneCustom;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\DataSource_SSP\CloneResponse;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\DataSource_SSP\DataSourceMapping;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\DataSource_SSP\IDMapping;
+use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\DataSource_SSP\CloneCustom;
 
 
 class FabricateDataSource_SSP
@@ -2020,24 +2020,6 @@ class FabricateDataSource_SSP
 
    /**
     * @param array $paramAutoSet
-    * @return Clone
-    */
-    public function Clone($paramAutoSet = [])
-    {
-        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
-        $Clone = new Clone();
-        foreach ($paramAutoSet as $paramKey => $paramValue) {
-            $methodName = 'set' . $paramKey;
-            if (method_exists($Clone, $methodName)) {
-                $Clone->$methodName($paramValue);
-            }
-        }
-        return $Clone;
-    }
-
-
-   /**
-    * @param array $paramAutoSet
     * @return CloneResponse
     */
     public function CloneResponse($paramAutoSet = [])
@@ -2087,6 +2069,24 @@ class FabricateDataSource_SSP
             }
         }
         return $IDMapping;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CloneDataSource
+    */
+    public function CloneDataSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CloneDataSource = new CloneDataSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CloneDataSource, $methodName)) {
+                $CloneDataSource->$methodName($paramValue);
+            }
+        }
+        return $CloneDataSource;
     }
 
 

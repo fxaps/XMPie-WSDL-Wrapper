@@ -217,7 +217,7 @@ class Campaign_SSP extends \SoapClient
   'GetADORsResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Campaign_SSP\\GetADORsResponse',
   'ArrayOfPlanObject' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Campaign_SSP\\ArrayOfPlanObject',
   'PlanObject' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Campaign_SSP\\PlanObject',
-  'Clone' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Campaign_SSP\\CloneCustom',
+  'CloneCampaign' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Campaign_SSP\\CloneCustom',
   'CloneResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Campaign_SSP\\CloneResponse',
   'CampaignMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Campaign_SSP\\CampaignMapping',
   'IDMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Campaign_SSP\\IDMapping',

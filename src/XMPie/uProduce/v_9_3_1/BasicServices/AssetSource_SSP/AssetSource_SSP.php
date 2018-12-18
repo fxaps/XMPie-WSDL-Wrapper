@@ -106,7 +106,7 @@ class AssetSource_SSP extends \SoapClient
   'GetSettingsResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\AssetSource_SSP\\GetSettingsResponse',
   'DeleteSettings' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\AssetSource_SSP\\DeleteSettings',
   'DeleteSettingsResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\AssetSource_SSP\\DeleteSettingsResponse',
-  'Clone' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\AssetSource_SSP\\CloneCustom',
+  'CloneAssetSource' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\AssetSource_SSP\\CloneCustom',
   'CloneResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\AssetSource_SSP\\CloneResponse',
   'AssetSourceMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\AssetSource_SSP\\AssetSourceMapping',
   'IDMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\AssetSource_SSP\\IDMapping',

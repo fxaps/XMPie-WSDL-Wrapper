@@ -183,10 +183,10 @@ use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Document_SSP\GetUImageS
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Document_SSP\GetUImageSettingsResponse;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Document_SSP\GetResource;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Document_SSP\GetResourceResponse;
-use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Document_SSP\CloneCustom;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Document_SSP\CloneResponse;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Document_SSP\DocumentMapping;
 use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Document_SSP\IDMapping;
+use XMPieWsdlClient\XMPie\uProduce\v_9_3_1\BasicServices\Document_SSP\CloneCustom;
 
 
 class FabricateDocument_SSP
@@ -3464,24 +3464,6 @@ class FabricateDocument_SSP
 
    /**
     * @param array $paramAutoSet
-    * @return Clone
-    */
-    public function Clone($paramAutoSet = [])
-    {
-        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
-        $Clone = new Clone();
-        foreach ($paramAutoSet as $paramKey => $paramValue) {
-            $methodName = 'set' . $paramKey;
-            if (method_exists($Clone, $methodName)) {
-                $Clone->$methodName($paramValue);
-            }
-        }
-        return $Clone;
-    }
-
-
-   /**
-    * @param array $paramAutoSet
     * @return CloneResponse
     */
     public function CloneResponse($paramAutoSet = [])
@@ -3531,6 +3513,24 @@ class FabricateDocument_SSP
             }
         }
         return $IDMapping;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CloneDocument
+    */
+    public function CloneDocument($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CloneDocument = new CloneDocument();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CloneDocument, $methodName)) {
+                $CloneDocument->$methodName($paramValue);
+            }
+        }
+        return $CloneDocument;
     }
 
 

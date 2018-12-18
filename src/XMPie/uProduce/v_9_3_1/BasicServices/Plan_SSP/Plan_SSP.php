@@ -79,7 +79,7 @@ class Plan_SSP extends \SoapClient
   'Report' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Plan_SSP\\Report',
   'ArrayOfReportMessage' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Plan_SSP\\ArrayOfReportMessage',
   'ReportMessage' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Plan_SSP\\ReportMessage',
-  'Clone' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Plan_SSP\\CloneCustom',
+  'ClonePlan' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Plan_SSP\\CloneCustom',
   'CloneResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Plan_SSP\\CloneResponse',
   'PlanMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Plan_SSP\\PlanMapping',
   'IDMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\Plan_SSP\\IDMapping',

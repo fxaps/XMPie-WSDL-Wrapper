@@ -117,7 +117,7 @@ class DataSource_SSP extends \SoapClient
   'GetRecipientTablesDataSetResult' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\DataSource_SSP\\GetRecipientTablesDataSetResult',
   'GetFirstRecipientFields' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\DataSource_SSP\\GetFirstRecipientFields',
   'GetFirstRecipientFieldsResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\DataSource_SSP\\GetFirstRecipientFieldsResponse',
-  'Clone' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\DataSource_SSP\\CloneCustom',
+  'CloneDataSource' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\DataSource_SSP\\CloneCustom',
   'CloneResponse' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\DataSource_SSP\\CloneResponse',
   'DataSourceMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\DataSource_SSP\\DataSourceMapping',
   'IDMapping' => 'XMPieWsdlClient\\XMPie\\uProduce\\v_9_3_1\\BasicServices\\DataSource_SSP\\IDMapping',
