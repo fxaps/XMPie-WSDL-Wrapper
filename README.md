@@ -30,10 +30,10 @@ methodology to interact with the XMPie Web Services.
 ## Supported XMPie Applications and Versions
 This project aims to support the latest versions of uStore and uProduce.
 
-| Application   | Versions                                 | 
-| ------------- |:-----------------------------------------|
-| uStore        | 8.6, 9.0, 9.4                            |
-| uProduce      | 9.0.2, 9.0.4, 9.1.0, 9.2.1, 9.3, 9.3.1   |
+| Application   | Versions                                      | 
+| ------------- |-----------------------------------------------|
+| uStore        | 8.6, 9.0, 9.4                                 |
+| uProduce      | 9.0.2, 9.0.4, 9.1.0, 9.2.1, 9.3, 9.3.1, 9.4   |
 
 
 ## Installation
@@ -72,9 +72,9 @@ If you need to query the uProduce and uStore Web Services on the same page, don'
 
 ```php
 <?php
-//to query the uProduce API v9.0.2
-use XMPieWsdlClient\XMPie\uProduce\v_9_0_2\Fabricator\RequestFabricator as uProduceRequestFabricator;
-use XMPieWsdlClient\XMPie\uProduce\v_9_0_2\Fabricator\ServiceFabricator as uProduceServiceFabricator;
+//to query the uProduce API v9.4
+use XMPieWsdlClient\XMPie\uProduce\v_9_4\Fabricator\RequestFabricator as uProduceRequestFabricator;
+use XMPieWsdlClient\XMPie\uProduce\v_9_4\Fabricator\ServiceFabricator as uProduceServiceFabricator;
 
 //to query the uStore API v9.0.0
 use XMPieWsdlClient\XMPie\uStore\v_9_0\Fabricator\RequestFabricator as uStoreRequestFabricator;
