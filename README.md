@@ -30,10 +30,10 @@ methodology to interact with the XMPie Web Services.
 ## Supported XMPie Applications and Versions
 This project aims to support the latest versions of uStore and uProduce.
 
-| Application   | Versions                                      | 
-| ------------- |-----------------------------------------------|
-| uStore        | 8.6, 9.0, 9.4                                 |
-| uProduce      | 9.0.2, 9.0.4, 9.1.0, 9.2.1, 9.3, 9.3.1, 9.4   |
+| Application   | Versions                                             | 
+| ------------- |------------------------------------------------------|
+| uStore        | 8.6, 9.0, 9.4, 10.0                                  |
+| uProduce      | 9.0.2, 9.0.4, 9.1.0, 9.2.1, 9.3, 9.3.1, 9.4, 9.4.1   |
 
 
 ## Installation
