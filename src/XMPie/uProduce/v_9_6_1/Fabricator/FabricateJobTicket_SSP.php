@@ -1,0 +1,13097 @@
+<?php
+
+namespace XMPieWsdlClient\XMPie\uProduce\v_9_6_1\Fabricator;
+
+
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFFPMID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFFPMIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFFPMDeleteSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFFPMDeleteSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFFPMExecutablePath;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFFPMExecutablePathResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFFPMQueueSpecs;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFFPMQueueSpecsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddRemoteCopy;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddRemoteCopyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddRemoteCopyByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddRemoteCopyByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveRemoteCopy;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveRemoteCopyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsRemoteCopyExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsRemoteCopyExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRemoteCopyID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRemoteCopyIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRemoteCopyDestination;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRemoteCopyDestinationResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsRemoteCopyDeleteSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsRemoteCopyDeleteSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddSecondaryRemoteCopy;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddSecondaryRemoteCopyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddSecondaryRemoteCopyByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddSecondaryRemoteCopyByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveSecondaryRemoteCopy;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveSecondaryRemoteCopyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsSecondaryRemoteCopyExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsSecondaryRemoteCopyExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSecondaryRemoteCopyID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSecondaryRemoteCopyIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSecondaryRemoteCopyDestination;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSecondaryRemoteCopyDestinationResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsSecondaryRemoteCopyDeleteSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsSecondaryRemoteCopyDeleteSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddJDFCopy;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddJDFCopyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddJDFCopyByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddJDFCopyByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJDFCopy;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJDFCopyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsJDFCopyExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsJDFCopyExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJDFCopyID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJDFCopyIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJDFCopyDestination;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJDFCopyDestinationResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsJDFCopyDeleteSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsJDFCopyDeleteSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDistillJobOptionName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDistillJobOptionNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsJobTracked;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsJobTrackedResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTouchPointID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTouchPointIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTouchPointID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTouchPointIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddTracking;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\Parameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddTrackingResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveTracking;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveTrackingResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTrackingParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTrackingParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTrackingParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTrackingParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTrackingParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTrackingParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTrackingParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfString;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTrackingParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveTrackingParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveTrackingParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveTrackingParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveTrackingParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllTrackingParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllTrackingParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsTrackingADOR;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsTrackingADORResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTrackingADORs;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTrackingADORsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCircleTouchpointGuid;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCircleTouchpointGuidResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCircleTouchpointGuid;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCircleTouchpointGuidResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCircleRunGuid;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCircleRunGuidResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCircleRunGuid;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCircleRunGuidResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDeliveryProvider;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\EmailProviderInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfEmailProviderParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\EmailProviderParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDeliveryProviderResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDeliveryProviderByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDeliveryProviderByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDeliveryProvider;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDeliveryProviderResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDeliveryProviderID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDeliveryProviderIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailHeader;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\EmailHeaderInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfEmailAddress;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\EmailAddress;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailHeaderResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailHeader;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailHeaderResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailBody;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\EmailBodyInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\EmailBodyOptions;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\URLInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailBodyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailBodies;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfEmailBodyInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailBodiesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddEmailBody;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddEmailBodyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailBodyByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailBodyByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailBodiesByIDs;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfEmailBodyOptions;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailBodiesByIDsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddEmailBodyByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddEmailBodyByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllEmailBodies;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllEmailBodiesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailBodies;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailBodiesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailBodiesIDs;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailBodiesIDsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailBodyCount;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailBodyCountResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthEmailBody;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthEmailBodyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthEmailBodyID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthEmailBodyIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetMetaData;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfProperty;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\Property;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetMetaDataResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetMetaData;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetMetaDataResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAllMetaData;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAllMetaDataResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetMetaDataSubGroups;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetMetaDataSubGroupsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveMetaData;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveMetaDataResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveMetaDataGroup;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveMetaDataGroupResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsMappingExists;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsMappingExistsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFieldMappings;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFieldMappingsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\FieldMappings;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfFieldMappingInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\FieldMappingInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFieldMapping;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFieldMappingResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFieldMappingByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFieldMappingByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveFieldMapping;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveFieldMappingResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIInfoResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RecipientsInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIDataSourceID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIDataSourceIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIDataSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIDataSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\Connection;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddRI;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddRIResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddRIByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddRIByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddDefaultRI;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddDefaultRIResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIOnDemandInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIOnDemandInfoResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRIOnDemandRecipientID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRIOnDemandRecipientIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRIOnDemandRecipientInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRIOnDemandRecipientInfoResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobTypeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobTypeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobPriority;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobPriorityResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobPriority;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobPriorityResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobTrackingWebService;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobTrackingWebServiceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobTrackingWebService;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobTrackingWebServiceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobReportingWebService;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobReportingWebServiceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobReportingWebService;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobReportingWebServiceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobReportCallbackURL;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobReportCallbackURLResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobReportCallbackURL;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobReportCallbackURLResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetSplittedJobInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetSplittedJobInfoResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsSplittedJob;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsSplittedJobResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsParallelProcessingJob;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsParallelProcessingJobResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAutomaticSubSplitAndMerge;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAutomaticSubSplitAndMergeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsAutomaticSubSplitEnabled;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsAutomaticSubSplitEnabledResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsAutomaticMergeEnabled;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsAutomaticMergeEnabledResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsSubJob;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsSubJobResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobInfoResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SubJobInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobIndex;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobIndexResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobOrigFrom;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobOrigFromResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobOrigTo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobOrigToResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobSplitCount;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobSplitCountResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobSplitType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubJobSplitTypeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJobParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJobParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJobParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJobParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJobParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJobParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllJobParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllJobParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailInfoResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailAdorName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmailAdorNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetSenderAdorName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetSenderAdorNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetSubjectAdorName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetSubjectAdorNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmbedEmailBody;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEmbedEmailBodyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetProcessEmailOutputType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetProcessEmailOutputTypeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOnDemandBaseURL;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOnDemandBaseURLResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailAdorName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmailAdorNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSenderAdorName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSenderAdorNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubjectAdorName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSubjectAdorNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmbedEmailBody;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEmbedEmailBodyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetProcessEmailOutputType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetProcessEmailOutputTypeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOnDemandBaseURL;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOnDemandBaseURLResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputFileNameOption;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputFileNameOptionResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputInfoResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveOutputParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveOutputParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveOutputParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveOutputParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllOutputParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllOutputParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAppendJobID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAppendJobIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEnvJobName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetEnvJobNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputMedia;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputMediaResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputTypeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputFolder;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputFolderResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputFileName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetOutputFileNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAppendJobID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAppendJobIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDefaultCacheEnv;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDefaultCacheEnvResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEnvJobName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetEnvJobNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputMedia;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputMediaResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputTypeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputFolder;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputFolderResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputFileName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetOutputFileNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddImposition;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddImpositionResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveImposition;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveImpositionResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsImpositionExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsImpositionExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetImpositionParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetImpositionParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetImpositionParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetImpositionParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetImpositionParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetImpositionParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetImpositionParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetImpositionParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveImpositionParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveImpositionParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveImpositionParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveImpositionParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllImpositionParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllImpositionParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddJDF;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddJDFResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJDF;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJDFResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsJDFExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsJDFExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJDFParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJDFParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJDFParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetJDFParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJDFParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJDFParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJDFParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetJDFParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJDFParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJDFParameterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJDFParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveJDFParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllJDFParameters;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllJDFParametersResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddCompression;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddCompressionResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveCompression;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveCompressionResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsCompressionExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsCompressionExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsVPCCompression;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsVPCCompressionResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddDestinationByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddDestinationByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddFTP;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddFTPResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddFTPByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddFTPByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveFTP;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveFTPResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFTPExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFTPExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPAddress;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPAddressResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPPort;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPPortResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPUser;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPUserResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPPassword;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPPasswordResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPPassive;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFTPPassiveResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFTPDeleteSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFTPDeleteSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddUMail;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddUMailResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveUMail;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveUMailResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsUMailExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsUMailExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUMailTemplate;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUMailTemplateResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUMailOrigZip;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUMailOrigZipResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUMailPCWT;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUMailPCWTResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUMailPCThick;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUMailPCThickResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddPrint;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddPrintResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddPrintByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddPrintByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemovePrint;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemovePrintResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsPrintExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsPrintExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPrintID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPrintIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPrinter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPrinterResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsPrinterDeleteSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsPrinterDeleteSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddFFPM;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddFFPMResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddFFPMByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AddFFPMByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveFFPM;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveFFPMResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFFPMExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFFPMExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\CreateNewTicket;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\CreateNewTicketResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\CreateNewTicketForDocument;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\CreateNewTicketForDocumentResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\CreateNewTicketForPlan;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\CreateNewTicketForPlanResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\CreateNewTicketForCampaign;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\CreateNewTicketForCampaignResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RecycleTicketID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RecycleTicketIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadTicketFromFile;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadTicketFromFileResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadJobTicket;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadJobTicketResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadLastJobTicketOfDocument;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadLastJobTicketOfDocumentResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadLastJobTicketOfPlan;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadLastJobTicketOfPlanResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadTicketFromTicket;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadTicketFromTicketResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTicketPropertyFromDB;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTicketPropertyFromDBResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadTicketFromDB;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\LoadTicketFromDBResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SaveTicketToFile;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SaveTicketToFileResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SaveNewTicketToDB;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SaveNewTicketToDBResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\OverwriteTicketInDB;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\OverwriteTicketInDBResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\DeleteTicketFromDB;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\DeleteTicketFromDBResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTicketsFromDB;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTicketsFromDBResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTicketsFromDBResult;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTemplatesFromDB;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTemplatesFromDBResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTemplatesFromDBResult;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTicket;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTicketResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTicketAndRecycleID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetTicketAndRecycleIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTicketDefaultsForDocument;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTicketDefaultsForDocumentResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTicketDefaultsForPlan;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTicketDefaultsForPlanResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTicketDefaultsForCampaign;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetTicketDefaultsForCampaignResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetPlan;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetPlanResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetPlanByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetPlanByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUseTrivialPlan;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetUseTrivialPlanResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetUseTrivialPlan;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetUseTrivialPlanResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPlanPath;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPlanPathResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPlanID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPlanIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCustomization;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\Customization;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCustomizationResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCustomizations;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfCustomization;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCustomizationsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveCustomization;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveCustomizationResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllCustomizations;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllCustomizationsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCustomizationsCount;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCustomizationsCountResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthCustomization;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthCustomizationResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCustomizations;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCustomizationsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDocumentByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDocumentByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDocument;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDocumentResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDocumentID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDocumentIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDocumentFolder;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDocumentFolderResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDocumentName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDocumentNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDocumentType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetDocumentTypeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetWebResourcesBasePath;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetWebResourcesBasePathResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetWebResourcesBasePath;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetWebResourcesBasePathResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAllowFriendly;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAllowFriendlyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAllowFriendly;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAllowFriendlyResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFriendliness;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFriendlinessResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFriendlyDomain;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFriendlyDomainResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFriendlyFolder;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFriendlyFolderResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFriendlyLandingPage;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFriendlyLandingPageResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFriendlyUrlRedirectMode;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFriendlyUrlRedirectModeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFriendlyUrlUseRIDPrefixMode;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsFriendlyUrlUseRIDPrefixModeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCampaignID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetCampaignIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCampaignID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetCampaignIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFonts;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFontsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFontsByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetFontsByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFontsFolder;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetFontsFolderResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetPortLink;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetPortLinkResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RefreshPortLink;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RefreshPortLinkResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemovePortLink;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemovePortLinkResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsPortLinkExist;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\IsPortLinkExistResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPortLinkAccount;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPortLinkAccountResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPortLinkCampaign;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPortLinkCampaignResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPortLinkPortName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPortLinkPortNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDataSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDataSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDataSources;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfConnection;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDataSourcesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDataSourceByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDataSourceByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDataSourcesByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDataSourcesByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDefaultDataSources;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDefaultDataSourcesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllSchemaDataSources;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllSchemaDataSourcesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveSchemaDataSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveSchemaDataSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemaDataSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemaDataSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemaDataSourceID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemaDataSourceIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemasNames;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemasNamesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemasDataSources;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemasDataSourcesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemaDataSourceIDs;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemaDataSourceIDsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemaDataSourcesCount;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetSchemaDataSourcesCountResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthSchemaName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthSchemaNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthSchemaDataSourceID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthSchemaDataSourceIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthSchemaDataSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthSchemaDataSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetResolveAssets;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetResolveAssetsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetResolveAssets;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetResolveAssetsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetConnectivityAssets;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetConnectivityAssetsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetConnectivityAssets;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetConnectivityAssetsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetsPrefix;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetsPrefixResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetsPrefixType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetsPrefixTypeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetsFixedPrefix;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetsFixedPrefixResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AssetSourceStruct;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourceEx;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AssetSourceInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfAssetSourceParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\AssetSourceParameter;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourceExResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSources;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfAssetSourceStruct;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfInt;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourcesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourcesEx;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfAssetSourceInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourcesExResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourceByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourceByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourcesByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetAssetSourcesByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDefaultAssetSources;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDefaultAssetSourcesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllAssetSources;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllAssetSourcesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAssetSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAssetSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourceEx;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourceExResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourceID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourceIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcePriority;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcePriorityResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcesNames;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcesNamesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSources;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcesResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcesEx;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcesExResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcesIDs;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcesIDsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcesCount;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetAssetSourcesCountResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSourceName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSourceNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSource;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSourceResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSourceEx;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSourceExResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSourceID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSourceIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSourcePriority;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthAssetSourcePriorityResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPopulationGUID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetPopulationGUIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIRange;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIRangeResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRI;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIs;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\ArrayOfRecipientsInfo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIByPopulationGUID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIByPopulationGUIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetInfoByRunGUID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetInfoByRunGUIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIsByID;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetRIsByIDResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDefaultRI;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\SetDefaultRIResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllRIs;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\RemoveAllRIsResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRIsCount;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRIsCountResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRIFrom;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRIFromResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRITo;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetRIToResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIRecipientIDListFileName;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIRecipientIDListFileNameResponse;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIRecipientIDListMergeType;
+use XMPieWsdlClient\XMPie\uProduce\v_9_6_1\ProductionServices\JobTicket_SSP\GetNthRIRecipientIDListMergeTypeResponse;
+
+
+class FabricateJobTicket_SSP
+{
+    private $paramAutoSet;
+    
+    /**
+     * Constructor.
+     *
+     * @param array $paramAutoSet
+     */
+    public function __construct($paramAutoSet = [])
+    {
+        $this->setParamAutoSet($paramAutoSet);
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getParamAutoSet()
+    {
+        return $this->paramAutoSet;
+    }
+
+
+    /**
+     * @param array $paramAutoSet
+     */
+    public function setParamAutoSet($paramAutoSet)
+    {
+        $this->paramAutoSet = $paramAutoSet;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFFPMID
+    */
+    public function GetFFPMID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFFPMID = new GetFFPMID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFFPMID, $methodName)) {
+                $GetFFPMID->$methodName($paramValue);
+            }
+        }
+        return $GetFFPMID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFFPMIDResponse
+    */
+    public function GetFFPMIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFFPMIDResponse = new GetFFPMIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFFPMIDResponse, $methodName)) {
+                $GetFFPMIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFFPMIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFFPMDeleteSource
+    */
+    public function IsFFPMDeleteSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFFPMDeleteSource = new IsFFPMDeleteSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFFPMDeleteSource, $methodName)) {
+                $IsFFPMDeleteSource->$methodName($paramValue);
+            }
+        }
+        return $IsFFPMDeleteSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFFPMDeleteSourceResponse
+    */
+    public function IsFFPMDeleteSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFFPMDeleteSourceResponse = new IsFFPMDeleteSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFFPMDeleteSourceResponse, $methodName)) {
+                $IsFFPMDeleteSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $IsFFPMDeleteSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFFPMExecutablePath
+    */
+    public function GetFFPMExecutablePath($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFFPMExecutablePath = new GetFFPMExecutablePath();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFFPMExecutablePath, $methodName)) {
+                $GetFFPMExecutablePath->$methodName($paramValue);
+            }
+        }
+        return $GetFFPMExecutablePath;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFFPMExecutablePathResponse
+    */
+    public function GetFFPMExecutablePathResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFFPMExecutablePathResponse = new GetFFPMExecutablePathResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFFPMExecutablePathResponse, $methodName)) {
+                $GetFFPMExecutablePathResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFFPMExecutablePathResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFFPMQueueSpecs
+    */
+    public function GetFFPMQueueSpecs($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFFPMQueueSpecs = new GetFFPMQueueSpecs();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFFPMQueueSpecs, $methodName)) {
+                $GetFFPMQueueSpecs->$methodName($paramValue);
+            }
+        }
+        return $GetFFPMQueueSpecs;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFFPMQueueSpecsResponse
+    */
+    public function GetFFPMQueueSpecsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFFPMQueueSpecsResponse = new GetFFPMQueueSpecsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFFPMQueueSpecsResponse, $methodName)) {
+                $GetFFPMQueueSpecsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFFPMQueueSpecsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddRemoteCopy
+    */
+    public function AddRemoteCopy($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddRemoteCopy = new AddRemoteCopy();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddRemoteCopy, $methodName)) {
+                $AddRemoteCopy->$methodName($paramValue);
+            }
+        }
+        return $AddRemoteCopy;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddRemoteCopyResponse
+    */
+    public function AddRemoteCopyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddRemoteCopyResponse = new AddRemoteCopyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddRemoteCopyResponse, $methodName)) {
+                $AddRemoteCopyResponse->$methodName($paramValue);
+            }
+        }
+        return $AddRemoteCopyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddRemoteCopyByID
+    */
+    public function AddRemoteCopyByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddRemoteCopyByID = new AddRemoteCopyByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddRemoteCopyByID, $methodName)) {
+                $AddRemoteCopyByID->$methodName($paramValue);
+            }
+        }
+        return $AddRemoteCopyByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddRemoteCopyByIDResponse
+    */
+    public function AddRemoteCopyByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddRemoteCopyByIDResponse = new AddRemoteCopyByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddRemoteCopyByIDResponse, $methodName)) {
+                $AddRemoteCopyByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $AddRemoteCopyByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveRemoteCopy
+    */
+    public function RemoveRemoteCopy($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveRemoteCopy = new RemoveRemoteCopy();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveRemoteCopy, $methodName)) {
+                $RemoveRemoteCopy->$methodName($paramValue);
+            }
+        }
+        return $RemoveRemoteCopy;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveRemoteCopyResponse
+    */
+    public function RemoveRemoteCopyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveRemoteCopyResponse = new RemoveRemoteCopyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveRemoteCopyResponse, $methodName)) {
+                $RemoveRemoteCopyResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveRemoteCopyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsRemoteCopyExist
+    */
+    public function IsRemoteCopyExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsRemoteCopyExist = new IsRemoteCopyExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsRemoteCopyExist, $methodName)) {
+                $IsRemoteCopyExist->$methodName($paramValue);
+            }
+        }
+        return $IsRemoteCopyExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsRemoteCopyExistResponse
+    */
+    public function IsRemoteCopyExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsRemoteCopyExistResponse = new IsRemoteCopyExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsRemoteCopyExistResponse, $methodName)) {
+                $IsRemoteCopyExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsRemoteCopyExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRemoteCopyID
+    */
+    public function GetRemoteCopyID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRemoteCopyID = new GetRemoteCopyID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRemoteCopyID, $methodName)) {
+                $GetRemoteCopyID->$methodName($paramValue);
+            }
+        }
+        return $GetRemoteCopyID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRemoteCopyIDResponse
+    */
+    public function GetRemoteCopyIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRemoteCopyIDResponse = new GetRemoteCopyIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRemoteCopyIDResponse, $methodName)) {
+                $GetRemoteCopyIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetRemoteCopyIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRemoteCopyDestination
+    */
+    public function GetRemoteCopyDestination($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRemoteCopyDestination = new GetRemoteCopyDestination();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRemoteCopyDestination, $methodName)) {
+                $GetRemoteCopyDestination->$methodName($paramValue);
+            }
+        }
+        return $GetRemoteCopyDestination;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRemoteCopyDestinationResponse
+    */
+    public function GetRemoteCopyDestinationResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRemoteCopyDestinationResponse = new GetRemoteCopyDestinationResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRemoteCopyDestinationResponse, $methodName)) {
+                $GetRemoteCopyDestinationResponse->$methodName($paramValue);
+            }
+        }
+        return $GetRemoteCopyDestinationResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsRemoteCopyDeleteSource
+    */
+    public function IsRemoteCopyDeleteSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsRemoteCopyDeleteSource = new IsRemoteCopyDeleteSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsRemoteCopyDeleteSource, $methodName)) {
+                $IsRemoteCopyDeleteSource->$methodName($paramValue);
+            }
+        }
+        return $IsRemoteCopyDeleteSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsRemoteCopyDeleteSourceResponse
+    */
+    public function IsRemoteCopyDeleteSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsRemoteCopyDeleteSourceResponse = new IsRemoteCopyDeleteSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsRemoteCopyDeleteSourceResponse, $methodName)) {
+                $IsRemoteCopyDeleteSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $IsRemoteCopyDeleteSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddSecondaryRemoteCopy
+    */
+    public function AddSecondaryRemoteCopy($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddSecondaryRemoteCopy = new AddSecondaryRemoteCopy();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddSecondaryRemoteCopy, $methodName)) {
+                $AddSecondaryRemoteCopy->$methodName($paramValue);
+            }
+        }
+        return $AddSecondaryRemoteCopy;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddSecondaryRemoteCopyResponse
+    */
+    public function AddSecondaryRemoteCopyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddSecondaryRemoteCopyResponse = new AddSecondaryRemoteCopyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddSecondaryRemoteCopyResponse, $methodName)) {
+                $AddSecondaryRemoteCopyResponse->$methodName($paramValue);
+            }
+        }
+        return $AddSecondaryRemoteCopyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddSecondaryRemoteCopyByID
+    */
+    public function AddSecondaryRemoteCopyByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddSecondaryRemoteCopyByID = new AddSecondaryRemoteCopyByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddSecondaryRemoteCopyByID, $methodName)) {
+                $AddSecondaryRemoteCopyByID->$methodName($paramValue);
+            }
+        }
+        return $AddSecondaryRemoteCopyByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddSecondaryRemoteCopyByIDResponse
+    */
+    public function AddSecondaryRemoteCopyByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddSecondaryRemoteCopyByIDResponse = new AddSecondaryRemoteCopyByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddSecondaryRemoteCopyByIDResponse, $methodName)) {
+                $AddSecondaryRemoteCopyByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $AddSecondaryRemoteCopyByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveSecondaryRemoteCopy
+    */
+    public function RemoveSecondaryRemoteCopy($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveSecondaryRemoteCopy = new RemoveSecondaryRemoteCopy();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveSecondaryRemoteCopy, $methodName)) {
+                $RemoveSecondaryRemoteCopy->$methodName($paramValue);
+            }
+        }
+        return $RemoveSecondaryRemoteCopy;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveSecondaryRemoteCopyResponse
+    */
+    public function RemoveSecondaryRemoteCopyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveSecondaryRemoteCopyResponse = new RemoveSecondaryRemoteCopyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveSecondaryRemoteCopyResponse, $methodName)) {
+                $RemoveSecondaryRemoteCopyResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveSecondaryRemoteCopyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsSecondaryRemoteCopyExist
+    */
+    public function IsSecondaryRemoteCopyExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsSecondaryRemoteCopyExist = new IsSecondaryRemoteCopyExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsSecondaryRemoteCopyExist, $methodName)) {
+                $IsSecondaryRemoteCopyExist->$methodName($paramValue);
+            }
+        }
+        return $IsSecondaryRemoteCopyExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsSecondaryRemoteCopyExistResponse
+    */
+    public function IsSecondaryRemoteCopyExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsSecondaryRemoteCopyExistResponse = new IsSecondaryRemoteCopyExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsSecondaryRemoteCopyExistResponse, $methodName)) {
+                $IsSecondaryRemoteCopyExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsSecondaryRemoteCopyExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSecondaryRemoteCopyID
+    */
+    public function GetSecondaryRemoteCopyID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSecondaryRemoteCopyID = new GetSecondaryRemoteCopyID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSecondaryRemoteCopyID, $methodName)) {
+                $GetSecondaryRemoteCopyID->$methodName($paramValue);
+            }
+        }
+        return $GetSecondaryRemoteCopyID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSecondaryRemoteCopyIDResponse
+    */
+    public function GetSecondaryRemoteCopyIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSecondaryRemoteCopyIDResponse = new GetSecondaryRemoteCopyIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSecondaryRemoteCopyIDResponse, $methodName)) {
+                $GetSecondaryRemoteCopyIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSecondaryRemoteCopyIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSecondaryRemoteCopyDestination
+    */
+    public function GetSecondaryRemoteCopyDestination($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSecondaryRemoteCopyDestination = new GetSecondaryRemoteCopyDestination();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSecondaryRemoteCopyDestination, $methodName)) {
+                $GetSecondaryRemoteCopyDestination->$methodName($paramValue);
+            }
+        }
+        return $GetSecondaryRemoteCopyDestination;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSecondaryRemoteCopyDestinationResponse
+    */
+    public function GetSecondaryRemoteCopyDestinationResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSecondaryRemoteCopyDestinationResponse = new GetSecondaryRemoteCopyDestinationResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSecondaryRemoteCopyDestinationResponse, $methodName)) {
+                $GetSecondaryRemoteCopyDestinationResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSecondaryRemoteCopyDestinationResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsSecondaryRemoteCopyDeleteSource
+    */
+    public function IsSecondaryRemoteCopyDeleteSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsSecondaryRemoteCopyDeleteSource = new IsSecondaryRemoteCopyDeleteSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsSecondaryRemoteCopyDeleteSource, $methodName)) {
+                $IsSecondaryRemoteCopyDeleteSource->$methodName($paramValue);
+            }
+        }
+        return $IsSecondaryRemoteCopyDeleteSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsSecondaryRemoteCopyDeleteSourceResponse
+    */
+    public function IsSecondaryRemoteCopyDeleteSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsSecondaryRemoteCopyDeleteSourceResponse = new IsSecondaryRemoteCopyDeleteSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsSecondaryRemoteCopyDeleteSourceResponse, $methodName)) {
+                $IsSecondaryRemoteCopyDeleteSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $IsSecondaryRemoteCopyDeleteSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddJDFCopy
+    */
+    public function AddJDFCopy($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddJDFCopy = new AddJDFCopy();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddJDFCopy, $methodName)) {
+                $AddJDFCopy->$methodName($paramValue);
+            }
+        }
+        return $AddJDFCopy;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddJDFCopyResponse
+    */
+    public function AddJDFCopyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddJDFCopyResponse = new AddJDFCopyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddJDFCopyResponse, $methodName)) {
+                $AddJDFCopyResponse->$methodName($paramValue);
+            }
+        }
+        return $AddJDFCopyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddJDFCopyByID
+    */
+    public function AddJDFCopyByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddJDFCopyByID = new AddJDFCopyByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddJDFCopyByID, $methodName)) {
+                $AddJDFCopyByID->$methodName($paramValue);
+            }
+        }
+        return $AddJDFCopyByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddJDFCopyByIDResponse
+    */
+    public function AddJDFCopyByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddJDFCopyByIDResponse = new AddJDFCopyByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddJDFCopyByIDResponse, $methodName)) {
+                $AddJDFCopyByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $AddJDFCopyByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJDFCopy
+    */
+    public function RemoveJDFCopy($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJDFCopy = new RemoveJDFCopy();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJDFCopy, $methodName)) {
+                $RemoveJDFCopy->$methodName($paramValue);
+            }
+        }
+        return $RemoveJDFCopy;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJDFCopyResponse
+    */
+    public function RemoveJDFCopyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJDFCopyResponse = new RemoveJDFCopyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJDFCopyResponse, $methodName)) {
+                $RemoveJDFCopyResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveJDFCopyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsJDFCopyExist
+    */
+    public function IsJDFCopyExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsJDFCopyExist = new IsJDFCopyExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsJDFCopyExist, $methodName)) {
+                $IsJDFCopyExist->$methodName($paramValue);
+            }
+        }
+        return $IsJDFCopyExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsJDFCopyExistResponse
+    */
+    public function IsJDFCopyExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsJDFCopyExistResponse = new IsJDFCopyExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsJDFCopyExistResponse, $methodName)) {
+                $IsJDFCopyExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsJDFCopyExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJDFCopyID
+    */
+    public function GetJDFCopyID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJDFCopyID = new GetJDFCopyID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJDFCopyID, $methodName)) {
+                $GetJDFCopyID->$methodName($paramValue);
+            }
+        }
+        return $GetJDFCopyID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJDFCopyIDResponse
+    */
+    public function GetJDFCopyIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJDFCopyIDResponse = new GetJDFCopyIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJDFCopyIDResponse, $methodName)) {
+                $GetJDFCopyIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJDFCopyIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJDFCopyDestination
+    */
+    public function GetJDFCopyDestination($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJDFCopyDestination = new GetJDFCopyDestination();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJDFCopyDestination, $methodName)) {
+                $GetJDFCopyDestination->$methodName($paramValue);
+            }
+        }
+        return $GetJDFCopyDestination;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJDFCopyDestinationResponse
+    */
+    public function GetJDFCopyDestinationResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJDFCopyDestinationResponse = new GetJDFCopyDestinationResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJDFCopyDestinationResponse, $methodName)) {
+                $GetJDFCopyDestinationResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJDFCopyDestinationResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsJDFCopyDeleteSource
+    */
+    public function IsJDFCopyDeleteSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsJDFCopyDeleteSource = new IsJDFCopyDeleteSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsJDFCopyDeleteSource, $methodName)) {
+                $IsJDFCopyDeleteSource->$methodName($paramValue);
+            }
+        }
+        return $IsJDFCopyDeleteSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsJDFCopyDeleteSourceResponse
+    */
+    public function IsJDFCopyDeleteSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsJDFCopyDeleteSourceResponse = new IsJDFCopyDeleteSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsJDFCopyDeleteSourceResponse, $methodName)) {
+                $IsJDFCopyDeleteSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $IsJDFCopyDeleteSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDistillJobOptionName
+    */
+    public function SetDistillJobOptionName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDistillJobOptionName = new SetDistillJobOptionName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDistillJobOptionName, $methodName)) {
+                $SetDistillJobOptionName->$methodName($paramValue);
+            }
+        }
+        return $SetDistillJobOptionName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDistillJobOptionNameResponse
+    */
+    public function SetDistillJobOptionNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDistillJobOptionNameResponse = new SetDistillJobOptionNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDistillJobOptionNameResponse, $methodName)) {
+                $SetDistillJobOptionNameResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDistillJobOptionNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsJobTracked
+    */
+    public function IsJobTracked($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsJobTracked = new IsJobTracked();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsJobTracked, $methodName)) {
+                $IsJobTracked->$methodName($paramValue);
+            }
+        }
+        return $IsJobTracked;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsJobTrackedResponse
+    */
+    public function IsJobTrackedResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsJobTrackedResponse = new IsJobTrackedResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsJobTrackedResponse, $methodName)) {
+                $IsJobTrackedResponse->$methodName($paramValue);
+            }
+        }
+        return $IsJobTrackedResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTouchPointID
+    */
+    public function SetTouchPointID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTouchPointID = new SetTouchPointID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTouchPointID, $methodName)) {
+                $SetTouchPointID->$methodName($paramValue);
+            }
+        }
+        return $SetTouchPointID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTouchPointIDResponse
+    */
+    public function SetTouchPointIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTouchPointIDResponse = new SetTouchPointIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTouchPointIDResponse, $methodName)) {
+                $SetTouchPointIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetTouchPointIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTouchPointID
+    */
+    public function GetTouchPointID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTouchPointID = new GetTouchPointID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTouchPointID, $methodName)) {
+                $GetTouchPointID->$methodName($paramValue);
+            }
+        }
+        return $GetTouchPointID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTouchPointIDResponse
+    */
+    public function GetTouchPointIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTouchPointIDResponse = new GetTouchPointIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTouchPointIDResponse, $methodName)) {
+                $GetTouchPointIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetTouchPointIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddTracking
+    */
+    public function AddTracking($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddTracking = new AddTracking();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddTracking, $methodName)) {
+                $AddTracking->$methodName($paramValue);
+            }
+        }
+        return $AddTracking;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfParameter
+    */
+    public function ArrayOfParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfParameter = new ArrayOfParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfParameter, $methodName)) {
+                $ArrayOfParameter->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return Parameter
+    */
+    public function Parameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $Parameter = new Parameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($Parameter, $methodName)) {
+                $Parameter->$methodName($paramValue);
+            }
+        }
+        return $Parameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddTrackingResponse
+    */
+    public function AddTrackingResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddTrackingResponse = new AddTrackingResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddTrackingResponse, $methodName)) {
+                $AddTrackingResponse->$methodName($paramValue);
+            }
+        }
+        return $AddTrackingResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveTracking
+    */
+    public function RemoveTracking($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveTracking = new RemoveTracking();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveTracking, $methodName)) {
+                $RemoveTracking->$methodName($paramValue);
+            }
+        }
+        return $RemoveTracking;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveTrackingResponse
+    */
+    public function RemoveTrackingResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveTrackingResponse = new RemoveTrackingResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveTrackingResponse, $methodName)) {
+                $RemoveTrackingResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveTrackingResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTrackingParameter
+    */
+    public function SetTrackingParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTrackingParameter = new SetTrackingParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTrackingParameter, $methodName)) {
+                $SetTrackingParameter->$methodName($paramValue);
+            }
+        }
+        return $SetTrackingParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTrackingParameterResponse
+    */
+    public function SetTrackingParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTrackingParameterResponse = new SetTrackingParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTrackingParameterResponse, $methodName)) {
+                $SetTrackingParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $SetTrackingParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTrackingParameters
+    */
+    public function SetTrackingParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTrackingParameters = new SetTrackingParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTrackingParameters, $methodName)) {
+                $SetTrackingParameters->$methodName($paramValue);
+            }
+        }
+        return $SetTrackingParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTrackingParametersResponse
+    */
+    public function SetTrackingParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTrackingParametersResponse = new SetTrackingParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTrackingParametersResponse, $methodName)) {
+                $SetTrackingParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $SetTrackingParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTrackingParameter
+    */
+    public function GetTrackingParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTrackingParameter = new GetTrackingParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTrackingParameter, $methodName)) {
+                $GetTrackingParameter->$methodName($paramValue);
+            }
+        }
+        return $GetTrackingParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTrackingParameterResponse
+    */
+    public function GetTrackingParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTrackingParameterResponse = new GetTrackingParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTrackingParameterResponse, $methodName)) {
+                $GetTrackingParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $GetTrackingParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTrackingParameters
+    */
+    public function GetTrackingParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTrackingParameters = new GetTrackingParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTrackingParameters, $methodName)) {
+                $GetTrackingParameters->$methodName($paramValue);
+            }
+        }
+        return $GetTrackingParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfString
+    */
+    public function ArrayOfString($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfString = new ArrayOfString();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfString, $methodName)) {
+                $ArrayOfString->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfString;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTrackingParametersResponse
+    */
+    public function GetTrackingParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTrackingParametersResponse = new GetTrackingParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTrackingParametersResponse, $methodName)) {
+                $GetTrackingParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $GetTrackingParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveTrackingParameter
+    */
+    public function RemoveTrackingParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveTrackingParameter = new RemoveTrackingParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveTrackingParameter, $methodName)) {
+                $RemoveTrackingParameter->$methodName($paramValue);
+            }
+        }
+        return $RemoveTrackingParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveTrackingParameterResponse
+    */
+    public function RemoveTrackingParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveTrackingParameterResponse = new RemoveTrackingParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveTrackingParameterResponse, $methodName)) {
+                $RemoveTrackingParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveTrackingParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveTrackingParameters
+    */
+    public function RemoveTrackingParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveTrackingParameters = new RemoveTrackingParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveTrackingParameters, $methodName)) {
+                $RemoveTrackingParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveTrackingParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveTrackingParametersResponse
+    */
+    public function RemoveTrackingParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveTrackingParametersResponse = new RemoveTrackingParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveTrackingParametersResponse, $methodName)) {
+                $RemoveTrackingParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveTrackingParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllTrackingParameters
+    */
+    public function RemoveAllTrackingParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllTrackingParameters = new RemoveAllTrackingParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllTrackingParameters, $methodName)) {
+                $RemoveAllTrackingParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllTrackingParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllTrackingParametersResponse
+    */
+    public function RemoveAllTrackingParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllTrackingParametersResponse = new RemoveAllTrackingParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllTrackingParametersResponse, $methodName)) {
+                $RemoveAllTrackingParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllTrackingParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsTrackingADOR
+    */
+    public function IsTrackingADOR($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsTrackingADOR = new IsTrackingADOR();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsTrackingADOR, $methodName)) {
+                $IsTrackingADOR->$methodName($paramValue);
+            }
+        }
+        return $IsTrackingADOR;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsTrackingADORResponse
+    */
+    public function IsTrackingADORResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsTrackingADORResponse = new IsTrackingADORResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsTrackingADORResponse, $methodName)) {
+                $IsTrackingADORResponse->$methodName($paramValue);
+            }
+        }
+        return $IsTrackingADORResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTrackingADORs
+    */
+    public function GetTrackingADORs($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTrackingADORs = new GetTrackingADORs();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTrackingADORs, $methodName)) {
+                $GetTrackingADORs->$methodName($paramValue);
+            }
+        }
+        return $GetTrackingADORs;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTrackingADORsResponse
+    */
+    public function GetTrackingADORsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTrackingADORsResponse = new GetTrackingADORsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTrackingADORsResponse, $methodName)) {
+                $GetTrackingADORsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetTrackingADORsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCircleTouchpointGuid
+    */
+    public function SetCircleTouchpointGuid($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCircleTouchpointGuid = new SetCircleTouchpointGuid();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCircleTouchpointGuid, $methodName)) {
+                $SetCircleTouchpointGuid->$methodName($paramValue);
+            }
+        }
+        return $SetCircleTouchpointGuid;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCircleTouchpointGuidResponse
+    */
+    public function SetCircleTouchpointGuidResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCircleTouchpointGuidResponse = new SetCircleTouchpointGuidResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCircleTouchpointGuidResponse, $methodName)) {
+                $SetCircleTouchpointGuidResponse->$methodName($paramValue);
+            }
+        }
+        return $SetCircleTouchpointGuidResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCircleTouchpointGuid
+    */
+    public function GetCircleTouchpointGuid($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCircleTouchpointGuid = new GetCircleTouchpointGuid();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCircleTouchpointGuid, $methodName)) {
+                $GetCircleTouchpointGuid->$methodName($paramValue);
+            }
+        }
+        return $GetCircleTouchpointGuid;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCircleTouchpointGuidResponse
+    */
+    public function GetCircleTouchpointGuidResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCircleTouchpointGuidResponse = new GetCircleTouchpointGuidResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCircleTouchpointGuidResponse, $methodName)) {
+                $GetCircleTouchpointGuidResponse->$methodName($paramValue);
+            }
+        }
+        return $GetCircleTouchpointGuidResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCircleRunGuid
+    */
+    public function SetCircleRunGuid($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCircleRunGuid = new SetCircleRunGuid();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCircleRunGuid, $methodName)) {
+                $SetCircleRunGuid->$methodName($paramValue);
+            }
+        }
+        return $SetCircleRunGuid;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCircleRunGuidResponse
+    */
+    public function SetCircleRunGuidResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCircleRunGuidResponse = new SetCircleRunGuidResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCircleRunGuidResponse, $methodName)) {
+                $SetCircleRunGuidResponse->$methodName($paramValue);
+            }
+        }
+        return $SetCircleRunGuidResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCircleRunGuid
+    */
+    public function GetCircleRunGuid($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCircleRunGuid = new GetCircleRunGuid();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCircleRunGuid, $methodName)) {
+                $GetCircleRunGuid->$methodName($paramValue);
+            }
+        }
+        return $GetCircleRunGuid;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCircleRunGuidResponse
+    */
+    public function GetCircleRunGuidResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCircleRunGuidResponse = new GetCircleRunGuidResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCircleRunGuidResponse, $methodName)) {
+                $GetCircleRunGuidResponse->$methodName($paramValue);
+            }
+        }
+        return $GetCircleRunGuidResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDeliveryProvider
+    */
+    public function SetDeliveryProvider($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDeliveryProvider = new SetDeliveryProvider();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDeliveryProvider, $methodName)) {
+                $SetDeliveryProvider->$methodName($paramValue);
+            }
+        }
+        return $SetDeliveryProvider;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return EmailProviderInfo
+    */
+    public function EmailProviderInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $EmailProviderInfo = new EmailProviderInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($EmailProviderInfo, $methodName)) {
+                $EmailProviderInfo->$methodName($paramValue);
+            }
+        }
+        return $EmailProviderInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfEmailProviderParameter
+    */
+    public function ArrayOfEmailProviderParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfEmailProviderParameter = new ArrayOfEmailProviderParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfEmailProviderParameter, $methodName)) {
+                $ArrayOfEmailProviderParameter->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfEmailProviderParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return EmailProviderParameter
+    */
+    public function EmailProviderParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $EmailProviderParameter = new EmailProviderParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($EmailProviderParameter, $methodName)) {
+                $EmailProviderParameter->$methodName($paramValue);
+            }
+        }
+        return $EmailProviderParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDeliveryProviderResponse
+    */
+    public function SetDeliveryProviderResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDeliveryProviderResponse = new SetDeliveryProviderResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDeliveryProviderResponse, $methodName)) {
+                $SetDeliveryProviderResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDeliveryProviderResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDeliveryProviderByID
+    */
+    public function SetDeliveryProviderByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDeliveryProviderByID = new SetDeliveryProviderByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDeliveryProviderByID, $methodName)) {
+                $SetDeliveryProviderByID->$methodName($paramValue);
+            }
+        }
+        return $SetDeliveryProviderByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDeliveryProviderByIDResponse
+    */
+    public function SetDeliveryProviderByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDeliveryProviderByIDResponse = new SetDeliveryProviderByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDeliveryProviderByIDResponse, $methodName)) {
+                $SetDeliveryProviderByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDeliveryProviderByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDeliveryProvider
+    */
+    public function GetDeliveryProvider($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDeliveryProvider = new GetDeliveryProvider();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDeliveryProvider, $methodName)) {
+                $GetDeliveryProvider->$methodName($paramValue);
+            }
+        }
+        return $GetDeliveryProvider;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDeliveryProviderResponse
+    */
+    public function GetDeliveryProviderResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDeliveryProviderResponse = new GetDeliveryProviderResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDeliveryProviderResponse, $methodName)) {
+                $GetDeliveryProviderResponse->$methodName($paramValue);
+            }
+        }
+        return $GetDeliveryProviderResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDeliveryProviderID
+    */
+    public function GetDeliveryProviderID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDeliveryProviderID = new GetDeliveryProviderID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDeliveryProviderID, $methodName)) {
+                $GetDeliveryProviderID->$methodName($paramValue);
+            }
+        }
+        return $GetDeliveryProviderID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDeliveryProviderIDResponse
+    */
+    public function GetDeliveryProviderIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDeliveryProviderIDResponse = new GetDeliveryProviderIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDeliveryProviderIDResponse, $methodName)) {
+                $GetDeliveryProviderIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetDeliveryProviderIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailHeader
+    */
+    public function SetEmailHeader($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailHeader = new SetEmailHeader();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailHeader, $methodName)) {
+                $SetEmailHeader->$methodName($paramValue);
+            }
+        }
+        return $SetEmailHeader;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return EmailHeaderInfo
+    */
+    public function EmailHeaderInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $EmailHeaderInfo = new EmailHeaderInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($EmailHeaderInfo, $methodName)) {
+                $EmailHeaderInfo->$methodName($paramValue);
+            }
+        }
+        return $EmailHeaderInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfEmailAddress
+    */
+    public function ArrayOfEmailAddress($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfEmailAddress = new ArrayOfEmailAddress();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfEmailAddress, $methodName)) {
+                $ArrayOfEmailAddress->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfEmailAddress;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return EmailAddress
+    */
+    public function EmailAddress($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $EmailAddress = new EmailAddress();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($EmailAddress, $methodName)) {
+                $EmailAddress->$methodName($paramValue);
+            }
+        }
+        return $EmailAddress;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailHeaderResponse
+    */
+    public function SetEmailHeaderResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailHeaderResponse = new SetEmailHeaderResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailHeaderResponse, $methodName)) {
+                $SetEmailHeaderResponse->$methodName($paramValue);
+            }
+        }
+        return $SetEmailHeaderResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailHeader
+    */
+    public function GetEmailHeader($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailHeader = new GetEmailHeader();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailHeader, $methodName)) {
+                $GetEmailHeader->$methodName($paramValue);
+            }
+        }
+        return $GetEmailHeader;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailHeaderResponse
+    */
+    public function GetEmailHeaderResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailHeaderResponse = new GetEmailHeaderResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailHeaderResponse, $methodName)) {
+                $GetEmailHeaderResponse->$methodName($paramValue);
+            }
+        }
+        return $GetEmailHeaderResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailBody
+    */
+    public function SetEmailBody($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailBody = new SetEmailBody();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailBody, $methodName)) {
+                $SetEmailBody->$methodName($paramValue);
+            }
+        }
+        return $SetEmailBody;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return EmailBodyInfo
+    */
+    public function EmailBodyInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $EmailBodyInfo = new EmailBodyInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($EmailBodyInfo, $methodName)) {
+                $EmailBodyInfo->$methodName($paramValue);
+            }
+        }
+        return $EmailBodyInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return EmailBodyOptions
+    */
+    public function EmailBodyOptions($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $EmailBodyOptions = new EmailBodyOptions();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($EmailBodyOptions, $methodName)) {
+                $EmailBodyOptions->$methodName($paramValue);
+            }
+        }
+        return $EmailBodyOptions;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return URLInfo
+    */
+    public function URLInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $URLInfo = new URLInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($URLInfo, $methodName)) {
+                $URLInfo->$methodName($paramValue);
+            }
+        }
+        return $URLInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailBodyResponse
+    */
+    public function SetEmailBodyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailBodyResponse = new SetEmailBodyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailBodyResponse, $methodName)) {
+                $SetEmailBodyResponse->$methodName($paramValue);
+            }
+        }
+        return $SetEmailBodyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailBodies
+    */
+    public function SetEmailBodies($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailBodies = new SetEmailBodies();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailBodies, $methodName)) {
+                $SetEmailBodies->$methodName($paramValue);
+            }
+        }
+        return $SetEmailBodies;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfEmailBodyInfo
+    */
+    public function ArrayOfEmailBodyInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfEmailBodyInfo = new ArrayOfEmailBodyInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfEmailBodyInfo, $methodName)) {
+                $ArrayOfEmailBodyInfo->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfEmailBodyInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailBodiesResponse
+    */
+    public function SetEmailBodiesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailBodiesResponse = new SetEmailBodiesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailBodiesResponse, $methodName)) {
+                $SetEmailBodiesResponse->$methodName($paramValue);
+            }
+        }
+        return $SetEmailBodiesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddEmailBody
+    */
+    public function AddEmailBody($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddEmailBody = new AddEmailBody();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddEmailBody, $methodName)) {
+                $AddEmailBody->$methodName($paramValue);
+            }
+        }
+        return $AddEmailBody;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddEmailBodyResponse
+    */
+    public function AddEmailBodyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddEmailBodyResponse = new AddEmailBodyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddEmailBodyResponse, $methodName)) {
+                $AddEmailBodyResponse->$methodName($paramValue);
+            }
+        }
+        return $AddEmailBodyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailBodyByID
+    */
+    public function SetEmailBodyByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailBodyByID = new SetEmailBodyByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailBodyByID, $methodName)) {
+                $SetEmailBodyByID->$methodName($paramValue);
+            }
+        }
+        return $SetEmailBodyByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailBodyByIDResponse
+    */
+    public function SetEmailBodyByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailBodyByIDResponse = new SetEmailBodyByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailBodyByIDResponse, $methodName)) {
+                $SetEmailBodyByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetEmailBodyByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailBodiesByIDs
+    */
+    public function SetEmailBodiesByIDs($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailBodiesByIDs = new SetEmailBodiesByIDs();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailBodiesByIDs, $methodName)) {
+                $SetEmailBodiesByIDs->$methodName($paramValue);
+            }
+        }
+        return $SetEmailBodiesByIDs;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfEmailBodyOptions
+    */
+    public function ArrayOfEmailBodyOptions($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfEmailBodyOptions = new ArrayOfEmailBodyOptions();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfEmailBodyOptions, $methodName)) {
+                $ArrayOfEmailBodyOptions->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfEmailBodyOptions;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailBodiesByIDsResponse
+    */
+    public function SetEmailBodiesByIDsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailBodiesByIDsResponse = new SetEmailBodiesByIDsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailBodiesByIDsResponse, $methodName)) {
+                $SetEmailBodiesByIDsResponse->$methodName($paramValue);
+            }
+        }
+        return $SetEmailBodiesByIDsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddEmailBodyByID
+    */
+    public function AddEmailBodyByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddEmailBodyByID = new AddEmailBodyByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddEmailBodyByID, $methodName)) {
+                $AddEmailBodyByID->$methodName($paramValue);
+            }
+        }
+        return $AddEmailBodyByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddEmailBodyByIDResponse
+    */
+    public function AddEmailBodyByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddEmailBodyByIDResponse = new AddEmailBodyByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddEmailBodyByIDResponse, $methodName)) {
+                $AddEmailBodyByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $AddEmailBodyByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllEmailBodies
+    */
+    public function RemoveAllEmailBodies($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllEmailBodies = new RemoveAllEmailBodies();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllEmailBodies, $methodName)) {
+                $RemoveAllEmailBodies->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllEmailBodies;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllEmailBodiesResponse
+    */
+    public function RemoveAllEmailBodiesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllEmailBodiesResponse = new RemoveAllEmailBodiesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllEmailBodiesResponse, $methodName)) {
+                $RemoveAllEmailBodiesResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllEmailBodiesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailBodies
+    */
+    public function GetEmailBodies($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailBodies = new GetEmailBodies();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailBodies, $methodName)) {
+                $GetEmailBodies->$methodName($paramValue);
+            }
+        }
+        return $GetEmailBodies;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailBodiesResponse
+    */
+    public function GetEmailBodiesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailBodiesResponse = new GetEmailBodiesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailBodiesResponse, $methodName)) {
+                $GetEmailBodiesResponse->$methodName($paramValue);
+            }
+        }
+        return $GetEmailBodiesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailBodiesIDs
+    */
+    public function GetEmailBodiesIDs($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailBodiesIDs = new GetEmailBodiesIDs();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailBodiesIDs, $methodName)) {
+                $GetEmailBodiesIDs->$methodName($paramValue);
+            }
+        }
+        return $GetEmailBodiesIDs;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailBodiesIDsResponse
+    */
+    public function GetEmailBodiesIDsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailBodiesIDsResponse = new GetEmailBodiesIDsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailBodiesIDsResponse, $methodName)) {
+                $GetEmailBodiesIDsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetEmailBodiesIDsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailBodyCount
+    */
+    public function GetEmailBodyCount($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailBodyCount = new GetEmailBodyCount();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailBodyCount, $methodName)) {
+                $GetEmailBodyCount->$methodName($paramValue);
+            }
+        }
+        return $GetEmailBodyCount;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailBodyCountResponse
+    */
+    public function GetEmailBodyCountResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailBodyCountResponse = new GetEmailBodyCountResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailBodyCountResponse, $methodName)) {
+                $GetEmailBodyCountResponse->$methodName($paramValue);
+            }
+        }
+        return $GetEmailBodyCountResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthEmailBody
+    */
+    public function GetNthEmailBody($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthEmailBody = new GetNthEmailBody();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthEmailBody, $methodName)) {
+                $GetNthEmailBody->$methodName($paramValue);
+            }
+        }
+        return $GetNthEmailBody;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthEmailBodyResponse
+    */
+    public function GetNthEmailBodyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthEmailBodyResponse = new GetNthEmailBodyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthEmailBodyResponse, $methodName)) {
+                $GetNthEmailBodyResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthEmailBodyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthEmailBodyID
+    */
+    public function GetNthEmailBodyID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthEmailBodyID = new GetNthEmailBodyID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthEmailBodyID, $methodName)) {
+                $GetNthEmailBodyID->$methodName($paramValue);
+            }
+        }
+        return $GetNthEmailBodyID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthEmailBodyIDResponse
+    */
+    public function GetNthEmailBodyIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthEmailBodyIDResponse = new GetNthEmailBodyIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthEmailBodyIDResponse, $methodName)) {
+                $GetNthEmailBodyIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthEmailBodyIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetMetaData
+    */
+    public function SetMetaData($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetMetaData = new SetMetaData();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetMetaData, $methodName)) {
+                $SetMetaData->$methodName($paramValue);
+            }
+        }
+        return $SetMetaData;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfProperty
+    */
+    public function ArrayOfProperty($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfProperty = new ArrayOfProperty();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfProperty, $methodName)) {
+                $ArrayOfProperty->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfProperty;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return Property
+    */
+    public function Property($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $Property = new Property();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($Property, $methodName)) {
+                $Property->$methodName($paramValue);
+            }
+        }
+        return $Property;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetMetaDataResponse
+    */
+    public function SetMetaDataResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetMetaDataResponse = new SetMetaDataResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetMetaDataResponse, $methodName)) {
+                $SetMetaDataResponse->$methodName($paramValue);
+            }
+        }
+        return $SetMetaDataResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetMetaData
+    */
+    public function GetMetaData($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetMetaData = new GetMetaData();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetMetaData, $methodName)) {
+                $GetMetaData->$methodName($paramValue);
+            }
+        }
+        return $GetMetaData;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetMetaDataResponse
+    */
+    public function GetMetaDataResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetMetaDataResponse = new GetMetaDataResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetMetaDataResponse, $methodName)) {
+                $GetMetaDataResponse->$methodName($paramValue);
+            }
+        }
+        return $GetMetaDataResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAllMetaData
+    */
+    public function GetAllMetaData($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAllMetaData = new GetAllMetaData();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAllMetaData, $methodName)) {
+                $GetAllMetaData->$methodName($paramValue);
+            }
+        }
+        return $GetAllMetaData;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAllMetaDataResponse
+    */
+    public function GetAllMetaDataResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAllMetaDataResponse = new GetAllMetaDataResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAllMetaDataResponse, $methodName)) {
+                $GetAllMetaDataResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAllMetaDataResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetMetaDataSubGroups
+    */
+    public function GetMetaDataSubGroups($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetMetaDataSubGroups = new GetMetaDataSubGroups();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetMetaDataSubGroups, $methodName)) {
+                $GetMetaDataSubGroups->$methodName($paramValue);
+            }
+        }
+        return $GetMetaDataSubGroups;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetMetaDataSubGroupsResponse
+    */
+    public function GetMetaDataSubGroupsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetMetaDataSubGroupsResponse = new GetMetaDataSubGroupsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetMetaDataSubGroupsResponse, $methodName)) {
+                $GetMetaDataSubGroupsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetMetaDataSubGroupsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveMetaData
+    */
+    public function RemoveMetaData($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveMetaData = new RemoveMetaData();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveMetaData, $methodName)) {
+                $RemoveMetaData->$methodName($paramValue);
+            }
+        }
+        return $RemoveMetaData;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveMetaDataResponse
+    */
+    public function RemoveMetaDataResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveMetaDataResponse = new RemoveMetaDataResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveMetaDataResponse, $methodName)) {
+                $RemoveMetaDataResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveMetaDataResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveMetaDataGroup
+    */
+    public function RemoveMetaDataGroup($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveMetaDataGroup = new RemoveMetaDataGroup();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveMetaDataGroup, $methodName)) {
+                $RemoveMetaDataGroup->$methodName($paramValue);
+            }
+        }
+        return $RemoveMetaDataGroup;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveMetaDataGroupResponse
+    */
+    public function RemoveMetaDataGroupResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveMetaDataGroupResponse = new RemoveMetaDataGroupResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveMetaDataGroupResponse, $methodName)) {
+                $RemoveMetaDataGroupResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveMetaDataGroupResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsMappingExists
+    */
+    public function IsMappingExists($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsMappingExists = new IsMappingExists();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsMappingExists, $methodName)) {
+                $IsMappingExists->$methodName($paramValue);
+            }
+        }
+        return $IsMappingExists;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsMappingExistsResponse
+    */
+    public function IsMappingExistsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsMappingExistsResponse = new IsMappingExistsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsMappingExistsResponse, $methodName)) {
+                $IsMappingExistsResponse->$methodName($paramValue);
+            }
+        }
+        return $IsMappingExistsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFieldMappings
+    */
+    public function GetFieldMappings($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFieldMappings = new GetFieldMappings();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFieldMappings, $methodName)) {
+                $GetFieldMappings->$methodName($paramValue);
+            }
+        }
+        return $GetFieldMappings;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFieldMappingsResponse
+    */
+    public function GetFieldMappingsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFieldMappingsResponse = new GetFieldMappingsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFieldMappingsResponse, $methodName)) {
+                $GetFieldMappingsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFieldMappingsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return FieldMappings
+    */
+    public function FieldMappings($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $FieldMappings = new FieldMappings();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($FieldMappings, $methodName)) {
+                $FieldMappings->$methodName($paramValue);
+            }
+        }
+        return $FieldMappings;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfFieldMappingInfo
+    */
+    public function ArrayOfFieldMappingInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfFieldMappingInfo = new ArrayOfFieldMappingInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfFieldMappingInfo, $methodName)) {
+                $ArrayOfFieldMappingInfo->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfFieldMappingInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return FieldMappingInfo
+    */
+    public function FieldMappingInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $FieldMappingInfo = new FieldMappingInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($FieldMappingInfo, $methodName)) {
+                $FieldMappingInfo->$methodName($paramValue);
+            }
+        }
+        return $FieldMappingInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFieldMapping
+    */
+    public function SetFieldMapping($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFieldMapping = new SetFieldMapping();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFieldMapping, $methodName)) {
+                $SetFieldMapping->$methodName($paramValue);
+            }
+        }
+        return $SetFieldMapping;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFieldMappingResponse
+    */
+    public function SetFieldMappingResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFieldMappingResponse = new SetFieldMappingResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFieldMappingResponse, $methodName)) {
+                $SetFieldMappingResponse->$methodName($paramValue);
+            }
+        }
+        return $SetFieldMappingResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFieldMappingByID
+    */
+    public function SetFieldMappingByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFieldMappingByID = new SetFieldMappingByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFieldMappingByID, $methodName)) {
+                $SetFieldMappingByID->$methodName($paramValue);
+            }
+        }
+        return $SetFieldMappingByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFieldMappingByIDResponse
+    */
+    public function SetFieldMappingByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFieldMappingByIDResponse = new SetFieldMappingByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFieldMappingByIDResponse, $methodName)) {
+                $SetFieldMappingByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetFieldMappingByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveFieldMapping
+    */
+    public function RemoveFieldMapping($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveFieldMapping = new RemoveFieldMapping();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveFieldMapping, $methodName)) {
+                $RemoveFieldMapping->$methodName($paramValue);
+            }
+        }
+        return $RemoveFieldMapping;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveFieldMappingResponse
+    */
+    public function RemoveFieldMappingResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveFieldMappingResponse = new RemoveFieldMappingResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveFieldMappingResponse, $methodName)) {
+                $RemoveFieldMappingResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveFieldMappingResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIInfo
+    */
+    public function GetNthRIInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIInfo = new GetNthRIInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIInfo, $methodName)) {
+                $GetNthRIInfo->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIInfoResponse
+    */
+    public function GetNthRIInfoResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIInfoResponse = new GetNthRIInfoResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIInfoResponse, $methodName)) {
+                $GetNthRIInfoResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIInfoResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RecipientsInfo
+    */
+    public function RecipientsInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RecipientsInfo = new RecipientsInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RecipientsInfo, $methodName)) {
+                $RecipientsInfo->$methodName($paramValue);
+            }
+        }
+        return $RecipientsInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIDataSourceID
+    */
+    public function GetNthRIDataSourceID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIDataSourceID = new GetNthRIDataSourceID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIDataSourceID, $methodName)) {
+                $GetNthRIDataSourceID->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIDataSourceID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIDataSourceIDResponse
+    */
+    public function GetNthRIDataSourceIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIDataSourceIDResponse = new GetNthRIDataSourceIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIDataSourceIDResponse, $methodName)) {
+                $GetNthRIDataSourceIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIDataSourceIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIDataSource
+    */
+    public function GetNthRIDataSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIDataSource = new GetNthRIDataSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIDataSource, $methodName)) {
+                $GetNthRIDataSource->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIDataSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIDataSourceResponse
+    */
+    public function GetNthRIDataSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIDataSourceResponse = new GetNthRIDataSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIDataSourceResponse, $methodName)) {
+                $GetNthRIDataSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIDataSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return Connection
+    */
+    public function Connection($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $Connection = new Connection();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($Connection, $methodName)) {
+                $Connection->$methodName($paramValue);
+            }
+        }
+        return $Connection;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddRI
+    */
+    public function AddRI($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddRI = new AddRI();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddRI, $methodName)) {
+                $AddRI->$methodName($paramValue);
+            }
+        }
+        return $AddRI;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddRIResponse
+    */
+    public function AddRIResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddRIResponse = new AddRIResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddRIResponse, $methodName)) {
+                $AddRIResponse->$methodName($paramValue);
+            }
+        }
+        return $AddRIResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddRIByID
+    */
+    public function AddRIByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddRIByID = new AddRIByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddRIByID, $methodName)) {
+                $AddRIByID->$methodName($paramValue);
+            }
+        }
+        return $AddRIByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddRIByIDResponse
+    */
+    public function AddRIByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddRIByIDResponse = new AddRIByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddRIByIDResponse, $methodName)) {
+                $AddRIByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $AddRIByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddDefaultRI
+    */
+    public function AddDefaultRI($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddDefaultRI = new AddDefaultRI();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddDefaultRI, $methodName)) {
+                $AddDefaultRI->$methodName($paramValue);
+            }
+        }
+        return $AddDefaultRI;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddDefaultRIResponse
+    */
+    public function AddDefaultRIResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddDefaultRIResponse = new AddDefaultRIResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddDefaultRIResponse, $methodName)) {
+                $AddDefaultRIResponse->$methodName($paramValue);
+            }
+        }
+        return $AddDefaultRIResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIOnDemandInfo
+    */
+    public function SetRIOnDemandInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIOnDemandInfo = new SetRIOnDemandInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIOnDemandInfo, $methodName)) {
+                $SetRIOnDemandInfo->$methodName($paramValue);
+            }
+        }
+        return $SetRIOnDemandInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIOnDemandInfoResponse
+    */
+    public function SetRIOnDemandInfoResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIOnDemandInfoResponse = new SetRIOnDemandInfoResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIOnDemandInfoResponse, $methodName)) {
+                $SetRIOnDemandInfoResponse->$methodName($paramValue);
+            }
+        }
+        return $SetRIOnDemandInfoResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRIOnDemandRecipientID
+    */
+    public function GetRIOnDemandRecipientID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRIOnDemandRecipientID = new GetRIOnDemandRecipientID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRIOnDemandRecipientID, $methodName)) {
+                $GetRIOnDemandRecipientID->$methodName($paramValue);
+            }
+        }
+        return $GetRIOnDemandRecipientID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRIOnDemandRecipientIDResponse
+    */
+    public function GetRIOnDemandRecipientIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRIOnDemandRecipientIDResponse = new GetRIOnDemandRecipientIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRIOnDemandRecipientIDResponse, $methodName)) {
+                $GetRIOnDemandRecipientIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetRIOnDemandRecipientIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRIOnDemandRecipientInfo
+    */
+    public function GetRIOnDemandRecipientInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRIOnDemandRecipientInfo = new GetRIOnDemandRecipientInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRIOnDemandRecipientInfo, $methodName)) {
+                $GetRIOnDemandRecipientInfo->$methodName($paramValue);
+            }
+        }
+        return $GetRIOnDemandRecipientInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRIOnDemandRecipientInfoResponse
+    */
+    public function GetRIOnDemandRecipientInfoResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRIOnDemandRecipientInfoResponse = new GetRIOnDemandRecipientInfoResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRIOnDemandRecipientInfoResponse, $methodName)) {
+                $GetRIOnDemandRecipientInfoResponse->$methodName($paramValue);
+            }
+        }
+        return $GetRIOnDemandRecipientInfoResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobType
+    */
+    public function SetJobType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobType = new SetJobType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobType, $methodName)) {
+                $SetJobType->$methodName($paramValue);
+            }
+        }
+        return $SetJobType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobTypeResponse
+    */
+    public function SetJobTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobTypeResponse = new SetJobTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobTypeResponse, $methodName)) {
+                $SetJobTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $SetJobTypeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobType
+    */
+    public function GetJobType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobType = new GetJobType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobType, $methodName)) {
+                $GetJobType->$methodName($paramValue);
+            }
+        }
+        return $GetJobType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobTypeResponse
+    */
+    public function GetJobTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobTypeResponse = new GetJobTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobTypeResponse, $methodName)) {
+                $GetJobTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJobTypeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobPriority
+    */
+    public function GetJobPriority($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobPriority = new GetJobPriority();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobPriority, $methodName)) {
+                $GetJobPriority->$methodName($paramValue);
+            }
+        }
+        return $GetJobPriority;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobPriorityResponse
+    */
+    public function GetJobPriorityResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobPriorityResponse = new GetJobPriorityResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobPriorityResponse, $methodName)) {
+                $GetJobPriorityResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJobPriorityResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobPriority
+    */
+    public function SetJobPriority($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobPriority = new SetJobPriority();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobPriority, $methodName)) {
+                $SetJobPriority->$methodName($paramValue);
+            }
+        }
+        return $SetJobPriority;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobPriorityResponse
+    */
+    public function SetJobPriorityResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobPriorityResponse = new SetJobPriorityResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobPriorityResponse, $methodName)) {
+                $SetJobPriorityResponse->$methodName($paramValue);
+            }
+        }
+        return $SetJobPriorityResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobTrackingWebService
+    */
+    public function SetJobTrackingWebService($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobTrackingWebService = new SetJobTrackingWebService();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobTrackingWebService, $methodName)) {
+                $SetJobTrackingWebService->$methodName($paramValue);
+            }
+        }
+        return $SetJobTrackingWebService;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobTrackingWebServiceResponse
+    */
+    public function SetJobTrackingWebServiceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobTrackingWebServiceResponse = new SetJobTrackingWebServiceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobTrackingWebServiceResponse, $methodName)) {
+                $SetJobTrackingWebServiceResponse->$methodName($paramValue);
+            }
+        }
+        return $SetJobTrackingWebServiceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobTrackingWebService
+    */
+    public function GetJobTrackingWebService($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobTrackingWebService = new GetJobTrackingWebService();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobTrackingWebService, $methodName)) {
+                $GetJobTrackingWebService->$methodName($paramValue);
+            }
+        }
+        return $GetJobTrackingWebService;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobTrackingWebServiceResponse
+    */
+    public function GetJobTrackingWebServiceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobTrackingWebServiceResponse = new GetJobTrackingWebServiceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobTrackingWebServiceResponse, $methodName)) {
+                $GetJobTrackingWebServiceResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJobTrackingWebServiceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobReportingWebService
+    */
+    public function SetJobReportingWebService($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobReportingWebService = new SetJobReportingWebService();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobReportingWebService, $methodName)) {
+                $SetJobReportingWebService->$methodName($paramValue);
+            }
+        }
+        return $SetJobReportingWebService;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobReportingWebServiceResponse
+    */
+    public function SetJobReportingWebServiceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobReportingWebServiceResponse = new SetJobReportingWebServiceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobReportingWebServiceResponse, $methodName)) {
+                $SetJobReportingWebServiceResponse->$methodName($paramValue);
+            }
+        }
+        return $SetJobReportingWebServiceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobReportingWebService
+    */
+    public function GetJobReportingWebService($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobReportingWebService = new GetJobReportingWebService();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobReportingWebService, $methodName)) {
+                $GetJobReportingWebService->$methodName($paramValue);
+            }
+        }
+        return $GetJobReportingWebService;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobReportingWebServiceResponse
+    */
+    public function GetJobReportingWebServiceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobReportingWebServiceResponse = new GetJobReportingWebServiceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobReportingWebServiceResponse, $methodName)) {
+                $GetJobReportingWebServiceResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJobReportingWebServiceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobReportCallbackURL
+    */
+    public function SetJobReportCallbackURL($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobReportCallbackURL = new SetJobReportCallbackURL();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobReportCallbackURL, $methodName)) {
+                $SetJobReportCallbackURL->$methodName($paramValue);
+            }
+        }
+        return $SetJobReportCallbackURL;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobReportCallbackURLResponse
+    */
+    public function SetJobReportCallbackURLResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobReportCallbackURLResponse = new SetJobReportCallbackURLResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobReportCallbackURLResponse, $methodName)) {
+                $SetJobReportCallbackURLResponse->$methodName($paramValue);
+            }
+        }
+        return $SetJobReportCallbackURLResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobReportCallbackURL
+    */
+    public function GetJobReportCallbackURL($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobReportCallbackURL = new GetJobReportCallbackURL();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobReportCallbackURL, $methodName)) {
+                $GetJobReportCallbackURL->$methodName($paramValue);
+            }
+        }
+        return $GetJobReportCallbackURL;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobReportCallbackURLResponse
+    */
+    public function GetJobReportCallbackURLResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobReportCallbackURLResponse = new GetJobReportCallbackURLResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobReportCallbackURLResponse, $methodName)) {
+                $GetJobReportCallbackURLResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJobReportCallbackURLResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetSplittedJobInfo
+    */
+    public function SetSplittedJobInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetSplittedJobInfo = new SetSplittedJobInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetSplittedJobInfo, $methodName)) {
+                $SetSplittedJobInfo->$methodName($paramValue);
+            }
+        }
+        return $SetSplittedJobInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetSplittedJobInfoResponse
+    */
+    public function SetSplittedJobInfoResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetSplittedJobInfoResponse = new SetSplittedJobInfoResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetSplittedJobInfoResponse, $methodName)) {
+                $SetSplittedJobInfoResponse->$methodName($paramValue);
+            }
+        }
+        return $SetSplittedJobInfoResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsSplittedJob
+    */
+    public function IsSplittedJob($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsSplittedJob = new IsSplittedJob();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsSplittedJob, $methodName)) {
+                $IsSplittedJob->$methodName($paramValue);
+            }
+        }
+        return $IsSplittedJob;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsSplittedJobResponse
+    */
+    public function IsSplittedJobResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsSplittedJobResponse = new IsSplittedJobResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsSplittedJobResponse, $methodName)) {
+                $IsSplittedJobResponse->$methodName($paramValue);
+            }
+        }
+        return $IsSplittedJobResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsParallelProcessingJob
+    */
+    public function IsParallelProcessingJob($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsParallelProcessingJob = new IsParallelProcessingJob();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsParallelProcessingJob, $methodName)) {
+                $IsParallelProcessingJob->$methodName($paramValue);
+            }
+        }
+        return $IsParallelProcessingJob;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsParallelProcessingJobResponse
+    */
+    public function IsParallelProcessingJobResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsParallelProcessingJobResponse = new IsParallelProcessingJobResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsParallelProcessingJobResponse, $methodName)) {
+                $IsParallelProcessingJobResponse->$methodName($paramValue);
+            }
+        }
+        return $IsParallelProcessingJobResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAutomaticSubSplitAndMerge
+    */
+    public function SetAutomaticSubSplitAndMerge($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAutomaticSubSplitAndMerge = new SetAutomaticSubSplitAndMerge();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAutomaticSubSplitAndMerge, $methodName)) {
+                $SetAutomaticSubSplitAndMerge->$methodName($paramValue);
+            }
+        }
+        return $SetAutomaticSubSplitAndMerge;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAutomaticSubSplitAndMergeResponse
+    */
+    public function SetAutomaticSubSplitAndMergeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAutomaticSubSplitAndMergeResponse = new SetAutomaticSubSplitAndMergeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAutomaticSubSplitAndMergeResponse, $methodName)) {
+                $SetAutomaticSubSplitAndMergeResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAutomaticSubSplitAndMergeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsAutomaticSubSplitEnabled
+    */
+    public function IsAutomaticSubSplitEnabled($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsAutomaticSubSplitEnabled = new IsAutomaticSubSplitEnabled();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsAutomaticSubSplitEnabled, $methodName)) {
+                $IsAutomaticSubSplitEnabled->$methodName($paramValue);
+            }
+        }
+        return $IsAutomaticSubSplitEnabled;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsAutomaticSubSplitEnabledResponse
+    */
+    public function IsAutomaticSubSplitEnabledResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsAutomaticSubSplitEnabledResponse = new IsAutomaticSubSplitEnabledResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsAutomaticSubSplitEnabledResponse, $methodName)) {
+                $IsAutomaticSubSplitEnabledResponse->$methodName($paramValue);
+            }
+        }
+        return $IsAutomaticSubSplitEnabledResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsAutomaticMergeEnabled
+    */
+    public function IsAutomaticMergeEnabled($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsAutomaticMergeEnabled = new IsAutomaticMergeEnabled();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsAutomaticMergeEnabled, $methodName)) {
+                $IsAutomaticMergeEnabled->$methodName($paramValue);
+            }
+        }
+        return $IsAutomaticMergeEnabled;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsAutomaticMergeEnabledResponse
+    */
+    public function IsAutomaticMergeEnabledResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsAutomaticMergeEnabledResponse = new IsAutomaticMergeEnabledResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsAutomaticMergeEnabledResponse, $methodName)) {
+                $IsAutomaticMergeEnabledResponse->$methodName($paramValue);
+            }
+        }
+        return $IsAutomaticMergeEnabledResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsSubJob
+    */
+    public function IsSubJob($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsSubJob = new IsSubJob();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsSubJob, $methodName)) {
+                $IsSubJob->$methodName($paramValue);
+            }
+        }
+        return $IsSubJob;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsSubJobResponse
+    */
+    public function IsSubJobResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsSubJobResponse = new IsSubJobResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsSubJobResponse, $methodName)) {
+                $IsSubJobResponse->$methodName($paramValue);
+            }
+        }
+        return $IsSubJobResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobInfo
+    */
+    public function GetSubJobInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobInfo = new GetSubJobInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobInfo, $methodName)) {
+                $GetSubJobInfo->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobInfoResponse
+    */
+    public function GetSubJobInfoResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobInfoResponse = new GetSubJobInfoResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobInfoResponse, $methodName)) {
+                $GetSubJobInfoResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobInfoResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SubJobInfo
+    */
+    public function SubJobInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SubJobInfo = new SubJobInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SubJobInfo, $methodName)) {
+                $SubJobInfo->$methodName($paramValue);
+            }
+        }
+        return $SubJobInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobIndex
+    */
+    public function GetSubJobIndex($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobIndex = new GetSubJobIndex();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobIndex, $methodName)) {
+                $GetSubJobIndex->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobIndex;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobIndexResponse
+    */
+    public function GetSubJobIndexResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobIndexResponse = new GetSubJobIndexResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobIndexResponse, $methodName)) {
+                $GetSubJobIndexResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobIndexResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobOrigFrom
+    */
+    public function GetSubJobOrigFrom($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobOrigFrom = new GetSubJobOrigFrom();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobOrigFrom, $methodName)) {
+                $GetSubJobOrigFrom->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobOrigFrom;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobOrigFromResponse
+    */
+    public function GetSubJobOrigFromResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobOrigFromResponse = new GetSubJobOrigFromResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobOrigFromResponse, $methodName)) {
+                $GetSubJobOrigFromResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobOrigFromResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobOrigTo
+    */
+    public function GetSubJobOrigTo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobOrigTo = new GetSubJobOrigTo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobOrigTo, $methodName)) {
+                $GetSubJobOrigTo->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobOrigTo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobOrigToResponse
+    */
+    public function GetSubJobOrigToResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobOrigToResponse = new GetSubJobOrigToResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobOrigToResponse, $methodName)) {
+                $GetSubJobOrigToResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobOrigToResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobSplitCount
+    */
+    public function GetSubJobSplitCount($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobSplitCount = new GetSubJobSplitCount();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobSplitCount, $methodName)) {
+                $GetSubJobSplitCount->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobSplitCount;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobSplitCountResponse
+    */
+    public function GetSubJobSplitCountResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobSplitCountResponse = new GetSubJobSplitCountResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobSplitCountResponse, $methodName)) {
+                $GetSubJobSplitCountResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobSplitCountResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobSplitType
+    */
+    public function GetSubJobSplitType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobSplitType = new GetSubJobSplitType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobSplitType, $methodName)) {
+                $GetSubJobSplitType->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobSplitType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubJobSplitTypeResponse
+    */
+    public function GetSubJobSplitTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubJobSplitTypeResponse = new GetSubJobSplitTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubJobSplitTypeResponse, $methodName)) {
+                $GetSubJobSplitTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSubJobSplitTypeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobParameter
+    */
+    public function SetJobParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobParameter = new SetJobParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobParameter, $methodName)) {
+                $SetJobParameter->$methodName($paramValue);
+            }
+        }
+        return $SetJobParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobParameterResponse
+    */
+    public function SetJobParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobParameterResponse = new SetJobParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobParameterResponse, $methodName)) {
+                $SetJobParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $SetJobParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobParameters
+    */
+    public function SetJobParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobParameters = new SetJobParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobParameters, $methodName)) {
+                $SetJobParameters->$methodName($paramValue);
+            }
+        }
+        return $SetJobParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJobParametersResponse
+    */
+    public function SetJobParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJobParametersResponse = new SetJobParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJobParametersResponse, $methodName)) {
+                $SetJobParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $SetJobParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobParameter
+    */
+    public function GetJobParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobParameter = new GetJobParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobParameter, $methodName)) {
+                $GetJobParameter->$methodName($paramValue);
+            }
+        }
+        return $GetJobParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobParameterResponse
+    */
+    public function GetJobParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobParameterResponse = new GetJobParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobParameterResponse, $methodName)) {
+                $GetJobParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJobParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobParameters
+    */
+    public function GetJobParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobParameters = new GetJobParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobParameters, $methodName)) {
+                $GetJobParameters->$methodName($paramValue);
+            }
+        }
+        return $GetJobParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJobParametersResponse
+    */
+    public function GetJobParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJobParametersResponse = new GetJobParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJobParametersResponse, $methodName)) {
+                $GetJobParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJobParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJobParameter
+    */
+    public function RemoveJobParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJobParameter = new RemoveJobParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJobParameter, $methodName)) {
+                $RemoveJobParameter->$methodName($paramValue);
+            }
+        }
+        return $RemoveJobParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJobParameterResponse
+    */
+    public function RemoveJobParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJobParameterResponse = new RemoveJobParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJobParameterResponse, $methodName)) {
+                $RemoveJobParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveJobParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJobParameters
+    */
+    public function RemoveJobParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJobParameters = new RemoveJobParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJobParameters, $methodName)) {
+                $RemoveJobParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveJobParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJobParametersResponse
+    */
+    public function RemoveJobParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJobParametersResponse = new RemoveJobParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJobParametersResponse, $methodName)) {
+                $RemoveJobParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveJobParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllJobParameters
+    */
+    public function RemoveAllJobParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllJobParameters = new RemoveAllJobParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllJobParameters, $methodName)) {
+                $RemoveAllJobParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllJobParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllJobParametersResponse
+    */
+    public function RemoveAllJobParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllJobParametersResponse = new RemoveAllJobParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllJobParametersResponse, $methodName)) {
+                $RemoveAllJobParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllJobParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailInfo
+    */
+    public function SetEmailInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailInfo = new SetEmailInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailInfo, $methodName)) {
+                $SetEmailInfo->$methodName($paramValue);
+            }
+        }
+        return $SetEmailInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailInfoResponse
+    */
+    public function SetEmailInfoResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailInfoResponse = new SetEmailInfoResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailInfoResponse, $methodName)) {
+                $SetEmailInfoResponse->$methodName($paramValue);
+            }
+        }
+        return $SetEmailInfoResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailAdorName
+    */
+    public function SetEmailAdorName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailAdorName = new SetEmailAdorName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailAdorName, $methodName)) {
+                $SetEmailAdorName->$methodName($paramValue);
+            }
+        }
+        return $SetEmailAdorName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmailAdorNameResponse
+    */
+    public function SetEmailAdorNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmailAdorNameResponse = new SetEmailAdorNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmailAdorNameResponse, $methodName)) {
+                $SetEmailAdorNameResponse->$methodName($paramValue);
+            }
+        }
+        return $SetEmailAdorNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetSenderAdorName
+    */
+    public function SetSenderAdorName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetSenderAdorName = new SetSenderAdorName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetSenderAdorName, $methodName)) {
+                $SetSenderAdorName->$methodName($paramValue);
+            }
+        }
+        return $SetSenderAdorName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetSenderAdorNameResponse
+    */
+    public function SetSenderAdorNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetSenderAdorNameResponse = new SetSenderAdorNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetSenderAdorNameResponse, $methodName)) {
+                $SetSenderAdorNameResponse->$methodName($paramValue);
+            }
+        }
+        return $SetSenderAdorNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetSubjectAdorName
+    */
+    public function SetSubjectAdorName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetSubjectAdorName = new SetSubjectAdorName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetSubjectAdorName, $methodName)) {
+                $SetSubjectAdorName->$methodName($paramValue);
+            }
+        }
+        return $SetSubjectAdorName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetSubjectAdorNameResponse
+    */
+    public function SetSubjectAdorNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetSubjectAdorNameResponse = new SetSubjectAdorNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetSubjectAdorNameResponse, $methodName)) {
+                $SetSubjectAdorNameResponse->$methodName($paramValue);
+            }
+        }
+        return $SetSubjectAdorNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmbedEmailBody
+    */
+    public function SetEmbedEmailBody($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmbedEmailBody = new SetEmbedEmailBody();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmbedEmailBody, $methodName)) {
+                $SetEmbedEmailBody->$methodName($paramValue);
+            }
+        }
+        return $SetEmbedEmailBody;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEmbedEmailBodyResponse
+    */
+    public function SetEmbedEmailBodyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEmbedEmailBodyResponse = new SetEmbedEmailBodyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEmbedEmailBodyResponse, $methodName)) {
+                $SetEmbedEmailBodyResponse->$methodName($paramValue);
+            }
+        }
+        return $SetEmbedEmailBodyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetProcessEmailOutputType
+    */
+    public function SetProcessEmailOutputType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetProcessEmailOutputType = new SetProcessEmailOutputType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetProcessEmailOutputType, $methodName)) {
+                $SetProcessEmailOutputType->$methodName($paramValue);
+            }
+        }
+        return $SetProcessEmailOutputType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetProcessEmailOutputTypeResponse
+    */
+    public function SetProcessEmailOutputTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetProcessEmailOutputTypeResponse = new SetProcessEmailOutputTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetProcessEmailOutputTypeResponse, $methodName)) {
+                $SetProcessEmailOutputTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $SetProcessEmailOutputTypeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOnDemandBaseURL
+    */
+    public function SetOnDemandBaseURL($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOnDemandBaseURL = new SetOnDemandBaseURL();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOnDemandBaseURL, $methodName)) {
+                $SetOnDemandBaseURL->$methodName($paramValue);
+            }
+        }
+        return $SetOnDemandBaseURL;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOnDemandBaseURLResponse
+    */
+    public function SetOnDemandBaseURLResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOnDemandBaseURLResponse = new SetOnDemandBaseURLResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOnDemandBaseURLResponse, $methodName)) {
+                $SetOnDemandBaseURLResponse->$methodName($paramValue);
+            }
+        }
+        return $SetOnDemandBaseURLResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailAdorName
+    */
+    public function GetEmailAdorName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailAdorName = new GetEmailAdorName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailAdorName, $methodName)) {
+                $GetEmailAdorName->$methodName($paramValue);
+            }
+        }
+        return $GetEmailAdorName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmailAdorNameResponse
+    */
+    public function GetEmailAdorNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmailAdorNameResponse = new GetEmailAdorNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmailAdorNameResponse, $methodName)) {
+                $GetEmailAdorNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetEmailAdorNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSenderAdorName
+    */
+    public function GetSenderAdorName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSenderAdorName = new GetSenderAdorName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSenderAdorName, $methodName)) {
+                $GetSenderAdorName->$methodName($paramValue);
+            }
+        }
+        return $GetSenderAdorName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSenderAdorNameResponse
+    */
+    public function GetSenderAdorNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSenderAdorNameResponse = new GetSenderAdorNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSenderAdorNameResponse, $methodName)) {
+                $GetSenderAdorNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSenderAdorNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubjectAdorName
+    */
+    public function GetSubjectAdorName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubjectAdorName = new GetSubjectAdorName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubjectAdorName, $methodName)) {
+                $GetSubjectAdorName->$methodName($paramValue);
+            }
+        }
+        return $GetSubjectAdorName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSubjectAdorNameResponse
+    */
+    public function GetSubjectAdorNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSubjectAdorNameResponse = new GetSubjectAdorNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSubjectAdorNameResponse, $methodName)) {
+                $GetSubjectAdorNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSubjectAdorNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmbedEmailBody
+    */
+    public function GetEmbedEmailBody($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmbedEmailBody = new GetEmbedEmailBody();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmbedEmailBody, $methodName)) {
+                $GetEmbedEmailBody->$methodName($paramValue);
+            }
+        }
+        return $GetEmbedEmailBody;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEmbedEmailBodyResponse
+    */
+    public function GetEmbedEmailBodyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEmbedEmailBodyResponse = new GetEmbedEmailBodyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEmbedEmailBodyResponse, $methodName)) {
+                $GetEmbedEmailBodyResponse->$methodName($paramValue);
+            }
+        }
+        return $GetEmbedEmailBodyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetProcessEmailOutputType
+    */
+    public function GetProcessEmailOutputType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetProcessEmailOutputType = new GetProcessEmailOutputType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetProcessEmailOutputType, $methodName)) {
+                $GetProcessEmailOutputType->$methodName($paramValue);
+            }
+        }
+        return $GetProcessEmailOutputType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetProcessEmailOutputTypeResponse
+    */
+    public function GetProcessEmailOutputTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetProcessEmailOutputTypeResponse = new GetProcessEmailOutputTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetProcessEmailOutputTypeResponse, $methodName)) {
+                $GetProcessEmailOutputTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $GetProcessEmailOutputTypeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOnDemandBaseURL
+    */
+    public function GetOnDemandBaseURL($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOnDemandBaseURL = new GetOnDemandBaseURL();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOnDemandBaseURL, $methodName)) {
+                $GetOnDemandBaseURL->$methodName($paramValue);
+            }
+        }
+        return $GetOnDemandBaseURL;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOnDemandBaseURLResponse
+    */
+    public function GetOnDemandBaseURLResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOnDemandBaseURLResponse = new GetOnDemandBaseURLResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOnDemandBaseURLResponse, $methodName)) {
+                $GetOnDemandBaseURLResponse->$methodName($paramValue);
+            }
+        }
+        return $GetOnDemandBaseURLResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputFileNameOption
+    */
+    public function GetOutputFileNameOption($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputFileNameOption = new GetOutputFileNameOption();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputFileNameOption, $methodName)) {
+                $GetOutputFileNameOption->$methodName($paramValue);
+            }
+        }
+        return $GetOutputFileNameOption;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputFileNameOptionResponse
+    */
+    public function GetOutputFileNameOptionResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputFileNameOptionResponse = new GetOutputFileNameOptionResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputFileNameOptionResponse, $methodName)) {
+                $GetOutputFileNameOptionResponse->$methodName($paramValue);
+            }
+        }
+        return $GetOutputFileNameOptionResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputInfo
+    */
+    public function SetOutputInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputInfo = new SetOutputInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputInfo, $methodName)) {
+                $SetOutputInfo->$methodName($paramValue);
+            }
+        }
+        return $SetOutputInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputInfoResponse
+    */
+    public function SetOutputInfoResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputInfoResponse = new SetOutputInfoResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputInfoResponse, $methodName)) {
+                $SetOutputInfoResponse->$methodName($paramValue);
+            }
+        }
+        return $SetOutputInfoResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputParameter
+    */
+    public function SetOutputParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputParameter = new SetOutputParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputParameter, $methodName)) {
+                $SetOutputParameter->$methodName($paramValue);
+            }
+        }
+        return $SetOutputParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputParameterResponse
+    */
+    public function SetOutputParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputParameterResponse = new SetOutputParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputParameterResponse, $methodName)) {
+                $SetOutputParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $SetOutputParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputParameters
+    */
+    public function SetOutputParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputParameters = new SetOutputParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputParameters, $methodName)) {
+                $SetOutputParameters->$methodName($paramValue);
+            }
+        }
+        return $SetOutputParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputParametersResponse
+    */
+    public function SetOutputParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputParametersResponse = new SetOutputParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputParametersResponse, $methodName)) {
+                $SetOutputParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $SetOutputParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputParameter
+    */
+    public function GetOutputParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputParameter = new GetOutputParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputParameter, $methodName)) {
+                $GetOutputParameter->$methodName($paramValue);
+            }
+        }
+        return $GetOutputParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputParameterResponse
+    */
+    public function GetOutputParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputParameterResponse = new GetOutputParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputParameterResponse, $methodName)) {
+                $GetOutputParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $GetOutputParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputParameters
+    */
+    public function GetOutputParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputParameters = new GetOutputParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputParameters, $methodName)) {
+                $GetOutputParameters->$methodName($paramValue);
+            }
+        }
+        return $GetOutputParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputParametersResponse
+    */
+    public function GetOutputParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputParametersResponse = new GetOutputParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputParametersResponse, $methodName)) {
+                $GetOutputParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $GetOutputParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveOutputParameter
+    */
+    public function RemoveOutputParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveOutputParameter = new RemoveOutputParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveOutputParameter, $methodName)) {
+                $RemoveOutputParameter->$methodName($paramValue);
+            }
+        }
+        return $RemoveOutputParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveOutputParameterResponse
+    */
+    public function RemoveOutputParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveOutputParameterResponse = new RemoveOutputParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveOutputParameterResponse, $methodName)) {
+                $RemoveOutputParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveOutputParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveOutputParameters
+    */
+    public function RemoveOutputParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveOutputParameters = new RemoveOutputParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveOutputParameters, $methodName)) {
+                $RemoveOutputParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveOutputParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveOutputParametersResponse
+    */
+    public function RemoveOutputParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveOutputParametersResponse = new RemoveOutputParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveOutputParametersResponse, $methodName)) {
+                $RemoveOutputParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveOutputParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllOutputParameters
+    */
+    public function RemoveAllOutputParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllOutputParameters = new RemoveAllOutputParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllOutputParameters, $methodName)) {
+                $RemoveAllOutputParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllOutputParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllOutputParametersResponse
+    */
+    public function RemoveAllOutputParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllOutputParametersResponse = new RemoveAllOutputParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllOutputParametersResponse, $methodName)) {
+                $RemoveAllOutputParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllOutputParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAppendJobID
+    */
+    public function SetAppendJobID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAppendJobID = new SetAppendJobID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAppendJobID, $methodName)) {
+                $SetAppendJobID->$methodName($paramValue);
+            }
+        }
+        return $SetAppendJobID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAppendJobIDResponse
+    */
+    public function SetAppendJobIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAppendJobIDResponse = new SetAppendJobIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAppendJobIDResponse, $methodName)) {
+                $SetAppendJobIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAppendJobIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEnvJobName
+    */
+    public function SetEnvJobName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEnvJobName = new SetEnvJobName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEnvJobName, $methodName)) {
+                $SetEnvJobName->$methodName($paramValue);
+            }
+        }
+        return $SetEnvJobName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetEnvJobNameResponse
+    */
+    public function SetEnvJobNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetEnvJobNameResponse = new SetEnvJobNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetEnvJobNameResponse, $methodName)) {
+                $SetEnvJobNameResponse->$methodName($paramValue);
+            }
+        }
+        return $SetEnvJobNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputMedia
+    */
+    public function SetOutputMedia($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputMedia = new SetOutputMedia();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputMedia, $methodName)) {
+                $SetOutputMedia->$methodName($paramValue);
+            }
+        }
+        return $SetOutputMedia;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputMediaResponse
+    */
+    public function SetOutputMediaResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputMediaResponse = new SetOutputMediaResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputMediaResponse, $methodName)) {
+                $SetOutputMediaResponse->$methodName($paramValue);
+            }
+        }
+        return $SetOutputMediaResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputType
+    */
+    public function SetOutputType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputType = new SetOutputType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputType, $methodName)) {
+                $SetOutputType->$methodName($paramValue);
+            }
+        }
+        return $SetOutputType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputTypeResponse
+    */
+    public function SetOutputTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputTypeResponse = new SetOutputTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputTypeResponse, $methodName)) {
+                $SetOutputTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $SetOutputTypeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputFolder
+    */
+    public function SetOutputFolder($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputFolder = new SetOutputFolder();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputFolder, $methodName)) {
+                $SetOutputFolder->$methodName($paramValue);
+            }
+        }
+        return $SetOutputFolder;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputFolderResponse
+    */
+    public function SetOutputFolderResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputFolderResponse = new SetOutputFolderResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputFolderResponse, $methodName)) {
+                $SetOutputFolderResponse->$methodName($paramValue);
+            }
+        }
+        return $SetOutputFolderResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputFileName
+    */
+    public function SetOutputFileName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputFileName = new SetOutputFileName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputFileName, $methodName)) {
+                $SetOutputFileName->$methodName($paramValue);
+            }
+        }
+        return $SetOutputFileName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetOutputFileNameResponse
+    */
+    public function SetOutputFileNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetOutputFileNameResponse = new SetOutputFileNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetOutputFileNameResponse, $methodName)) {
+                $SetOutputFileNameResponse->$methodName($paramValue);
+            }
+        }
+        return $SetOutputFileNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAppendJobID
+    */
+    public function GetAppendJobID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAppendJobID = new GetAppendJobID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAppendJobID, $methodName)) {
+                $GetAppendJobID->$methodName($paramValue);
+            }
+        }
+        return $GetAppendJobID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAppendJobIDResponse
+    */
+    public function GetAppendJobIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAppendJobIDResponse = new GetAppendJobIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAppendJobIDResponse, $methodName)) {
+                $GetAppendJobIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAppendJobIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDefaultCacheEnv
+    */
+    public function GetDefaultCacheEnv($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDefaultCacheEnv = new GetDefaultCacheEnv();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDefaultCacheEnv, $methodName)) {
+                $GetDefaultCacheEnv->$methodName($paramValue);
+            }
+        }
+        return $GetDefaultCacheEnv;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDefaultCacheEnvResponse
+    */
+    public function GetDefaultCacheEnvResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDefaultCacheEnvResponse = new GetDefaultCacheEnvResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDefaultCacheEnvResponse, $methodName)) {
+                $GetDefaultCacheEnvResponse->$methodName($paramValue);
+            }
+        }
+        return $GetDefaultCacheEnvResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEnvJobName
+    */
+    public function GetEnvJobName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEnvJobName = new GetEnvJobName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEnvJobName, $methodName)) {
+                $GetEnvJobName->$methodName($paramValue);
+            }
+        }
+        return $GetEnvJobName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetEnvJobNameResponse
+    */
+    public function GetEnvJobNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetEnvJobNameResponse = new GetEnvJobNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetEnvJobNameResponse, $methodName)) {
+                $GetEnvJobNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetEnvJobNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputMedia
+    */
+    public function GetOutputMedia($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputMedia = new GetOutputMedia();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputMedia, $methodName)) {
+                $GetOutputMedia->$methodName($paramValue);
+            }
+        }
+        return $GetOutputMedia;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputMediaResponse
+    */
+    public function GetOutputMediaResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputMediaResponse = new GetOutputMediaResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputMediaResponse, $methodName)) {
+                $GetOutputMediaResponse->$methodName($paramValue);
+            }
+        }
+        return $GetOutputMediaResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputType
+    */
+    public function GetOutputType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputType = new GetOutputType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputType, $methodName)) {
+                $GetOutputType->$methodName($paramValue);
+            }
+        }
+        return $GetOutputType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputTypeResponse
+    */
+    public function GetOutputTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputTypeResponse = new GetOutputTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputTypeResponse, $methodName)) {
+                $GetOutputTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $GetOutputTypeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputFolder
+    */
+    public function GetOutputFolder($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputFolder = new GetOutputFolder();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputFolder, $methodName)) {
+                $GetOutputFolder->$methodName($paramValue);
+            }
+        }
+        return $GetOutputFolder;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputFolderResponse
+    */
+    public function GetOutputFolderResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputFolderResponse = new GetOutputFolderResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputFolderResponse, $methodName)) {
+                $GetOutputFolderResponse->$methodName($paramValue);
+            }
+        }
+        return $GetOutputFolderResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputFileName
+    */
+    public function GetOutputFileName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputFileName = new GetOutputFileName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputFileName, $methodName)) {
+                $GetOutputFileName->$methodName($paramValue);
+            }
+        }
+        return $GetOutputFileName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetOutputFileNameResponse
+    */
+    public function GetOutputFileNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetOutputFileNameResponse = new GetOutputFileNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetOutputFileNameResponse, $methodName)) {
+                $GetOutputFileNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetOutputFileNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddImposition
+    */
+    public function AddImposition($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddImposition = new AddImposition();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddImposition, $methodName)) {
+                $AddImposition->$methodName($paramValue);
+            }
+        }
+        return $AddImposition;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddImpositionResponse
+    */
+    public function AddImpositionResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddImpositionResponse = new AddImpositionResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddImpositionResponse, $methodName)) {
+                $AddImpositionResponse->$methodName($paramValue);
+            }
+        }
+        return $AddImpositionResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveImposition
+    */
+    public function RemoveImposition($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveImposition = new RemoveImposition();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveImposition, $methodName)) {
+                $RemoveImposition->$methodName($paramValue);
+            }
+        }
+        return $RemoveImposition;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveImpositionResponse
+    */
+    public function RemoveImpositionResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveImpositionResponse = new RemoveImpositionResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveImpositionResponse, $methodName)) {
+                $RemoveImpositionResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveImpositionResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsImpositionExist
+    */
+    public function IsImpositionExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsImpositionExist = new IsImpositionExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsImpositionExist, $methodName)) {
+                $IsImpositionExist->$methodName($paramValue);
+            }
+        }
+        return $IsImpositionExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsImpositionExistResponse
+    */
+    public function IsImpositionExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsImpositionExistResponse = new IsImpositionExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsImpositionExistResponse, $methodName)) {
+                $IsImpositionExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsImpositionExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetImpositionParameter
+    */
+    public function SetImpositionParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetImpositionParameter = new SetImpositionParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetImpositionParameter, $methodName)) {
+                $SetImpositionParameter->$methodName($paramValue);
+            }
+        }
+        return $SetImpositionParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetImpositionParameterResponse
+    */
+    public function SetImpositionParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetImpositionParameterResponse = new SetImpositionParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetImpositionParameterResponse, $methodName)) {
+                $SetImpositionParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $SetImpositionParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetImpositionParameters
+    */
+    public function SetImpositionParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetImpositionParameters = new SetImpositionParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetImpositionParameters, $methodName)) {
+                $SetImpositionParameters->$methodName($paramValue);
+            }
+        }
+        return $SetImpositionParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetImpositionParametersResponse
+    */
+    public function SetImpositionParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetImpositionParametersResponse = new SetImpositionParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetImpositionParametersResponse, $methodName)) {
+                $SetImpositionParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $SetImpositionParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetImpositionParameter
+    */
+    public function GetImpositionParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetImpositionParameter = new GetImpositionParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetImpositionParameter, $methodName)) {
+                $GetImpositionParameter->$methodName($paramValue);
+            }
+        }
+        return $GetImpositionParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetImpositionParameterResponse
+    */
+    public function GetImpositionParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetImpositionParameterResponse = new GetImpositionParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetImpositionParameterResponse, $methodName)) {
+                $GetImpositionParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $GetImpositionParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetImpositionParameters
+    */
+    public function GetImpositionParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetImpositionParameters = new GetImpositionParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetImpositionParameters, $methodName)) {
+                $GetImpositionParameters->$methodName($paramValue);
+            }
+        }
+        return $GetImpositionParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetImpositionParametersResponse
+    */
+    public function GetImpositionParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetImpositionParametersResponse = new GetImpositionParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetImpositionParametersResponse, $methodName)) {
+                $GetImpositionParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $GetImpositionParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveImpositionParameter
+    */
+    public function RemoveImpositionParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveImpositionParameter = new RemoveImpositionParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveImpositionParameter, $methodName)) {
+                $RemoveImpositionParameter->$methodName($paramValue);
+            }
+        }
+        return $RemoveImpositionParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveImpositionParameterResponse
+    */
+    public function RemoveImpositionParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveImpositionParameterResponse = new RemoveImpositionParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveImpositionParameterResponse, $methodName)) {
+                $RemoveImpositionParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveImpositionParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveImpositionParameters
+    */
+    public function RemoveImpositionParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveImpositionParameters = new RemoveImpositionParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveImpositionParameters, $methodName)) {
+                $RemoveImpositionParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveImpositionParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveImpositionParametersResponse
+    */
+    public function RemoveImpositionParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveImpositionParametersResponse = new RemoveImpositionParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveImpositionParametersResponse, $methodName)) {
+                $RemoveImpositionParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveImpositionParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllImpositionParameters
+    */
+    public function RemoveAllImpositionParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllImpositionParameters = new RemoveAllImpositionParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllImpositionParameters, $methodName)) {
+                $RemoveAllImpositionParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllImpositionParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllImpositionParametersResponse
+    */
+    public function RemoveAllImpositionParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllImpositionParametersResponse = new RemoveAllImpositionParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllImpositionParametersResponse, $methodName)) {
+                $RemoveAllImpositionParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllImpositionParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddJDF
+    */
+    public function AddJDF($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddJDF = new AddJDF();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddJDF, $methodName)) {
+                $AddJDF->$methodName($paramValue);
+            }
+        }
+        return $AddJDF;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddJDFResponse
+    */
+    public function AddJDFResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddJDFResponse = new AddJDFResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddJDFResponse, $methodName)) {
+                $AddJDFResponse->$methodName($paramValue);
+            }
+        }
+        return $AddJDFResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJDF
+    */
+    public function RemoveJDF($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJDF = new RemoveJDF();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJDF, $methodName)) {
+                $RemoveJDF->$methodName($paramValue);
+            }
+        }
+        return $RemoveJDF;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJDFResponse
+    */
+    public function RemoveJDFResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJDFResponse = new RemoveJDFResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJDFResponse, $methodName)) {
+                $RemoveJDFResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveJDFResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsJDFExist
+    */
+    public function IsJDFExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsJDFExist = new IsJDFExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsJDFExist, $methodName)) {
+                $IsJDFExist->$methodName($paramValue);
+            }
+        }
+        return $IsJDFExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsJDFExistResponse
+    */
+    public function IsJDFExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsJDFExistResponse = new IsJDFExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsJDFExistResponse, $methodName)) {
+                $IsJDFExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsJDFExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJDFParameter
+    */
+    public function SetJDFParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJDFParameter = new SetJDFParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJDFParameter, $methodName)) {
+                $SetJDFParameter->$methodName($paramValue);
+            }
+        }
+        return $SetJDFParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJDFParameterResponse
+    */
+    public function SetJDFParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJDFParameterResponse = new SetJDFParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJDFParameterResponse, $methodName)) {
+                $SetJDFParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $SetJDFParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJDFParameters
+    */
+    public function SetJDFParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJDFParameters = new SetJDFParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJDFParameters, $methodName)) {
+                $SetJDFParameters->$methodName($paramValue);
+            }
+        }
+        return $SetJDFParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetJDFParametersResponse
+    */
+    public function SetJDFParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetJDFParametersResponse = new SetJDFParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetJDFParametersResponse, $methodName)) {
+                $SetJDFParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $SetJDFParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJDFParameter
+    */
+    public function GetJDFParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJDFParameter = new GetJDFParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJDFParameter, $methodName)) {
+                $GetJDFParameter->$methodName($paramValue);
+            }
+        }
+        return $GetJDFParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJDFParameterResponse
+    */
+    public function GetJDFParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJDFParameterResponse = new GetJDFParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJDFParameterResponse, $methodName)) {
+                $GetJDFParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJDFParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJDFParameters
+    */
+    public function GetJDFParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJDFParameters = new GetJDFParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJDFParameters, $methodName)) {
+                $GetJDFParameters->$methodName($paramValue);
+            }
+        }
+        return $GetJDFParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetJDFParametersResponse
+    */
+    public function GetJDFParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetJDFParametersResponse = new GetJDFParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetJDFParametersResponse, $methodName)) {
+                $GetJDFParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $GetJDFParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJDFParameter
+    */
+    public function RemoveJDFParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJDFParameter = new RemoveJDFParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJDFParameter, $methodName)) {
+                $RemoveJDFParameter->$methodName($paramValue);
+            }
+        }
+        return $RemoveJDFParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJDFParameterResponse
+    */
+    public function RemoveJDFParameterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJDFParameterResponse = new RemoveJDFParameterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJDFParameterResponse, $methodName)) {
+                $RemoveJDFParameterResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveJDFParameterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJDFParameters
+    */
+    public function RemoveJDFParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJDFParameters = new RemoveJDFParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJDFParameters, $methodName)) {
+                $RemoveJDFParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveJDFParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveJDFParametersResponse
+    */
+    public function RemoveJDFParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveJDFParametersResponse = new RemoveJDFParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveJDFParametersResponse, $methodName)) {
+                $RemoveJDFParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveJDFParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllJDFParameters
+    */
+    public function RemoveAllJDFParameters($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllJDFParameters = new RemoveAllJDFParameters();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllJDFParameters, $methodName)) {
+                $RemoveAllJDFParameters->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllJDFParameters;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllJDFParametersResponse
+    */
+    public function RemoveAllJDFParametersResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllJDFParametersResponse = new RemoveAllJDFParametersResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllJDFParametersResponse, $methodName)) {
+                $RemoveAllJDFParametersResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllJDFParametersResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddCompression
+    */
+    public function AddCompression($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddCompression = new AddCompression();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddCompression, $methodName)) {
+                $AddCompression->$methodName($paramValue);
+            }
+        }
+        return $AddCompression;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddCompressionResponse
+    */
+    public function AddCompressionResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddCompressionResponse = new AddCompressionResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddCompressionResponse, $methodName)) {
+                $AddCompressionResponse->$methodName($paramValue);
+            }
+        }
+        return $AddCompressionResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveCompression
+    */
+    public function RemoveCompression($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveCompression = new RemoveCompression();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveCompression, $methodName)) {
+                $RemoveCompression->$methodName($paramValue);
+            }
+        }
+        return $RemoveCompression;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveCompressionResponse
+    */
+    public function RemoveCompressionResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveCompressionResponse = new RemoveCompressionResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveCompressionResponse, $methodName)) {
+                $RemoveCompressionResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveCompressionResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsCompressionExist
+    */
+    public function IsCompressionExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsCompressionExist = new IsCompressionExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsCompressionExist, $methodName)) {
+                $IsCompressionExist->$methodName($paramValue);
+            }
+        }
+        return $IsCompressionExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsCompressionExistResponse
+    */
+    public function IsCompressionExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsCompressionExistResponse = new IsCompressionExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsCompressionExistResponse, $methodName)) {
+                $IsCompressionExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsCompressionExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsVPCCompression
+    */
+    public function IsVPCCompression($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsVPCCompression = new IsVPCCompression();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsVPCCompression, $methodName)) {
+                $IsVPCCompression->$methodName($paramValue);
+            }
+        }
+        return $IsVPCCompression;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsVPCCompressionResponse
+    */
+    public function IsVPCCompressionResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsVPCCompressionResponse = new IsVPCCompressionResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsVPCCompressionResponse, $methodName)) {
+                $IsVPCCompressionResponse->$methodName($paramValue);
+            }
+        }
+        return $IsVPCCompressionResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddDestinationByID
+    */
+    public function AddDestinationByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddDestinationByID = new AddDestinationByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddDestinationByID, $methodName)) {
+                $AddDestinationByID->$methodName($paramValue);
+            }
+        }
+        return $AddDestinationByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddDestinationByIDResponse
+    */
+    public function AddDestinationByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddDestinationByIDResponse = new AddDestinationByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddDestinationByIDResponse, $methodName)) {
+                $AddDestinationByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $AddDestinationByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddFTP
+    */
+    public function AddFTP($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddFTP = new AddFTP();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddFTP, $methodName)) {
+                $AddFTP->$methodName($paramValue);
+            }
+        }
+        return $AddFTP;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddFTPResponse
+    */
+    public function AddFTPResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddFTPResponse = new AddFTPResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddFTPResponse, $methodName)) {
+                $AddFTPResponse->$methodName($paramValue);
+            }
+        }
+        return $AddFTPResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddFTPByID
+    */
+    public function AddFTPByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddFTPByID = new AddFTPByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddFTPByID, $methodName)) {
+                $AddFTPByID->$methodName($paramValue);
+            }
+        }
+        return $AddFTPByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddFTPByIDResponse
+    */
+    public function AddFTPByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddFTPByIDResponse = new AddFTPByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddFTPByIDResponse, $methodName)) {
+                $AddFTPByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $AddFTPByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveFTP
+    */
+    public function RemoveFTP($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveFTP = new RemoveFTP();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveFTP, $methodName)) {
+                $RemoveFTP->$methodName($paramValue);
+            }
+        }
+        return $RemoveFTP;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveFTPResponse
+    */
+    public function RemoveFTPResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveFTPResponse = new RemoveFTPResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveFTPResponse, $methodName)) {
+                $RemoveFTPResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveFTPResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFTPExist
+    */
+    public function IsFTPExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFTPExist = new IsFTPExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFTPExist, $methodName)) {
+                $IsFTPExist->$methodName($paramValue);
+            }
+        }
+        return $IsFTPExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFTPExistResponse
+    */
+    public function IsFTPExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFTPExistResponse = new IsFTPExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFTPExistResponse, $methodName)) {
+                $IsFTPExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsFTPExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPID
+    */
+    public function GetFTPID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPID = new GetFTPID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPID, $methodName)) {
+                $GetFTPID->$methodName($paramValue);
+            }
+        }
+        return $GetFTPID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPIDResponse
+    */
+    public function GetFTPIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPIDResponse = new GetFTPIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPIDResponse, $methodName)) {
+                $GetFTPIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFTPIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPAddress
+    */
+    public function GetFTPAddress($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPAddress = new GetFTPAddress();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPAddress, $methodName)) {
+                $GetFTPAddress->$methodName($paramValue);
+            }
+        }
+        return $GetFTPAddress;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPAddressResponse
+    */
+    public function GetFTPAddressResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPAddressResponse = new GetFTPAddressResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPAddressResponse, $methodName)) {
+                $GetFTPAddressResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFTPAddressResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPPort
+    */
+    public function GetFTPPort($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPPort = new GetFTPPort();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPPort, $methodName)) {
+                $GetFTPPort->$methodName($paramValue);
+            }
+        }
+        return $GetFTPPort;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPPortResponse
+    */
+    public function GetFTPPortResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPPortResponse = new GetFTPPortResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPPortResponse, $methodName)) {
+                $GetFTPPortResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFTPPortResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPUser
+    */
+    public function GetFTPUser($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPUser = new GetFTPUser();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPUser, $methodName)) {
+                $GetFTPUser->$methodName($paramValue);
+            }
+        }
+        return $GetFTPUser;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPUserResponse
+    */
+    public function GetFTPUserResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPUserResponse = new GetFTPUserResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPUserResponse, $methodName)) {
+                $GetFTPUserResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFTPUserResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPPassword
+    */
+    public function GetFTPPassword($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPPassword = new GetFTPPassword();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPPassword, $methodName)) {
+                $GetFTPPassword->$methodName($paramValue);
+            }
+        }
+        return $GetFTPPassword;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPPasswordResponse
+    */
+    public function GetFTPPasswordResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPPasswordResponse = new GetFTPPasswordResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPPasswordResponse, $methodName)) {
+                $GetFTPPasswordResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFTPPasswordResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPPassive
+    */
+    public function GetFTPPassive($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPPassive = new GetFTPPassive();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPPassive, $methodName)) {
+                $GetFTPPassive->$methodName($paramValue);
+            }
+        }
+        return $GetFTPPassive;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFTPPassiveResponse
+    */
+    public function GetFTPPassiveResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFTPPassiveResponse = new GetFTPPassiveResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFTPPassiveResponse, $methodName)) {
+                $GetFTPPassiveResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFTPPassiveResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFTPDeleteSource
+    */
+    public function IsFTPDeleteSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFTPDeleteSource = new IsFTPDeleteSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFTPDeleteSource, $methodName)) {
+                $IsFTPDeleteSource->$methodName($paramValue);
+            }
+        }
+        return $IsFTPDeleteSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFTPDeleteSourceResponse
+    */
+    public function IsFTPDeleteSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFTPDeleteSourceResponse = new IsFTPDeleteSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFTPDeleteSourceResponse, $methodName)) {
+                $IsFTPDeleteSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $IsFTPDeleteSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddUMail
+    */
+    public function AddUMail($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddUMail = new AddUMail();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddUMail, $methodName)) {
+                $AddUMail->$methodName($paramValue);
+            }
+        }
+        return $AddUMail;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddUMailResponse
+    */
+    public function AddUMailResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddUMailResponse = new AddUMailResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddUMailResponse, $methodName)) {
+                $AddUMailResponse->$methodName($paramValue);
+            }
+        }
+        return $AddUMailResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveUMail
+    */
+    public function RemoveUMail($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveUMail = new RemoveUMail();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveUMail, $methodName)) {
+                $RemoveUMail->$methodName($paramValue);
+            }
+        }
+        return $RemoveUMail;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveUMailResponse
+    */
+    public function RemoveUMailResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveUMailResponse = new RemoveUMailResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveUMailResponse, $methodName)) {
+                $RemoveUMailResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveUMailResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsUMailExist
+    */
+    public function IsUMailExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsUMailExist = new IsUMailExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsUMailExist, $methodName)) {
+                $IsUMailExist->$methodName($paramValue);
+            }
+        }
+        return $IsUMailExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsUMailExistResponse
+    */
+    public function IsUMailExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsUMailExistResponse = new IsUMailExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsUMailExistResponse, $methodName)) {
+                $IsUMailExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsUMailExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUMailTemplate
+    */
+    public function GetUMailTemplate($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUMailTemplate = new GetUMailTemplate();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUMailTemplate, $methodName)) {
+                $GetUMailTemplate->$methodName($paramValue);
+            }
+        }
+        return $GetUMailTemplate;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUMailTemplateResponse
+    */
+    public function GetUMailTemplateResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUMailTemplateResponse = new GetUMailTemplateResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUMailTemplateResponse, $methodName)) {
+                $GetUMailTemplateResponse->$methodName($paramValue);
+            }
+        }
+        return $GetUMailTemplateResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUMailOrigZip
+    */
+    public function GetUMailOrigZip($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUMailOrigZip = new GetUMailOrigZip();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUMailOrigZip, $methodName)) {
+                $GetUMailOrigZip->$methodName($paramValue);
+            }
+        }
+        return $GetUMailOrigZip;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUMailOrigZipResponse
+    */
+    public function GetUMailOrigZipResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUMailOrigZipResponse = new GetUMailOrigZipResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUMailOrigZipResponse, $methodName)) {
+                $GetUMailOrigZipResponse->$methodName($paramValue);
+            }
+        }
+        return $GetUMailOrigZipResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUMailPCWT
+    */
+    public function GetUMailPCWT($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUMailPCWT = new GetUMailPCWT();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUMailPCWT, $methodName)) {
+                $GetUMailPCWT->$methodName($paramValue);
+            }
+        }
+        return $GetUMailPCWT;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUMailPCWTResponse
+    */
+    public function GetUMailPCWTResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUMailPCWTResponse = new GetUMailPCWTResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUMailPCWTResponse, $methodName)) {
+                $GetUMailPCWTResponse->$methodName($paramValue);
+            }
+        }
+        return $GetUMailPCWTResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUMailPCThick
+    */
+    public function GetUMailPCThick($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUMailPCThick = new GetUMailPCThick();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUMailPCThick, $methodName)) {
+                $GetUMailPCThick->$methodName($paramValue);
+            }
+        }
+        return $GetUMailPCThick;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUMailPCThickResponse
+    */
+    public function GetUMailPCThickResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUMailPCThickResponse = new GetUMailPCThickResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUMailPCThickResponse, $methodName)) {
+                $GetUMailPCThickResponse->$methodName($paramValue);
+            }
+        }
+        return $GetUMailPCThickResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddPrint
+    */
+    public function AddPrint($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddPrint = new AddPrint();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddPrint, $methodName)) {
+                $AddPrint->$methodName($paramValue);
+            }
+        }
+        return $AddPrint;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddPrintResponse
+    */
+    public function AddPrintResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddPrintResponse = new AddPrintResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddPrintResponse, $methodName)) {
+                $AddPrintResponse->$methodName($paramValue);
+            }
+        }
+        return $AddPrintResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddPrintByID
+    */
+    public function AddPrintByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddPrintByID = new AddPrintByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddPrintByID, $methodName)) {
+                $AddPrintByID->$methodName($paramValue);
+            }
+        }
+        return $AddPrintByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddPrintByIDResponse
+    */
+    public function AddPrintByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddPrintByIDResponse = new AddPrintByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddPrintByIDResponse, $methodName)) {
+                $AddPrintByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $AddPrintByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemovePrint
+    */
+    public function RemovePrint($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemovePrint = new RemovePrint();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemovePrint, $methodName)) {
+                $RemovePrint->$methodName($paramValue);
+            }
+        }
+        return $RemovePrint;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemovePrintResponse
+    */
+    public function RemovePrintResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemovePrintResponse = new RemovePrintResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemovePrintResponse, $methodName)) {
+                $RemovePrintResponse->$methodName($paramValue);
+            }
+        }
+        return $RemovePrintResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsPrintExist
+    */
+    public function IsPrintExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsPrintExist = new IsPrintExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsPrintExist, $methodName)) {
+                $IsPrintExist->$methodName($paramValue);
+            }
+        }
+        return $IsPrintExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsPrintExistResponse
+    */
+    public function IsPrintExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsPrintExistResponse = new IsPrintExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsPrintExistResponse, $methodName)) {
+                $IsPrintExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsPrintExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPrintID
+    */
+    public function GetPrintID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPrintID = new GetPrintID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPrintID, $methodName)) {
+                $GetPrintID->$methodName($paramValue);
+            }
+        }
+        return $GetPrintID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPrintIDResponse
+    */
+    public function GetPrintIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPrintIDResponse = new GetPrintIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPrintIDResponse, $methodName)) {
+                $GetPrintIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetPrintIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPrinter
+    */
+    public function GetPrinter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPrinter = new GetPrinter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPrinter, $methodName)) {
+                $GetPrinter->$methodName($paramValue);
+            }
+        }
+        return $GetPrinter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPrinterResponse
+    */
+    public function GetPrinterResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPrinterResponse = new GetPrinterResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPrinterResponse, $methodName)) {
+                $GetPrinterResponse->$methodName($paramValue);
+            }
+        }
+        return $GetPrinterResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsPrinterDeleteSource
+    */
+    public function IsPrinterDeleteSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsPrinterDeleteSource = new IsPrinterDeleteSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsPrinterDeleteSource, $methodName)) {
+                $IsPrinterDeleteSource->$methodName($paramValue);
+            }
+        }
+        return $IsPrinterDeleteSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsPrinterDeleteSourceResponse
+    */
+    public function IsPrinterDeleteSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsPrinterDeleteSourceResponse = new IsPrinterDeleteSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsPrinterDeleteSourceResponse, $methodName)) {
+                $IsPrinterDeleteSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $IsPrinterDeleteSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddFFPM
+    */
+    public function AddFFPM($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddFFPM = new AddFFPM();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddFFPM, $methodName)) {
+                $AddFFPM->$methodName($paramValue);
+            }
+        }
+        return $AddFFPM;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddFFPMResponse
+    */
+    public function AddFFPMResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddFFPMResponse = new AddFFPMResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddFFPMResponse, $methodName)) {
+                $AddFFPMResponse->$methodName($paramValue);
+            }
+        }
+        return $AddFFPMResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddFFPMByID
+    */
+    public function AddFFPMByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddFFPMByID = new AddFFPMByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddFFPMByID, $methodName)) {
+                $AddFFPMByID->$methodName($paramValue);
+            }
+        }
+        return $AddFFPMByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AddFFPMByIDResponse
+    */
+    public function AddFFPMByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AddFFPMByIDResponse = new AddFFPMByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AddFFPMByIDResponse, $methodName)) {
+                $AddFFPMByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $AddFFPMByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveFFPM
+    */
+    public function RemoveFFPM($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveFFPM = new RemoveFFPM();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveFFPM, $methodName)) {
+                $RemoveFFPM->$methodName($paramValue);
+            }
+        }
+        return $RemoveFFPM;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveFFPMResponse
+    */
+    public function RemoveFFPMResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveFFPMResponse = new RemoveFFPMResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveFFPMResponse, $methodName)) {
+                $RemoveFFPMResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveFFPMResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFFPMExist
+    */
+    public function IsFFPMExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFFPMExist = new IsFFPMExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFFPMExist, $methodName)) {
+                $IsFFPMExist->$methodName($paramValue);
+            }
+        }
+        return $IsFFPMExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFFPMExistResponse
+    */
+    public function IsFFPMExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFFPMExistResponse = new IsFFPMExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFFPMExistResponse, $methodName)) {
+                $IsFFPMExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsFFPMExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CreateNewTicket
+    */
+    public function CreateNewTicket($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CreateNewTicket = new CreateNewTicket();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CreateNewTicket, $methodName)) {
+                $CreateNewTicket->$methodName($paramValue);
+            }
+        }
+        return $CreateNewTicket;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CreateNewTicketResponse
+    */
+    public function CreateNewTicketResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CreateNewTicketResponse = new CreateNewTicketResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CreateNewTicketResponse, $methodName)) {
+                $CreateNewTicketResponse->$methodName($paramValue);
+            }
+        }
+        return $CreateNewTicketResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CreateNewTicketForDocument
+    */
+    public function CreateNewTicketForDocument($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CreateNewTicketForDocument = new CreateNewTicketForDocument();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CreateNewTicketForDocument, $methodName)) {
+                $CreateNewTicketForDocument->$methodName($paramValue);
+            }
+        }
+        return $CreateNewTicketForDocument;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CreateNewTicketForDocumentResponse
+    */
+    public function CreateNewTicketForDocumentResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CreateNewTicketForDocumentResponse = new CreateNewTicketForDocumentResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CreateNewTicketForDocumentResponse, $methodName)) {
+                $CreateNewTicketForDocumentResponse->$methodName($paramValue);
+            }
+        }
+        return $CreateNewTicketForDocumentResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CreateNewTicketForPlan
+    */
+    public function CreateNewTicketForPlan($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CreateNewTicketForPlan = new CreateNewTicketForPlan();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CreateNewTicketForPlan, $methodName)) {
+                $CreateNewTicketForPlan->$methodName($paramValue);
+            }
+        }
+        return $CreateNewTicketForPlan;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CreateNewTicketForPlanResponse
+    */
+    public function CreateNewTicketForPlanResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CreateNewTicketForPlanResponse = new CreateNewTicketForPlanResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CreateNewTicketForPlanResponse, $methodName)) {
+                $CreateNewTicketForPlanResponse->$methodName($paramValue);
+            }
+        }
+        return $CreateNewTicketForPlanResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CreateNewTicketForCampaign
+    */
+    public function CreateNewTicketForCampaign($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CreateNewTicketForCampaign = new CreateNewTicketForCampaign();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CreateNewTicketForCampaign, $methodName)) {
+                $CreateNewTicketForCampaign->$methodName($paramValue);
+            }
+        }
+        return $CreateNewTicketForCampaign;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return CreateNewTicketForCampaignResponse
+    */
+    public function CreateNewTicketForCampaignResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $CreateNewTicketForCampaignResponse = new CreateNewTicketForCampaignResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($CreateNewTicketForCampaignResponse, $methodName)) {
+                $CreateNewTicketForCampaignResponse->$methodName($paramValue);
+            }
+        }
+        return $CreateNewTicketForCampaignResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RecycleTicketID
+    */
+    public function RecycleTicketID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RecycleTicketID = new RecycleTicketID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RecycleTicketID, $methodName)) {
+                $RecycleTicketID->$methodName($paramValue);
+            }
+        }
+        return $RecycleTicketID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RecycleTicketIDResponse
+    */
+    public function RecycleTicketIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RecycleTicketIDResponse = new RecycleTicketIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RecycleTicketIDResponse, $methodName)) {
+                $RecycleTicketIDResponse->$methodName($paramValue);
+            }
+        }
+        return $RecycleTicketIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadTicketFromFile
+    */
+    public function LoadTicketFromFile($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadTicketFromFile = new LoadTicketFromFile();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadTicketFromFile, $methodName)) {
+                $LoadTicketFromFile->$methodName($paramValue);
+            }
+        }
+        return $LoadTicketFromFile;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadTicketFromFileResponse
+    */
+    public function LoadTicketFromFileResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadTicketFromFileResponse = new LoadTicketFromFileResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadTicketFromFileResponse, $methodName)) {
+                $LoadTicketFromFileResponse->$methodName($paramValue);
+            }
+        }
+        return $LoadTicketFromFileResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadJobTicket
+    */
+    public function LoadJobTicket($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadJobTicket = new LoadJobTicket();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadJobTicket, $methodName)) {
+                $LoadJobTicket->$methodName($paramValue);
+            }
+        }
+        return $LoadJobTicket;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadJobTicketResponse
+    */
+    public function LoadJobTicketResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadJobTicketResponse = new LoadJobTicketResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadJobTicketResponse, $methodName)) {
+                $LoadJobTicketResponse->$methodName($paramValue);
+            }
+        }
+        return $LoadJobTicketResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadLastJobTicketOfDocument
+    */
+    public function LoadLastJobTicketOfDocument($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadLastJobTicketOfDocument = new LoadLastJobTicketOfDocument();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadLastJobTicketOfDocument, $methodName)) {
+                $LoadLastJobTicketOfDocument->$methodName($paramValue);
+            }
+        }
+        return $LoadLastJobTicketOfDocument;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadLastJobTicketOfDocumentResponse
+    */
+    public function LoadLastJobTicketOfDocumentResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadLastJobTicketOfDocumentResponse = new LoadLastJobTicketOfDocumentResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadLastJobTicketOfDocumentResponse, $methodName)) {
+                $LoadLastJobTicketOfDocumentResponse->$methodName($paramValue);
+            }
+        }
+        return $LoadLastJobTicketOfDocumentResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadLastJobTicketOfPlan
+    */
+    public function LoadLastJobTicketOfPlan($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadLastJobTicketOfPlan = new LoadLastJobTicketOfPlan();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadLastJobTicketOfPlan, $methodName)) {
+                $LoadLastJobTicketOfPlan->$methodName($paramValue);
+            }
+        }
+        return $LoadLastJobTicketOfPlan;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadLastJobTicketOfPlanResponse
+    */
+    public function LoadLastJobTicketOfPlanResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadLastJobTicketOfPlanResponse = new LoadLastJobTicketOfPlanResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadLastJobTicketOfPlanResponse, $methodName)) {
+                $LoadLastJobTicketOfPlanResponse->$methodName($paramValue);
+            }
+        }
+        return $LoadLastJobTicketOfPlanResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadTicketFromTicket
+    */
+    public function LoadTicketFromTicket($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadTicketFromTicket = new LoadTicketFromTicket();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadTicketFromTicket, $methodName)) {
+                $LoadTicketFromTicket->$methodName($paramValue);
+            }
+        }
+        return $LoadTicketFromTicket;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadTicketFromTicketResponse
+    */
+    public function LoadTicketFromTicketResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadTicketFromTicketResponse = new LoadTicketFromTicketResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadTicketFromTicketResponse, $methodName)) {
+                $LoadTicketFromTicketResponse->$methodName($paramValue);
+            }
+        }
+        return $LoadTicketFromTicketResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTicketPropertyFromDB
+    */
+    public function GetTicketPropertyFromDB($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTicketPropertyFromDB = new GetTicketPropertyFromDB();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTicketPropertyFromDB, $methodName)) {
+                $GetTicketPropertyFromDB->$methodName($paramValue);
+            }
+        }
+        return $GetTicketPropertyFromDB;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTicketPropertyFromDBResponse
+    */
+    public function GetTicketPropertyFromDBResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTicketPropertyFromDBResponse = new GetTicketPropertyFromDBResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTicketPropertyFromDBResponse, $methodName)) {
+                $GetTicketPropertyFromDBResponse->$methodName($paramValue);
+            }
+        }
+        return $GetTicketPropertyFromDBResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadTicketFromDB
+    */
+    public function LoadTicketFromDB($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadTicketFromDB = new LoadTicketFromDB();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadTicketFromDB, $methodName)) {
+                $LoadTicketFromDB->$methodName($paramValue);
+            }
+        }
+        return $LoadTicketFromDB;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return LoadTicketFromDBResponse
+    */
+    public function LoadTicketFromDBResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $LoadTicketFromDBResponse = new LoadTicketFromDBResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($LoadTicketFromDBResponse, $methodName)) {
+                $LoadTicketFromDBResponse->$methodName($paramValue);
+            }
+        }
+        return $LoadTicketFromDBResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SaveTicketToFile
+    */
+    public function SaveTicketToFile($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SaveTicketToFile = new SaveTicketToFile();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SaveTicketToFile, $methodName)) {
+                $SaveTicketToFile->$methodName($paramValue);
+            }
+        }
+        return $SaveTicketToFile;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SaveTicketToFileResponse
+    */
+    public function SaveTicketToFileResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SaveTicketToFileResponse = new SaveTicketToFileResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SaveTicketToFileResponse, $methodName)) {
+                $SaveTicketToFileResponse->$methodName($paramValue);
+            }
+        }
+        return $SaveTicketToFileResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SaveNewTicketToDB
+    */
+    public function SaveNewTicketToDB($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SaveNewTicketToDB = new SaveNewTicketToDB();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SaveNewTicketToDB, $methodName)) {
+                $SaveNewTicketToDB->$methodName($paramValue);
+            }
+        }
+        return $SaveNewTicketToDB;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SaveNewTicketToDBResponse
+    */
+    public function SaveNewTicketToDBResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SaveNewTicketToDBResponse = new SaveNewTicketToDBResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SaveNewTicketToDBResponse, $methodName)) {
+                $SaveNewTicketToDBResponse->$methodName($paramValue);
+            }
+        }
+        return $SaveNewTicketToDBResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return OverwriteTicketInDB
+    */
+    public function OverwriteTicketInDB($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $OverwriteTicketInDB = new OverwriteTicketInDB();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($OverwriteTicketInDB, $methodName)) {
+                $OverwriteTicketInDB->$methodName($paramValue);
+            }
+        }
+        return $OverwriteTicketInDB;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return OverwriteTicketInDBResponse
+    */
+    public function OverwriteTicketInDBResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $OverwriteTicketInDBResponse = new OverwriteTicketInDBResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($OverwriteTicketInDBResponse, $methodName)) {
+                $OverwriteTicketInDBResponse->$methodName($paramValue);
+            }
+        }
+        return $OverwriteTicketInDBResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return DeleteTicketFromDB
+    */
+    public function DeleteTicketFromDB($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $DeleteTicketFromDB = new DeleteTicketFromDB();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($DeleteTicketFromDB, $methodName)) {
+                $DeleteTicketFromDB->$methodName($paramValue);
+            }
+        }
+        return $DeleteTicketFromDB;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return DeleteTicketFromDBResponse
+    */
+    public function DeleteTicketFromDBResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $DeleteTicketFromDBResponse = new DeleteTicketFromDBResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($DeleteTicketFromDBResponse, $methodName)) {
+                $DeleteTicketFromDBResponse->$methodName($paramValue);
+            }
+        }
+        return $DeleteTicketFromDBResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTicketsFromDB
+    */
+    public function GetTicketsFromDB($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTicketsFromDB = new GetTicketsFromDB();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTicketsFromDB, $methodName)) {
+                $GetTicketsFromDB->$methodName($paramValue);
+            }
+        }
+        return $GetTicketsFromDB;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTicketsFromDBResponse
+    */
+    public function GetTicketsFromDBResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTicketsFromDBResponse = new GetTicketsFromDBResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTicketsFromDBResponse, $methodName)) {
+                $GetTicketsFromDBResponse->$methodName($paramValue);
+            }
+        }
+        return $GetTicketsFromDBResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTicketsFromDBResult
+    */
+    public function GetTicketsFromDBResult($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTicketsFromDBResult = new GetTicketsFromDBResult();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTicketsFromDBResult, $methodName)) {
+                $GetTicketsFromDBResult->$methodName($paramValue);
+            }
+        }
+        return $GetTicketsFromDBResult;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTemplatesFromDB
+    */
+    public function GetTemplatesFromDB($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTemplatesFromDB = new GetTemplatesFromDB();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTemplatesFromDB, $methodName)) {
+                $GetTemplatesFromDB->$methodName($paramValue);
+            }
+        }
+        return $GetTemplatesFromDB;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTemplatesFromDBResponse
+    */
+    public function GetTemplatesFromDBResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTemplatesFromDBResponse = new GetTemplatesFromDBResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTemplatesFromDBResponse, $methodName)) {
+                $GetTemplatesFromDBResponse->$methodName($paramValue);
+            }
+        }
+        return $GetTemplatesFromDBResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTemplatesFromDBResult
+    */
+    public function GetTemplatesFromDBResult($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTemplatesFromDBResult = new GetTemplatesFromDBResult();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTemplatesFromDBResult, $methodName)) {
+                $GetTemplatesFromDBResult->$methodName($paramValue);
+            }
+        }
+        return $GetTemplatesFromDBResult;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTicket
+    */
+    public function GetTicket($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTicket = new GetTicket();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTicket, $methodName)) {
+                $GetTicket->$methodName($paramValue);
+            }
+        }
+        return $GetTicket;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTicketResponse
+    */
+    public function GetTicketResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTicketResponse = new GetTicketResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTicketResponse, $methodName)) {
+                $GetTicketResponse->$methodName($paramValue);
+            }
+        }
+        return $GetTicketResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTicketAndRecycleID
+    */
+    public function GetTicketAndRecycleID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTicketAndRecycleID = new GetTicketAndRecycleID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTicketAndRecycleID, $methodName)) {
+                $GetTicketAndRecycleID->$methodName($paramValue);
+            }
+        }
+        return $GetTicketAndRecycleID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetTicketAndRecycleIDResponse
+    */
+    public function GetTicketAndRecycleIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetTicketAndRecycleIDResponse = new GetTicketAndRecycleIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetTicketAndRecycleIDResponse, $methodName)) {
+                $GetTicketAndRecycleIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetTicketAndRecycleIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTicketDefaultsForDocument
+    */
+    public function SetTicketDefaultsForDocument($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTicketDefaultsForDocument = new SetTicketDefaultsForDocument();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTicketDefaultsForDocument, $methodName)) {
+                $SetTicketDefaultsForDocument->$methodName($paramValue);
+            }
+        }
+        return $SetTicketDefaultsForDocument;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTicketDefaultsForDocumentResponse
+    */
+    public function SetTicketDefaultsForDocumentResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTicketDefaultsForDocumentResponse = new SetTicketDefaultsForDocumentResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTicketDefaultsForDocumentResponse, $methodName)) {
+                $SetTicketDefaultsForDocumentResponse->$methodName($paramValue);
+            }
+        }
+        return $SetTicketDefaultsForDocumentResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTicketDefaultsForPlan
+    */
+    public function SetTicketDefaultsForPlan($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTicketDefaultsForPlan = new SetTicketDefaultsForPlan();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTicketDefaultsForPlan, $methodName)) {
+                $SetTicketDefaultsForPlan->$methodName($paramValue);
+            }
+        }
+        return $SetTicketDefaultsForPlan;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTicketDefaultsForPlanResponse
+    */
+    public function SetTicketDefaultsForPlanResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTicketDefaultsForPlanResponse = new SetTicketDefaultsForPlanResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTicketDefaultsForPlanResponse, $methodName)) {
+                $SetTicketDefaultsForPlanResponse->$methodName($paramValue);
+            }
+        }
+        return $SetTicketDefaultsForPlanResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTicketDefaultsForCampaign
+    */
+    public function SetTicketDefaultsForCampaign($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTicketDefaultsForCampaign = new SetTicketDefaultsForCampaign();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTicketDefaultsForCampaign, $methodName)) {
+                $SetTicketDefaultsForCampaign->$methodName($paramValue);
+            }
+        }
+        return $SetTicketDefaultsForCampaign;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetTicketDefaultsForCampaignResponse
+    */
+    public function SetTicketDefaultsForCampaignResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetTicketDefaultsForCampaignResponse = new SetTicketDefaultsForCampaignResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetTicketDefaultsForCampaignResponse, $methodName)) {
+                $SetTicketDefaultsForCampaignResponse->$methodName($paramValue);
+            }
+        }
+        return $SetTicketDefaultsForCampaignResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetPlan
+    */
+    public function SetPlan($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetPlan = new SetPlan();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetPlan, $methodName)) {
+                $SetPlan->$methodName($paramValue);
+            }
+        }
+        return $SetPlan;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetPlanResponse
+    */
+    public function SetPlanResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetPlanResponse = new SetPlanResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetPlanResponse, $methodName)) {
+                $SetPlanResponse->$methodName($paramValue);
+            }
+        }
+        return $SetPlanResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetPlanByID
+    */
+    public function SetPlanByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetPlanByID = new SetPlanByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetPlanByID, $methodName)) {
+                $SetPlanByID->$methodName($paramValue);
+            }
+        }
+        return $SetPlanByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetPlanByIDResponse
+    */
+    public function SetPlanByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetPlanByIDResponse = new SetPlanByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetPlanByIDResponse, $methodName)) {
+                $SetPlanByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetPlanByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUseTrivialPlan
+    */
+    public function GetUseTrivialPlan($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUseTrivialPlan = new GetUseTrivialPlan();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUseTrivialPlan, $methodName)) {
+                $GetUseTrivialPlan->$methodName($paramValue);
+            }
+        }
+        return $GetUseTrivialPlan;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetUseTrivialPlanResponse
+    */
+    public function GetUseTrivialPlanResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetUseTrivialPlanResponse = new GetUseTrivialPlanResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetUseTrivialPlanResponse, $methodName)) {
+                $GetUseTrivialPlanResponse->$methodName($paramValue);
+            }
+        }
+        return $GetUseTrivialPlanResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetUseTrivialPlan
+    */
+    public function SetUseTrivialPlan($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetUseTrivialPlan = new SetUseTrivialPlan();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetUseTrivialPlan, $methodName)) {
+                $SetUseTrivialPlan->$methodName($paramValue);
+            }
+        }
+        return $SetUseTrivialPlan;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetUseTrivialPlanResponse
+    */
+    public function SetUseTrivialPlanResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetUseTrivialPlanResponse = new SetUseTrivialPlanResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetUseTrivialPlanResponse, $methodName)) {
+                $SetUseTrivialPlanResponse->$methodName($paramValue);
+            }
+        }
+        return $SetUseTrivialPlanResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPlanPath
+    */
+    public function GetPlanPath($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPlanPath = new GetPlanPath();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPlanPath, $methodName)) {
+                $GetPlanPath->$methodName($paramValue);
+            }
+        }
+        return $GetPlanPath;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPlanPathResponse
+    */
+    public function GetPlanPathResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPlanPathResponse = new GetPlanPathResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPlanPathResponse, $methodName)) {
+                $GetPlanPathResponse->$methodName($paramValue);
+            }
+        }
+        return $GetPlanPathResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPlanID
+    */
+    public function GetPlanID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPlanID = new GetPlanID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPlanID, $methodName)) {
+                $GetPlanID->$methodName($paramValue);
+            }
+        }
+        return $GetPlanID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPlanIDResponse
+    */
+    public function GetPlanIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPlanIDResponse = new GetPlanIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPlanIDResponse, $methodName)) {
+                $GetPlanIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetPlanIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCustomization
+    */
+    public function SetCustomization($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCustomization = new SetCustomization();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCustomization, $methodName)) {
+                $SetCustomization->$methodName($paramValue);
+            }
+        }
+        return $SetCustomization;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return Customization
+    */
+    public function Customization($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $Customization = new Customization();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($Customization, $methodName)) {
+                $Customization->$methodName($paramValue);
+            }
+        }
+        return $Customization;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCustomizationResponse
+    */
+    public function SetCustomizationResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCustomizationResponse = new SetCustomizationResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCustomizationResponse, $methodName)) {
+                $SetCustomizationResponse->$methodName($paramValue);
+            }
+        }
+        return $SetCustomizationResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCustomizations
+    */
+    public function SetCustomizations($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCustomizations = new SetCustomizations();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCustomizations, $methodName)) {
+                $SetCustomizations->$methodName($paramValue);
+            }
+        }
+        return $SetCustomizations;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfCustomization
+    */
+    public function ArrayOfCustomization($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfCustomization = new ArrayOfCustomization();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfCustomization, $methodName)) {
+                $ArrayOfCustomization->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfCustomization;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCustomizationsResponse
+    */
+    public function SetCustomizationsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCustomizationsResponse = new SetCustomizationsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCustomizationsResponse, $methodName)) {
+                $SetCustomizationsResponse->$methodName($paramValue);
+            }
+        }
+        return $SetCustomizationsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveCustomization
+    */
+    public function RemoveCustomization($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveCustomization = new RemoveCustomization();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveCustomization, $methodName)) {
+                $RemoveCustomization->$methodName($paramValue);
+            }
+        }
+        return $RemoveCustomization;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveCustomizationResponse
+    */
+    public function RemoveCustomizationResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveCustomizationResponse = new RemoveCustomizationResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveCustomizationResponse, $methodName)) {
+                $RemoveCustomizationResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveCustomizationResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllCustomizations
+    */
+    public function RemoveAllCustomizations($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllCustomizations = new RemoveAllCustomizations();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllCustomizations, $methodName)) {
+                $RemoveAllCustomizations->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllCustomizations;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllCustomizationsResponse
+    */
+    public function RemoveAllCustomizationsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllCustomizationsResponse = new RemoveAllCustomizationsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllCustomizationsResponse, $methodName)) {
+                $RemoveAllCustomizationsResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllCustomizationsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCustomizationsCount
+    */
+    public function GetCustomizationsCount($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCustomizationsCount = new GetCustomizationsCount();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCustomizationsCount, $methodName)) {
+                $GetCustomizationsCount->$methodName($paramValue);
+            }
+        }
+        return $GetCustomizationsCount;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCustomizationsCountResponse
+    */
+    public function GetCustomizationsCountResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCustomizationsCountResponse = new GetCustomizationsCountResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCustomizationsCountResponse, $methodName)) {
+                $GetCustomizationsCountResponse->$methodName($paramValue);
+            }
+        }
+        return $GetCustomizationsCountResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthCustomization
+    */
+    public function GetNthCustomization($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthCustomization = new GetNthCustomization();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthCustomization, $methodName)) {
+                $GetNthCustomization->$methodName($paramValue);
+            }
+        }
+        return $GetNthCustomization;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthCustomizationResponse
+    */
+    public function GetNthCustomizationResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthCustomizationResponse = new GetNthCustomizationResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthCustomizationResponse, $methodName)) {
+                $GetNthCustomizationResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthCustomizationResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCustomizations
+    */
+    public function GetCustomizations($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCustomizations = new GetCustomizations();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCustomizations, $methodName)) {
+                $GetCustomizations->$methodName($paramValue);
+            }
+        }
+        return $GetCustomizations;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCustomizationsResponse
+    */
+    public function GetCustomizationsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCustomizationsResponse = new GetCustomizationsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCustomizationsResponse, $methodName)) {
+                $GetCustomizationsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetCustomizationsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDocumentByID
+    */
+    public function SetDocumentByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDocumentByID = new SetDocumentByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDocumentByID, $methodName)) {
+                $SetDocumentByID->$methodName($paramValue);
+            }
+        }
+        return $SetDocumentByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDocumentByIDResponse
+    */
+    public function SetDocumentByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDocumentByIDResponse = new SetDocumentByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDocumentByIDResponse, $methodName)) {
+                $SetDocumentByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDocumentByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDocument
+    */
+    public function SetDocument($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDocument = new SetDocument();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDocument, $methodName)) {
+                $SetDocument->$methodName($paramValue);
+            }
+        }
+        return $SetDocument;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDocumentResponse
+    */
+    public function SetDocumentResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDocumentResponse = new SetDocumentResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDocumentResponse, $methodName)) {
+                $SetDocumentResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDocumentResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDocumentID
+    */
+    public function GetDocumentID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDocumentID = new GetDocumentID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDocumentID, $methodName)) {
+                $GetDocumentID->$methodName($paramValue);
+            }
+        }
+        return $GetDocumentID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDocumentIDResponse
+    */
+    public function GetDocumentIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDocumentIDResponse = new GetDocumentIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDocumentIDResponse, $methodName)) {
+                $GetDocumentIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetDocumentIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDocumentFolder
+    */
+    public function GetDocumentFolder($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDocumentFolder = new GetDocumentFolder();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDocumentFolder, $methodName)) {
+                $GetDocumentFolder->$methodName($paramValue);
+            }
+        }
+        return $GetDocumentFolder;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDocumentFolderResponse
+    */
+    public function GetDocumentFolderResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDocumentFolderResponse = new GetDocumentFolderResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDocumentFolderResponse, $methodName)) {
+                $GetDocumentFolderResponse->$methodName($paramValue);
+            }
+        }
+        return $GetDocumentFolderResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDocumentName
+    */
+    public function GetDocumentName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDocumentName = new GetDocumentName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDocumentName, $methodName)) {
+                $GetDocumentName->$methodName($paramValue);
+            }
+        }
+        return $GetDocumentName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDocumentNameResponse
+    */
+    public function GetDocumentNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDocumentNameResponse = new GetDocumentNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDocumentNameResponse, $methodName)) {
+                $GetDocumentNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetDocumentNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDocumentType
+    */
+    public function GetDocumentType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDocumentType = new GetDocumentType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDocumentType, $methodName)) {
+                $GetDocumentType->$methodName($paramValue);
+            }
+        }
+        return $GetDocumentType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetDocumentTypeResponse
+    */
+    public function GetDocumentTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetDocumentTypeResponse = new GetDocumentTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetDocumentTypeResponse, $methodName)) {
+                $GetDocumentTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $GetDocumentTypeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetWebResourcesBasePath
+    */
+    public function SetWebResourcesBasePath($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetWebResourcesBasePath = new SetWebResourcesBasePath();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetWebResourcesBasePath, $methodName)) {
+                $SetWebResourcesBasePath->$methodName($paramValue);
+            }
+        }
+        return $SetWebResourcesBasePath;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetWebResourcesBasePathResponse
+    */
+    public function SetWebResourcesBasePathResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetWebResourcesBasePathResponse = new SetWebResourcesBasePathResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetWebResourcesBasePathResponse, $methodName)) {
+                $SetWebResourcesBasePathResponse->$methodName($paramValue);
+            }
+        }
+        return $SetWebResourcesBasePathResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetWebResourcesBasePath
+    */
+    public function GetWebResourcesBasePath($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetWebResourcesBasePath = new GetWebResourcesBasePath();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetWebResourcesBasePath, $methodName)) {
+                $GetWebResourcesBasePath->$methodName($paramValue);
+            }
+        }
+        return $GetWebResourcesBasePath;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetWebResourcesBasePathResponse
+    */
+    public function GetWebResourcesBasePathResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetWebResourcesBasePathResponse = new GetWebResourcesBasePathResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetWebResourcesBasePathResponse, $methodName)) {
+                $GetWebResourcesBasePathResponse->$methodName($paramValue);
+            }
+        }
+        return $GetWebResourcesBasePathResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAllowFriendly
+    */
+    public function SetAllowFriendly($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAllowFriendly = new SetAllowFriendly();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAllowFriendly, $methodName)) {
+                $SetAllowFriendly->$methodName($paramValue);
+            }
+        }
+        return $SetAllowFriendly;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAllowFriendlyResponse
+    */
+    public function SetAllowFriendlyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAllowFriendlyResponse = new SetAllowFriendlyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAllowFriendlyResponse, $methodName)) {
+                $SetAllowFriendlyResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAllowFriendlyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAllowFriendly
+    */
+    public function GetAllowFriendly($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAllowFriendly = new GetAllowFriendly();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAllowFriendly, $methodName)) {
+                $GetAllowFriendly->$methodName($paramValue);
+            }
+        }
+        return $GetAllowFriendly;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAllowFriendlyResponse
+    */
+    public function GetAllowFriendlyResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAllowFriendlyResponse = new GetAllowFriendlyResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAllowFriendlyResponse, $methodName)) {
+                $GetAllowFriendlyResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAllowFriendlyResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFriendliness
+    */
+    public function SetFriendliness($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFriendliness = new SetFriendliness();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFriendliness, $methodName)) {
+                $SetFriendliness->$methodName($paramValue);
+            }
+        }
+        return $SetFriendliness;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFriendlinessResponse
+    */
+    public function SetFriendlinessResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFriendlinessResponse = new SetFriendlinessResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFriendlinessResponse, $methodName)) {
+                $SetFriendlinessResponse->$methodName($paramValue);
+            }
+        }
+        return $SetFriendlinessResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFriendlyDomain
+    */
+    public function GetFriendlyDomain($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFriendlyDomain = new GetFriendlyDomain();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFriendlyDomain, $methodName)) {
+                $GetFriendlyDomain->$methodName($paramValue);
+            }
+        }
+        return $GetFriendlyDomain;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFriendlyDomainResponse
+    */
+    public function GetFriendlyDomainResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFriendlyDomainResponse = new GetFriendlyDomainResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFriendlyDomainResponse, $methodName)) {
+                $GetFriendlyDomainResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFriendlyDomainResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFriendlyFolder
+    */
+    public function GetFriendlyFolder($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFriendlyFolder = new GetFriendlyFolder();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFriendlyFolder, $methodName)) {
+                $GetFriendlyFolder->$methodName($paramValue);
+            }
+        }
+        return $GetFriendlyFolder;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFriendlyFolderResponse
+    */
+    public function GetFriendlyFolderResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFriendlyFolderResponse = new GetFriendlyFolderResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFriendlyFolderResponse, $methodName)) {
+                $GetFriendlyFolderResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFriendlyFolderResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFriendlyLandingPage
+    */
+    public function GetFriendlyLandingPage($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFriendlyLandingPage = new GetFriendlyLandingPage();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFriendlyLandingPage, $methodName)) {
+                $GetFriendlyLandingPage->$methodName($paramValue);
+            }
+        }
+        return $GetFriendlyLandingPage;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFriendlyLandingPageResponse
+    */
+    public function GetFriendlyLandingPageResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFriendlyLandingPageResponse = new GetFriendlyLandingPageResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFriendlyLandingPageResponse, $methodName)) {
+                $GetFriendlyLandingPageResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFriendlyLandingPageResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFriendlyUrlRedirectMode
+    */
+    public function IsFriendlyUrlRedirectMode($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFriendlyUrlRedirectMode = new IsFriendlyUrlRedirectMode();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFriendlyUrlRedirectMode, $methodName)) {
+                $IsFriendlyUrlRedirectMode->$methodName($paramValue);
+            }
+        }
+        return $IsFriendlyUrlRedirectMode;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFriendlyUrlRedirectModeResponse
+    */
+    public function IsFriendlyUrlRedirectModeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFriendlyUrlRedirectModeResponse = new IsFriendlyUrlRedirectModeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFriendlyUrlRedirectModeResponse, $methodName)) {
+                $IsFriendlyUrlRedirectModeResponse->$methodName($paramValue);
+            }
+        }
+        return $IsFriendlyUrlRedirectModeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFriendlyUrlUseRIDPrefixMode
+    */
+    public function IsFriendlyUrlUseRIDPrefixMode($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFriendlyUrlUseRIDPrefixMode = new IsFriendlyUrlUseRIDPrefixMode();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFriendlyUrlUseRIDPrefixMode, $methodName)) {
+                $IsFriendlyUrlUseRIDPrefixMode->$methodName($paramValue);
+            }
+        }
+        return $IsFriendlyUrlUseRIDPrefixMode;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsFriendlyUrlUseRIDPrefixModeResponse
+    */
+    public function IsFriendlyUrlUseRIDPrefixModeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsFriendlyUrlUseRIDPrefixModeResponse = new IsFriendlyUrlUseRIDPrefixModeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsFriendlyUrlUseRIDPrefixModeResponse, $methodName)) {
+                $IsFriendlyUrlUseRIDPrefixModeResponse->$methodName($paramValue);
+            }
+        }
+        return $IsFriendlyUrlUseRIDPrefixModeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCampaignID
+    */
+    public function SetCampaignID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCampaignID = new SetCampaignID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCampaignID, $methodName)) {
+                $SetCampaignID->$methodName($paramValue);
+            }
+        }
+        return $SetCampaignID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetCampaignIDResponse
+    */
+    public function SetCampaignIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetCampaignIDResponse = new SetCampaignIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetCampaignIDResponse, $methodName)) {
+                $SetCampaignIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetCampaignIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCampaignID
+    */
+    public function GetCampaignID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCampaignID = new GetCampaignID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCampaignID, $methodName)) {
+                $GetCampaignID->$methodName($paramValue);
+            }
+        }
+        return $GetCampaignID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetCampaignIDResponse
+    */
+    public function GetCampaignIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetCampaignIDResponse = new GetCampaignIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetCampaignIDResponse, $methodName)) {
+                $GetCampaignIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetCampaignIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFonts
+    */
+    public function SetFonts($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFonts = new SetFonts();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFonts, $methodName)) {
+                $SetFonts->$methodName($paramValue);
+            }
+        }
+        return $SetFonts;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFontsResponse
+    */
+    public function SetFontsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFontsResponse = new SetFontsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFontsResponse, $methodName)) {
+                $SetFontsResponse->$methodName($paramValue);
+            }
+        }
+        return $SetFontsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFontsByID
+    */
+    public function SetFontsByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFontsByID = new SetFontsByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFontsByID, $methodName)) {
+                $SetFontsByID->$methodName($paramValue);
+            }
+        }
+        return $SetFontsByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetFontsByIDResponse
+    */
+    public function SetFontsByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetFontsByIDResponse = new SetFontsByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetFontsByIDResponse, $methodName)) {
+                $SetFontsByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetFontsByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFontsFolder
+    */
+    public function GetFontsFolder($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFontsFolder = new GetFontsFolder();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFontsFolder, $methodName)) {
+                $GetFontsFolder->$methodName($paramValue);
+            }
+        }
+        return $GetFontsFolder;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetFontsFolderResponse
+    */
+    public function GetFontsFolderResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetFontsFolderResponse = new GetFontsFolderResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetFontsFolderResponse, $methodName)) {
+                $GetFontsFolderResponse->$methodName($paramValue);
+            }
+        }
+        return $GetFontsFolderResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetPortLink
+    */
+    public function SetPortLink($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetPortLink = new SetPortLink();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetPortLink, $methodName)) {
+                $SetPortLink->$methodName($paramValue);
+            }
+        }
+        return $SetPortLink;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetPortLinkResponse
+    */
+    public function SetPortLinkResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetPortLinkResponse = new SetPortLinkResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetPortLinkResponse, $methodName)) {
+                $SetPortLinkResponse->$methodName($paramValue);
+            }
+        }
+        return $SetPortLinkResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RefreshPortLink
+    */
+    public function RefreshPortLink($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RefreshPortLink = new RefreshPortLink();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RefreshPortLink, $methodName)) {
+                $RefreshPortLink->$methodName($paramValue);
+            }
+        }
+        return $RefreshPortLink;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RefreshPortLinkResponse
+    */
+    public function RefreshPortLinkResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RefreshPortLinkResponse = new RefreshPortLinkResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RefreshPortLinkResponse, $methodName)) {
+                $RefreshPortLinkResponse->$methodName($paramValue);
+            }
+        }
+        return $RefreshPortLinkResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemovePortLink
+    */
+    public function RemovePortLink($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemovePortLink = new RemovePortLink();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemovePortLink, $methodName)) {
+                $RemovePortLink->$methodName($paramValue);
+            }
+        }
+        return $RemovePortLink;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemovePortLinkResponse
+    */
+    public function RemovePortLinkResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemovePortLinkResponse = new RemovePortLinkResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemovePortLinkResponse, $methodName)) {
+                $RemovePortLinkResponse->$methodName($paramValue);
+            }
+        }
+        return $RemovePortLinkResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsPortLinkExist
+    */
+    public function IsPortLinkExist($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsPortLinkExist = new IsPortLinkExist();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsPortLinkExist, $methodName)) {
+                $IsPortLinkExist->$methodName($paramValue);
+            }
+        }
+        return $IsPortLinkExist;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return IsPortLinkExistResponse
+    */
+    public function IsPortLinkExistResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $IsPortLinkExistResponse = new IsPortLinkExistResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($IsPortLinkExistResponse, $methodName)) {
+                $IsPortLinkExistResponse->$methodName($paramValue);
+            }
+        }
+        return $IsPortLinkExistResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPortLinkAccount
+    */
+    public function GetPortLinkAccount($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPortLinkAccount = new GetPortLinkAccount();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPortLinkAccount, $methodName)) {
+                $GetPortLinkAccount->$methodName($paramValue);
+            }
+        }
+        return $GetPortLinkAccount;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPortLinkAccountResponse
+    */
+    public function GetPortLinkAccountResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPortLinkAccountResponse = new GetPortLinkAccountResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPortLinkAccountResponse, $methodName)) {
+                $GetPortLinkAccountResponse->$methodName($paramValue);
+            }
+        }
+        return $GetPortLinkAccountResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPortLinkCampaign
+    */
+    public function GetPortLinkCampaign($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPortLinkCampaign = new GetPortLinkCampaign();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPortLinkCampaign, $methodName)) {
+                $GetPortLinkCampaign->$methodName($paramValue);
+            }
+        }
+        return $GetPortLinkCampaign;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPortLinkCampaignResponse
+    */
+    public function GetPortLinkCampaignResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPortLinkCampaignResponse = new GetPortLinkCampaignResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPortLinkCampaignResponse, $methodName)) {
+                $GetPortLinkCampaignResponse->$methodName($paramValue);
+            }
+        }
+        return $GetPortLinkCampaignResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPortLinkPortName
+    */
+    public function GetPortLinkPortName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPortLinkPortName = new GetPortLinkPortName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPortLinkPortName, $methodName)) {
+                $GetPortLinkPortName->$methodName($paramValue);
+            }
+        }
+        return $GetPortLinkPortName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPortLinkPortNameResponse
+    */
+    public function GetPortLinkPortNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPortLinkPortNameResponse = new GetPortLinkPortNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPortLinkPortNameResponse, $methodName)) {
+                $GetPortLinkPortNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetPortLinkPortNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDataSource
+    */
+    public function SetDataSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDataSource = new SetDataSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDataSource, $methodName)) {
+                $SetDataSource->$methodName($paramValue);
+            }
+        }
+        return $SetDataSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDataSourceResponse
+    */
+    public function SetDataSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDataSourceResponse = new SetDataSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDataSourceResponse, $methodName)) {
+                $SetDataSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDataSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDataSources
+    */
+    public function SetDataSources($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDataSources = new SetDataSources();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDataSources, $methodName)) {
+                $SetDataSources->$methodName($paramValue);
+            }
+        }
+        return $SetDataSources;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfConnection
+    */
+    public function ArrayOfConnection($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfConnection = new ArrayOfConnection();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfConnection, $methodName)) {
+                $ArrayOfConnection->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfConnection;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDataSourcesResponse
+    */
+    public function SetDataSourcesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDataSourcesResponse = new SetDataSourcesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDataSourcesResponse, $methodName)) {
+                $SetDataSourcesResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDataSourcesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDataSourceByID
+    */
+    public function SetDataSourceByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDataSourceByID = new SetDataSourceByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDataSourceByID, $methodName)) {
+                $SetDataSourceByID->$methodName($paramValue);
+            }
+        }
+        return $SetDataSourceByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDataSourceByIDResponse
+    */
+    public function SetDataSourceByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDataSourceByIDResponse = new SetDataSourceByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDataSourceByIDResponse, $methodName)) {
+                $SetDataSourceByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDataSourceByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDataSourcesByID
+    */
+    public function SetDataSourcesByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDataSourcesByID = new SetDataSourcesByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDataSourcesByID, $methodName)) {
+                $SetDataSourcesByID->$methodName($paramValue);
+            }
+        }
+        return $SetDataSourcesByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDataSourcesByIDResponse
+    */
+    public function SetDataSourcesByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDataSourcesByIDResponse = new SetDataSourcesByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDataSourcesByIDResponse, $methodName)) {
+                $SetDataSourcesByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDataSourcesByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDefaultDataSources
+    */
+    public function SetDefaultDataSources($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDefaultDataSources = new SetDefaultDataSources();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDefaultDataSources, $methodName)) {
+                $SetDefaultDataSources->$methodName($paramValue);
+            }
+        }
+        return $SetDefaultDataSources;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDefaultDataSourcesResponse
+    */
+    public function SetDefaultDataSourcesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDefaultDataSourcesResponse = new SetDefaultDataSourcesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDefaultDataSourcesResponse, $methodName)) {
+                $SetDefaultDataSourcesResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDefaultDataSourcesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllSchemaDataSources
+    */
+    public function RemoveAllSchemaDataSources($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllSchemaDataSources = new RemoveAllSchemaDataSources();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllSchemaDataSources, $methodName)) {
+                $RemoveAllSchemaDataSources->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllSchemaDataSources;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllSchemaDataSourcesResponse
+    */
+    public function RemoveAllSchemaDataSourcesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllSchemaDataSourcesResponse = new RemoveAllSchemaDataSourcesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllSchemaDataSourcesResponse, $methodName)) {
+                $RemoveAllSchemaDataSourcesResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllSchemaDataSourcesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveSchemaDataSource
+    */
+    public function RemoveSchemaDataSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveSchemaDataSource = new RemoveSchemaDataSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveSchemaDataSource, $methodName)) {
+                $RemoveSchemaDataSource->$methodName($paramValue);
+            }
+        }
+        return $RemoveSchemaDataSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveSchemaDataSourceResponse
+    */
+    public function RemoveSchemaDataSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveSchemaDataSourceResponse = new RemoveSchemaDataSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveSchemaDataSourceResponse, $methodName)) {
+                $RemoveSchemaDataSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveSchemaDataSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemaDataSource
+    */
+    public function GetSchemaDataSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemaDataSource = new GetSchemaDataSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemaDataSource, $methodName)) {
+                $GetSchemaDataSource->$methodName($paramValue);
+            }
+        }
+        return $GetSchemaDataSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemaDataSourceResponse
+    */
+    public function GetSchemaDataSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemaDataSourceResponse = new GetSchemaDataSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemaDataSourceResponse, $methodName)) {
+                $GetSchemaDataSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSchemaDataSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemaDataSourceID
+    */
+    public function GetSchemaDataSourceID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemaDataSourceID = new GetSchemaDataSourceID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemaDataSourceID, $methodName)) {
+                $GetSchemaDataSourceID->$methodName($paramValue);
+            }
+        }
+        return $GetSchemaDataSourceID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemaDataSourceIDResponse
+    */
+    public function GetSchemaDataSourceIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemaDataSourceIDResponse = new GetSchemaDataSourceIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemaDataSourceIDResponse, $methodName)) {
+                $GetSchemaDataSourceIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSchemaDataSourceIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemasNames
+    */
+    public function GetSchemasNames($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemasNames = new GetSchemasNames();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemasNames, $methodName)) {
+                $GetSchemasNames->$methodName($paramValue);
+            }
+        }
+        return $GetSchemasNames;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemasNamesResponse
+    */
+    public function GetSchemasNamesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemasNamesResponse = new GetSchemasNamesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemasNamesResponse, $methodName)) {
+                $GetSchemasNamesResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSchemasNamesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemasDataSources
+    */
+    public function GetSchemasDataSources($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemasDataSources = new GetSchemasDataSources();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemasDataSources, $methodName)) {
+                $GetSchemasDataSources->$methodName($paramValue);
+            }
+        }
+        return $GetSchemasDataSources;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemasDataSourcesResponse
+    */
+    public function GetSchemasDataSourcesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemasDataSourcesResponse = new GetSchemasDataSourcesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemasDataSourcesResponse, $methodName)) {
+                $GetSchemasDataSourcesResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSchemasDataSourcesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemaDataSourceIDs
+    */
+    public function GetSchemaDataSourceIDs($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemaDataSourceIDs = new GetSchemaDataSourceIDs();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemaDataSourceIDs, $methodName)) {
+                $GetSchemaDataSourceIDs->$methodName($paramValue);
+            }
+        }
+        return $GetSchemaDataSourceIDs;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemaDataSourceIDsResponse
+    */
+    public function GetSchemaDataSourceIDsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemaDataSourceIDsResponse = new GetSchemaDataSourceIDsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemaDataSourceIDsResponse, $methodName)) {
+                $GetSchemaDataSourceIDsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSchemaDataSourceIDsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemaDataSourcesCount
+    */
+    public function GetSchemaDataSourcesCount($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemaDataSourcesCount = new GetSchemaDataSourcesCount();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemaDataSourcesCount, $methodName)) {
+                $GetSchemaDataSourcesCount->$methodName($paramValue);
+            }
+        }
+        return $GetSchemaDataSourcesCount;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetSchemaDataSourcesCountResponse
+    */
+    public function GetSchemaDataSourcesCountResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetSchemaDataSourcesCountResponse = new GetSchemaDataSourcesCountResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetSchemaDataSourcesCountResponse, $methodName)) {
+                $GetSchemaDataSourcesCountResponse->$methodName($paramValue);
+            }
+        }
+        return $GetSchemaDataSourcesCountResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthSchemaName
+    */
+    public function GetNthSchemaName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthSchemaName = new GetNthSchemaName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthSchemaName, $methodName)) {
+                $GetNthSchemaName->$methodName($paramValue);
+            }
+        }
+        return $GetNthSchemaName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthSchemaNameResponse
+    */
+    public function GetNthSchemaNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthSchemaNameResponse = new GetNthSchemaNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthSchemaNameResponse, $methodName)) {
+                $GetNthSchemaNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthSchemaNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthSchemaDataSourceID
+    */
+    public function GetNthSchemaDataSourceID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthSchemaDataSourceID = new GetNthSchemaDataSourceID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthSchemaDataSourceID, $methodName)) {
+                $GetNthSchemaDataSourceID->$methodName($paramValue);
+            }
+        }
+        return $GetNthSchemaDataSourceID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthSchemaDataSourceIDResponse
+    */
+    public function GetNthSchemaDataSourceIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthSchemaDataSourceIDResponse = new GetNthSchemaDataSourceIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthSchemaDataSourceIDResponse, $methodName)) {
+                $GetNthSchemaDataSourceIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthSchemaDataSourceIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthSchemaDataSource
+    */
+    public function GetNthSchemaDataSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthSchemaDataSource = new GetNthSchemaDataSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthSchemaDataSource, $methodName)) {
+                $GetNthSchemaDataSource->$methodName($paramValue);
+            }
+        }
+        return $GetNthSchemaDataSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthSchemaDataSourceResponse
+    */
+    public function GetNthSchemaDataSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthSchemaDataSourceResponse = new GetNthSchemaDataSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthSchemaDataSourceResponse, $methodName)) {
+                $GetNthSchemaDataSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthSchemaDataSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetResolveAssets
+    */
+    public function SetResolveAssets($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetResolveAssets = new SetResolveAssets();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetResolveAssets, $methodName)) {
+                $SetResolveAssets->$methodName($paramValue);
+            }
+        }
+        return $SetResolveAssets;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetResolveAssetsResponse
+    */
+    public function SetResolveAssetsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetResolveAssetsResponse = new SetResolveAssetsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetResolveAssetsResponse, $methodName)) {
+                $SetResolveAssetsResponse->$methodName($paramValue);
+            }
+        }
+        return $SetResolveAssetsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetResolveAssets
+    */
+    public function GetResolveAssets($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetResolveAssets = new GetResolveAssets();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetResolveAssets, $methodName)) {
+                $GetResolveAssets->$methodName($paramValue);
+            }
+        }
+        return $GetResolveAssets;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetResolveAssetsResponse
+    */
+    public function GetResolveAssetsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetResolveAssetsResponse = new GetResolveAssetsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetResolveAssetsResponse, $methodName)) {
+                $GetResolveAssetsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetResolveAssetsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetConnectivityAssets
+    */
+    public function SetConnectivityAssets($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetConnectivityAssets = new SetConnectivityAssets();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetConnectivityAssets, $methodName)) {
+                $SetConnectivityAssets->$methodName($paramValue);
+            }
+        }
+        return $SetConnectivityAssets;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetConnectivityAssetsResponse
+    */
+    public function SetConnectivityAssetsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetConnectivityAssetsResponse = new SetConnectivityAssetsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetConnectivityAssetsResponse, $methodName)) {
+                $SetConnectivityAssetsResponse->$methodName($paramValue);
+            }
+        }
+        return $SetConnectivityAssetsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetConnectivityAssets
+    */
+    public function GetConnectivityAssets($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetConnectivityAssets = new GetConnectivityAssets();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetConnectivityAssets, $methodName)) {
+                $GetConnectivityAssets->$methodName($paramValue);
+            }
+        }
+        return $GetConnectivityAssets;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetConnectivityAssetsResponse
+    */
+    public function GetConnectivityAssetsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetConnectivityAssetsResponse = new GetConnectivityAssetsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetConnectivityAssetsResponse, $methodName)) {
+                $GetConnectivityAssetsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetConnectivityAssetsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetsPrefix
+    */
+    public function SetAssetsPrefix($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetsPrefix = new SetAssetsPrefix();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetsPrefix, $methodName)) {
+                $SetAssetsPrefix->$methodName($paramValue);
+            }
+        }
+        return $SetAssetsPrefix;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetsPrefixResponse
+    */
+    public function SetAssetsPrefixResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetsPrefixResponse = new SetAssetsPrefixResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetsPrefixResponse, $methodName)) {
+                $SetAssetsPrefixResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAssetsPrefixResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetsPrefixType
+    */
+    public function GetAssetsPrefixType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetsPrefixType = new GetAssetsPrefixType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetsPrefixType, $methodName)) {
+                $GetAssetsPrefixType->$methodName($paramValue);
+            }
+        }
+        return $GetAssetsPrefixType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetsPrefixTypeResponse
+    */
+    public function GetAssetsPrefixTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetsPrefixTypeResponse = new GetAssetsPrefixTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetsPrefixTypeResponse, $methodName)) {
+                $GetAssetsPrefixTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetsPrefixTypeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetsFixedPrefix
+    */
+    public function GetAssetsFixedPrefix($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetsFixedPrefix = new GetAssetsFixedPrefix();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetsFixedPrefix, $methodName)) {
+                $GetAssetsFixedPrefix->$methodName($paramValue);
+            }
+        }
+        return $GetAssetsFixedPrefix;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetsFixedPrefixResponse
+    */
+    public function GetAssetsFixedPrefixResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetsFixedPrefixResponse = new GetAssetsFixedPrefixResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetsFixedPrefixResponse, $methodName)) {
+                $GetAssetsFixedPrefixResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetsFixedPrefixResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSource
+    */
+    public function SetAssetSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSource = new SetAssetSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSource, $methodName)) {
+                $SetAssetSource->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AssetSourceStruct
+    */
+    public function AssetSourceStruct($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AssetSourceStruct = new AssetSourceStruct();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AssetSourceStruct, $methodName)) {
+                $AssetSourceStruct->$methodName($paramValue);
+            }
+        }
+        return $AssetSourceStruct;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourceResponse
+    */
+    public function SetAssetSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourceResponse = new SetAssetSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourceResponse, $methodName)) {
+                $SetAssetSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourceEx
+    */
+    public function SetAssetSourceEx($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourceEx = new SetAssetSourceEx();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourceEx, $methodName)) {
+                $SetAssetSourceEx->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourceEx;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AssetSourceInfo
+    */
+    public function AssetSourceInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AssetSourceInfo = new AssetSourceInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AssetSourceInfo, $methodName)) {
+                $AssetSourceInfo->$methodName($paramValue);
+            }
+        }
+        return $AssetSourceInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfAssetSourceParameter
+    */
+    public function ArrayOfAssetSourceParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfAssetSourceParameter = new ArrayOfAssetSourceParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfAssetSourceParameter, $methodName)) {
+                $ArrayOfAssetSourceParameter->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfAssetSourceParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return AssetSourceParameter
+    */
+    public function AssetSourceParameter($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $AssetSourceParameter = new AssetSourceParameter();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($AssetSourceParameter, $methodName)) {
+                $AssetSourceParameter->$methodName($paramValue);
+            }
+        }
+        return $AssetSourceParameter;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourceExResponse
+    */
+    public function SetAssetSourceExResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourceExResponse = new SetAssetSourceExResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourceExResponse, $methodName)) {
+                $SetAssetSourceExResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourceExResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSources
+    */
+    public function SetAssetSources($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSources = new SetAssetSources();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSources, $methodName)) {
+                $SetAssetSources->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSources;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfAssetSourceStruct
+    */
+    public function ArrayOfAssetSourceStruct($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfAssetSourceStruct = new ArrayOfAssetSourceStruct();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfAssetSourceStruct, $methodName)) {
+                $ArrayOfAssetSourceStruct->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfAssetSourceStruct;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfInt
+    */
+    public function ArrayOfInt($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfInt = new ArrayOfInt();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfInt, $methodName)) {
+                $ArrayOfInt->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfInt;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourcesResponse
+    */
+    public function SetAssetSourcesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourcesResponse = new SetAssetSourcesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourcesResponse, $methodName)) {
+                $SetAssetSourcesResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourcesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourcesEx
+    */
+    public function SetAssetSourcesEx($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourcesEx = new SetAssetSourcesEx();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourcesEx, $methodName)) {
+                $SetAssetSourcesEx->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourcesEx;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfAssetSourceInfo
+    */
+    public function ArrayOfAssetSourceInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfAssetSourceInfo = new ArrayOfAssetSourceInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfAssetSourceInfo, $methodName)) {
+                $ArrayOfAssetSourceInfo->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfAssetSourceInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourcesExResponse
+    */
+    public function SetAssetSourcesExResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourcesExResponse = new SetAssetSourcesExResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourcesExResponse, $methodName)) {
+                $SetAssetSourcesExResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourcesExResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourceByID
+    */
+    public function SetAssetSourceByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourceByID = new SetAssetSourceByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourceByID, $methodName)) {
+                $SetAssetSourceByID->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourceByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourceByIDResponse
+    */
+    public function SetAssetSourceByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourceByIDResponse = new SetAssetSourceByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourceByIDResponse, $methodName)) {
+                $SetAssetSourceByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourceByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourcesByID
+    */
+    public function SetAssetSourcesByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourcesByID = new SetAssetSourcesByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourcesByID, $methodName)) {
+                $SetAssetSourcesByID->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourcesByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetAssetSourcesByIDResponse
+    */
+    public function SetAssetSourcesByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetAssetSourcesByIDResponse = new SetAssetSourcesByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetAssetSourcesByIDResponse, $methodName)) {
+                $SetAssetSourcesByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetAssetSourcesByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDefaultAssetSources
+    */
+    public function SetDefaultAssetSources($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDefaultAssetSources = new SetDefaultAssetSources();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDefaultAssetSources, $methodName)) {
+                $SetDefaultAssetSources->$methodName($paramValue);
+            }
+        }
+        return $SetDefaultAssetSources;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDefaultAssetSourcesResponse
+    */
+    public function SetDefaultAssetSourcesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDefaultAssetSourcesResponse = new SetDefaultAssetSourcesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDefaultAssetSourcesResponse, $methodName)) {
+                $SetDefaultAssetSourcesResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDefaultAssetSourcesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllAssetSources
+    */
+    public function RemoveAllAssetSources($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllAssetSources = new RemoveAllAssetSources();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllAssetSources, $methodName)) {
+                $RemoveAllAssetSources->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllAssetSources;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllAssetSourcesResponse
+    */
+    public function RemoveAllAssetSourcesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllAssetSourcesResponse = new RemoveAllAssetSourcesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllAssetSourcesResponse, $methodName)) {
+                $RemoveAllAssetSourcesResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllAssetSourcesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAssetSource
+    */
+    public function RemoveAssetSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAssetSource = new RemoveAssetSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAssetSource, $methodName)) {
+                $RemoveAssetSource->$methodName($paramValue);
+            }
+        }
+        return $RemoveAssetSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAssetSourceResponse
+    */
+    public function RemoveAssetSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAssetSourceResponse = new RemoveAssetSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAssetSourceResponse, $methodName)) {
+                $RemoveAssetSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAssetSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSource
+    */
+    public function GetAssetSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSource = new GetAssetSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSource, $methodName)) {
+                $GetAssetSource->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourceResponse
+    */
+    public function GetAssetSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourceResponse = new GetAssetSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourceResponse, $methodName)) {
+                $GetAssetSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourceEx
+    */
+    public function GetAssetSourceEx($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourceEx = new GetAssetSourceEx();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourceEx, $methodName)) {
+                $GetAssetSourceEx->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourceEx;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourceExResponse
+    */
+    public function GetAssetSourceExResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourceExResponse = new GetAssetSourceExResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourceExResponse, $methodName)) {
+                $GetAssetSourceExResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourceExResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourceID
+    */
+    public function GetAssetSourceID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourceID = new GetAssetSourceID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourceID, $methodName)) {
+                $GetAssetSourceID->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourceID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourceIDResponse
+    */
+    public function GetAssetSourceIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourceIDResponse = new GetAssetSourceIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourceIDResponse, $methodName)) {
+                $GetAssetSourceIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourceIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcePriority
+    */
+    public function GetAssetSourcePriority($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcePriority = new GetAssetSourcePriority();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcePriority, $methodName)) {
+                $GetAssetSourcePriority->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcePriority;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcePriorityResponse
+    */
+    public function GetAssetSourcePriorityResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcePriorityResponse = new GetAssetSourcePriorityResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcePriorityResponse, $methodName)) {
+                $GetAssetSourcePriorityResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcePriorityResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcesNames
+    */
+    public function GetAssetSourcesNames($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcesNames = new GetAssetSourcesNames();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcesNames, $methodName)) {
+                $GetAssetSourcesNames->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcesNames;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcesNamesResponse
+    */
+    public function GetAssetSourcesNamesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcesNamesResponse = new GetAssetSourcesNamesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcesNamesResponse, $methodName)) {
+                $GetAssetSourcesNamesResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcesNamesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSources
+    */
+    public function GetAssetSources($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSources = new GetAssetSources();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSources, $methodName)) {
+                $GetAssetSources->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSources;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcesResponse
+    */
+    public function GetAssetSourcesResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcesResponse = new GetAssetSourcesResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcesResponse, $methodName)) {
+                $GetAssetSourcesResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcesResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcesEx
+    */
+    public function GetAssetSourcesEx($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcesEx = new GetAssetSourcesEx();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcesEx, $methodName)) {
+                $GetAssetSourcesEx->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcesEx;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcesExResponse
+    */
+    public function GetAssetSourcesExResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcesExResponse = new GetAssetSourcesExResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcesExResponse, $methodName)) {
+                $GetAssetSourcesExResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcesExResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcesIDs
+    */
+    public function GetAssetSourcesIDs($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcesIDs = new GetAssetSourcesIDs();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcesIDs, $methodName)) {
+                $GetAssetSourcesIDs->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcesIDs;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcesIDsResponse
+    */
+    public function GetAssetSourcesIDsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcesIDsResponse = new GetAssetSourcesIDsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcesIDsResponse, $methodName)) {
+                $GetAssetSourcesIDsResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcesIDsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcesCount
+    */
+    public function GetAssetSourcesCount($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcesCount = new GetAssetSourcesCount();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcesCount, $methodName)) {
+                $GetAssetSourcesCount->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcesCount;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetAssetSourcesCountResponse
+    */
+    public function GetAssetSourcesCountResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetAssetSourcesCountResponse = new GetAssetSourcesCountResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetAssetSourcesCountResponse, $methodName)) {
+                $GetAssetSourcesCountResponse->$methodName($paramValue);
+            }
+        }
+        return $GetAssetSourcesCountResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSourceName
+    */
+    public function GetNthAssetSourceName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSourceName = new GetNthAssetSourceName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSourceName, $methodName)) {
+                $GetNthAssetSourceName->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSourceName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSourceNameResponse
+    */
+    public function GetNthAssetSourceNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSourceNameResponse = new GetNthAssetSourceNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSourceNameResponse, $methodName)) {
+                $GetNthAssetSourceNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSourceNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSource
+    */
+    public function GetNthAssetSource($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSource = new GetNthAssetSource();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSource, $methodName)) {
+                $GetNthAssetSource->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSource;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSourceResponse
+    */
+    public function GetNthAssetSourceResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSourceResponse = new GetNthAssetSourceResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSourceResponse, $methodName)) {
+                $GetNthAssetSourceResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSourceResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSourceEx
+    */
+    public function GetNthAssetSourceEx($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSourceEx = new GetNthAssetSourceEx();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSourceEx, $methodName)) {
+                $GetNthAssetSourceEx->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSourceEx;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSourceExResponse
+    */
+    public function GetNthAssetSourceExResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSourceExResponse = new GetNthAssetSourceExResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSourceExResponse, $methodName)) {
+                $GetNthAssetSourceExResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSourceExResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSourceID
+    */
+    public function GetNthAssetSourceID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSourceID = new GetNthAssetSourceID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSourceID, $methodName)) {
+                $GetNthAssetSourceID->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSourceID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSourceIDResponse
+    */
+    public function GetNthAssetSourceIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSourceIDResponse = new GetNthAssetSourceIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSourceIDResponse, $methodName)) {
+                $GetNthAssetSourceIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSourceIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSourcePriority
+    */
+    public function GetNthAssetSourcePriority($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSourcePriority = new GetNthAssetSourcePriority();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSourcePriority, $methodName)) {
+                $GetNthAssetSourcePriority->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSourcePriority;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthAssetSourcePriorityResponse
+    */
+    public function GetNthAssetSourcePriorityResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthAssetSourcePriorityResponse = new GetNthAssetSourcePriorityResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthAssetSourcePriorityResponse, $methodName)) {
+                $GetNthAssetSourcePriorityResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthAssetSourcePriorityResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPopulationGUID
+    */
+    public function GetPopulationGUID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPopulationGUID = new GetPopulationGUID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPopulationGUID, $methodName)) {
+                $GetPopulationGUID->$methodName($paramValue);
+            }
+        }
+        return $GetPopulationGUID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetPopulationGUIDResponse
+    */
+    public function GetPopulationGUIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetPopulationGUIDResponse = new GetPopulationGUIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetPopulationGUIDResponse, $methodName)) {
+                $GetPopulationGUIDResponse->$methodName($paramValue);
+            }
+        }
+        return $GetPopulationGUIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIRange
+    */
+    public function SetRIRange($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIRange = new SetRIRange();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIRange, $methodName)) {
+                $SetRIRange->$methodName($paramValue);
+            }
+        }
+        return $SetRIRange;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIRangeResponse
+    */
+    public function SetRIRangeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIRangeResponse = new SetRIRangeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIRangeResponse, $methodName)) {
+                $SetRIRangeResponse->$methodName($paramValue);
+            }
+        }
+        return $SetRIRangeResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRI
+    */
+    public function SetRI($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRI = new SetRI();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRI, $methodName)) {
+                $SetRI->$methodName($paramValue);
+            }
+        }
+        return $SetRI;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIResponse
+    */
+    public function SetRIResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIResponse = new SetRIResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIResponse, $methodName)) {
+                $SetRIResponse->$methodName($paramValue);
+            }
+        }
+        return $SetRIResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIs
+    */
+    public function SetRIs($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIs = new SetRIs();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIs, $methodName)) {
+                $SetRIs->$methodName($paramValue);
+            }
+        }
+        return $SetRIs;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return ArrayOfRecipientsInfo
+    */
+    public function ArrayOfRecipientsInfo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $ArrayOfRecipientsInfo = new ArrayOfRecipientsInfo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($ArrayOfRecipientsInfo, $methodName)) {
+                $ArrayOfRecipientsInfo->$methodName($paramValue);
+            }
+        }
+        return $ArrayOfRecipientsInfo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIsResponse
+    */
+    public function SetRIsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIsResponse = new SetRIsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIsResponse, $methodName)) {
+                $SetRIsResponse->$methodName($paramValue);
+            }
+        }
+        return $SetRIsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIByID
+    */
+    public function SetRIByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIByID = new SetRIByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIByID, $methodName)) {
+                $SetRIByID->$methodName($paramValue);
+            }
+        }
+        return $SetRIByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIByIDResponse
+    */
+    public function SetRIByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIByIDResponse = new SetRIByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIByIDResponse, $methodName)) {
+                $SetRIByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetRIByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIByPopulationGUID
+    */
+    public function SetRIByPopulationGUID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIByPopulationGUID = new SetRIByPopulationGUID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIByPopulationGUID, $methodName)) {
+                $SetRIByPopulationGUID->$methodName($paramValue);
+            }
+        }
+        return $SetRIByPopulationGUID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIByPopulationGUIDResponse
+    */
+    public function SetRIByPopulationGUIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIByPopulationGUIDResponse = new SetRIByPopulationGUIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIByPopulationGUIDResponse, $methodName)) {
+                $SetRIByPopulationGUIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetRIByPopulationGUIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetInfoByRunGUID
+    */
+    public function SetInfoByRunGUID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetInfoByRunGUID = new SetInfoByRunGUID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetInfoByRunGUID, $methodName)) {
+                $SetInfoByRunGUID->$methodName($paramValue);
+            }
+        }
+        return $SetInfoByRunGUID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetInfoByRunGUIDResponse
+    */
+    public function SetInfoByRunGUIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetInfoByRunGUIDResponse = new SetInfoByRunGUIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetInfoByRunGUIDResponse, $methodName)) {
+                $SetInfoByRunGUIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetInfoByRunGUIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIsByID
+    */
+    public function SetRIsByID($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIsByID = new SetRIsByID();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIsByID, $methodName)) {
+                $SetRIsByID->$methodName($paramValue);
+            }
+        }
+        return $SetRIsByID;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetRIsByIDResponse
+    */
+    public function SetRIsByIDResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetRIsByIDResponse = new SetRIsByIDResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetRIsByIDResponse, $methodName)) {
+                $SetRIsByIDResponse->$methodName($paramValue);
+            }
+        }
+        return $SetRIsByIDResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDefaultRI
+    */
+    public function SetDefaultRI($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDefaultRI = new SetDefaultRI();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDefaultRI, $methodName)) {
+                $SetDefaultRI->$methodName($paramValue);
+            }
+        }
+        return $SetDefaultRI;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return SetDefaultRIResponse
+    */
+    public function SetDefaultRIResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $SetDefaultRIResponse = new SetDefaultRIResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($SetDefaultRIResponse, $methodName)) {
+                $SetDefaultRIResponse->$methodName($paramValue);
+            }
+        }
+        return $SetDefaultRIResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllRIs
+    */
+    public function RemoveAllRIs($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllRIs = new RemoveAllRIs();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllRIs, $methodName)) {
+                $RemoveAllRIs->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllRIs;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return RemoveAllRIsResponse
+    */
+    public function RemoveAllRIsResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $RemoveAllRIsResponse = new RemoveAllRIsResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($RemoveAllRIsResponse, $methodName)) {
+                $RemoveAllRIsResponse->$methodName($paramValue);
+            }
+        }
+        return $RemoveAllRIsResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRIsCount
+    */
+    public function GetRIsCount($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRIsCount = new GetRIsCount();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRIsCount, $methodName)) {
+                $GetRIsCount->$methodName($paramValue);
+            }
+        }
+        return $GetRIsCount;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRIsCountResponse
+    */
+    public function GetRIsCountResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRIsCountResponse = new GetRIsCountResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRIsCountResponse, $methodName)) {
+                $GetRIsCountResponse->$methodName($paramValue);
+            }
+        }
+        return $GetRIsCountResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRIFrom
+    */
+    public function GetRIFrom($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRIFrom = new GetRIFrom();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRIFrom, $methodName)) {
+                $GetRIFrom->$methodName($paramValue);
+            }
+        }
+        return $GetRIFrom;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRIFromResponse
+    */
+    public function GetRIFromResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRIFromResponse = new GetRIFromResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRIFromResponse, $methodName)) {
+                $GetRIFromResponse->$methodName($paramValue);
+            }
+        }
+        return $GetRIFromResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRITo
+    */
+    public function GetRITo($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRITo = new GetRITo();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRITo, $methodName)) {
+                $GetRITo->$methodName($paramValue);
+            }
+        }
+        return $GetRITo;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetRIToResponse
+    */
+    public function GetRIToResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetRIToResponse = new GetRIToResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetRIToResponse, $methodName)) {
+                $GetRIToResponse->$methodName($paramValue);
+            }
+        }
+        return $GetRIToResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIRecipientIDListFileName
+    */
+    public function GetNthRIRecipientIDListFileName($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIRecipientIDListFileName = new GetNthRIRecipientIDListFileName();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIRecipientIDListFileName, $methodName)) {
+                $GetNthRIRecipientIDListFileName->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIRecipientIDListFileName;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIRecipientIDListFileNameResponse
+    */
+    public function GetNthRIRecipientIDListFileNameResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIRecipientIDListFileNameResponse = new GetNthRIRecipientIDListFileNameResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIRecipientIDListFileNameResponse, $methodName)) {
+                $GetNthRIRecipientIDListFileNameResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIRecipientIDListFileNameResponse;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIRecipientIDListMergeType
+    */
+    public function GetNthRIRecipientIDListMergeType($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIRecipientIDListMergeType = new GetNthRIRecipientIDListMergeType();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIRecipientIDListMergeType, $methodName)) {
+                $GetNthRIRecipientIDListMergeType->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIRecipientIDListMergeType;
+    }
+
+
+   /**
+    * @param array $paramAutoSet
+    * @return GetNthRIRecipientIDListMergeTypeResponse
+    */
+    public function GetNthRIRecipientIDListMergeTypeResponse($paramAutoSet = [])
+    {
+        $paramAutoSet = array_merge($this->paramAutoSet, $paramAutoSet);
+        $GetNthRIRecipientIDListMergeTypeResponse = new GetNthRIRecipientIDListMergeTypeResponse();
+        foreach ($paramAutoSet as $paramKey => $paramValue) {
+            $methodName = 'set' . $paramKey;
+            if (method_exists($GetNthRIRecipientIDListMergeTypeResponse, $methodName)) {
+                $GetNthRIRecipientIDListMergeTypeResponse->$methodName($paramValue);
+            }
+        }
+        return $GetNthRIRecipientIDListMergeTypeResponse;
+    }
+
+
+
+}
+
+?>
